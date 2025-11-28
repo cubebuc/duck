@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AnimalSpeech" load_steps=2 format=3 uid="uid://bfejj2jci1clr"]
+
+[ext_resource type="Script" uid="uid://0oq53h4jjtrg" path="res://animal_speech.gd" id="1_gycna"]
+
+[resource]
+script = ExtResource("1_gycna")
+fixed_prefix = "squ"
+repeatable_letter = "e"
+fixed_suffix = "ak"
+base_sound_length = 6
+short_sound = "eek"
+metadata/_custom_type_script = "uid://0oq53h4jjtrg"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AnimalConfig" load_steps=2 format=3 uid="uid://dexyiqvdv4gkg"]
+
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://animal_config.gd" id="1_pdgpg"]
+
+[resource]
+script = ExtResource("1_pdgpg")
+metadata/_custom_type_script = "uid://dbqjym86hvdvm"

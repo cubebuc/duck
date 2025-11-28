@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://duuno71aoym18"]
+
+[ext_resource type="Script" uid="uid://d3go84rnyjym7" path="res://dialogue_manager.gd" id="1_hxg5a"]
+[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="2_ra651"]
+
+[node name="SpeechBubble" type="Node3D"]
+script = ExtResource("1_hxg5a")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+modulate = Color(0, 0, 0, 1)
+text = "helloo ahoj bruh what is going on here bekfest"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0)
+texture = ExtResource("2_ra651")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://p0u8642sa8a4" path="res://character.gd" id="2_ocmp7"]
 [ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://animal_config.gd" id="2_urelp"]
-[ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck.tres" id="3_4txb3"]
-[ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/giraffe.tres" id="4_ja4wx"]
+[ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck_textures.tres" id="3_4txb3"]
+[ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/cow_textures.tres" id="4_ja4wx"]
 
 [node name="RandomDuck" type="Node3D"]
 script = ExtResource("2_ocmp7")

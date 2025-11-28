@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AnimalSpeech" load_steps=2 format=3 uid="uid://8tdhnbl2vreo"]
+
+[ext_resource type="Script" uid="uid://0oq53h4jjtrg" path="res://animal_speech.gd" id="1_qg12w"]
+
+[resource]
+script = ExtResource("1_qg12w")
+fixed_prefix = "m"
+repeatable_letter = "o"
+fixed_suffix = "o"
+base_sound_length = 3
+short_sound = "moo"
+metadata/_custom_type_script = "uid://0oq53h4jjtrg"
