@@ -1,10 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=11 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j8xxv"]
+[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="1_u34ps"]
+[ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="1_wu11x"]
 [ext_resource type="Script" uid="uid://dqtjcrrt8h173" path="res://scripts/camera_3d.gd" id="2_xd7wd"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
+[ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="4_j8xxv"]
+[ext_resource type="Texture2D" uid="uid://djdpnse2r3grs" path="res://images/Letter E.png" id="5_3hn84"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_u34ps"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xd7wd"]
+size = Vector3(5, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wu11x"]
 
 [node name="DaveTestScene" type="Node3D"]
 
@@ -26,3 +35,83 @@ mesh = SubResource("SphereMesh_u34ps")
 target_position = Vector3(0, 0, -10)
 
 [node name="TableCameraCollider" parent="." instance=ExtResource("3_wu11x")]
+
+[node name="Sign" type="Node3D" parent="."]
+transform = Transform3D(1.6692921, 0, -1.1015733, 0, 2, 0, 1.1015733, 0, 1.6692921, -3.337, -3.247, -7.349)
+
+[node name="Sprite3D" type="Sprite3D" parent="Sign"]
+transform = Transform3D(0.41182584, 0, -0.56709695, 0, 6, 0, 0.28354847, 0, 0.8236517, 4.151762, 1.0629525, -1.6918316)
+modulate = Color(1, 0.8333334, 0, 1)
+texture = ExtResource("4_j8xxv")
+
+[node name="Sign1" type="Area3D" parent="Sign" groups=["camera_ray_collider_group"]]
+transform = Transform3D(0.5177783, -0.30315953, 1.3251524e-08, 0, -2.6226834e-08, -0.6, 0.30315953, 0.5177783, -2.2632806e-08, 4.2791195, 2.4259112, -1.2690508)
+script = ExtResource("1_wu11x")
+displayed_text = "Blue sign"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/Sign1"]
+transform = Transform3D(1.0000001, -2.9802322e-08, -1.7763567e-15, 2.9802322e-08, 1.0000001, -8.881784e-16, 1.7763567e-15, 8.8817837e-16, 1.0000001, 0, 0, 0)
+shape = SubResource("BoxShape3D_xd7wd")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Sign/Sign1/CollisionShape3D"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_wu11x")
+
+[node name="Sprite3D" type="Sprite3D" parent="Sign/Sign1"]
+transform = Transform3D(550, 0, 0, 0, 137.843, 0, 0, 0, 92.296, 0, 0, 0)
+modulate = Color(0, 0.53932494, 0.6205045, 1)
+axis = 1
+texture = ExtResource("1_u34ps")
+
+[node name="SpriteLetterE" type="Sprite3D" parent="Sign/Sign1"]
+transform = Transform3D(0.94295305, -0.068026856, -0.32590133, 0.29653102, -0.27342176, 0.9150468, -0.15135616, -0.9594861, -0.23765184, -0.21288514, 0.20180035, -0.12998843)
+texture = ExtResource("5_3hn84")
+
+[node name="Sign2" type="Area3D" parent="Sign" groups=["camera_ray_collider_group"]]
+transform = Transform3D(0.5919349, -0.098047286, 4.2857895e-09, 2.1285478e-15, -2.6226823e-08, -0.59999985, 0.098047286, 0.5919349, -2.5874304e-08, 4.2791214, 3.2869003, -1.2690508)
+script = ExtResource("1_wu11x")
+displayed_text = "Green sign"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/Sign2"]
+transform = Transform3D(1.0000001, -2.9802322e-08, -1.7763567e-15, 2.9802322e-08, 1.0000001, -8.881784e-16, 1.7763567e-15, 8.8817837e-16, 1.0000001, 0, 0, 0)
+shape = SubResource("BoxShape3D_xd7wd")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Sign/Sign2/CollisionShape3D"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_wu11x")
+
+[node name="Sprite3D" type="Sprite3D" parent="Sign/Sign2"]
+transform = Transform3D(550, 0, 0, 0, 137.843, 0, 0, 0, 92.296, 0, 0, 0)
+modulate = Color(0.31614405, 0.54496676, 3.85046e-07, 1)
+axis = 1
+texture = ExtResource("1_u34ps")
+
+[node name="SpriteLetterE" type="Sprite3D" parent="Sign/Sign2"]
+transform = Transform3D(0.9115629, -0.24352378, -0.33128446, 0.4033924, 0.37381703, 0.83518606, -0.07954773, -0.8949621, 0.43899333, -0.21288514, 0.20180035, -0.1299882)
+texture = ExtResource("5_3hn84")
+
+[node name="Sign3" type="Area3D" parent="Sign" groups=["camera_ray_collider_group"]]
+transform = Transform3D(0.25466198, -0.54327494, 2.3747312e-08, 2.8508416e-16, -2.6226829e-08, -0.5999999, 0.54327494, 0.25466198, -1.1131627e-08, 4.026555, 4.0751233, -0.8907733)
+script = ExtResource("1_wu11x")
+displayed_text = "Brown sign"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/Sign3"]
+transform = Transform3D(1.0000001, -2.9802322e-08, -1.7763567e-15, 2.9802322e-08, 1.0000001, -8.881784e-16, 1.7763567e-15, 8.8817837e-16, 1.0000001, 0, 0, 0)
+shape = SubResource("BoxShape3D_xd7wd")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Sign/Sign3/CollisionShape3D"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_wu11x")
+
+[node name="Sprite3D" type="Sprite3D" parent="Sign/Sign3"]
+transform = Transform3D(550, 0, 0, 0, 137.843, 0, 0, 0, 92.296, 0, 0, 0)
+modulate = Color(0.62069577, 0.42558005, 0.1985071, 1)
+axis = 1
+texture = ExtResource("1_u34ps")
+
+[node name="SpriteLetterE" type="Sprite3D" parent="Sign/Sign3"]
+transform = Transform3D(0.3349787, 0.04953949, 0.9409224, -0.93461674, 0.14412315, 0.32514566, -0.11950114, -0.98831856, 0.09457856, 0.28556728, 0.12903118, -0.1299882)
+texture = ExtResource("5_3hn84")

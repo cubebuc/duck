@@ -1,5 +1,7 @@
 extends Area3D
 
+@export var displayed_text = ""
+
 var is_active: bool = false
 
 func _ready() -> void:
@@ -20,4 +22,7 @@ func camera_ray_left():
 	is_active = false
 
 func interact():
-	print("Congratulations! You just read the book and lost 2 hours of your life. Hope you are balder next time")
+	if not displayed_text:
+		print("Congratulations! You just read the book and lost 2 hours of your life. Hope you are balder next time")
+	else:
+		print(displayed_text)
