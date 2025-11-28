@@ -11,7 +11,7 @@ func raycast_forward_and_invoke_colliders():
 		#Cast a ray and find the collider
 	var space_state = get_world_3d().direct_space_state
 	
-	var forward_vec = -self.transform.basis.z
+	var forward_vec = self.global_basis * Vector3.FORWARD
 	
 	var query = PhysicsRayQueryParameters3D.create(self.position, self.position + forward_vec*RAY_LENGTH)
 	query.collide_with_areas = true
@@ -19,6 +19,7 @@ func raycast_forward_and_invoke_colliders():
 	var result = space_state.intersect_ray(query)
 	
 	var colliding_obj = result.get("collider")
+	
 	
 	#Check if the collider exists and whether it is the camera one
 	if colliding_obj and colliding_obj.is_in_group("camera_ray_collider_group"):
