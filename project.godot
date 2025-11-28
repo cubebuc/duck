@@ -27,3 +27,6 @@ Movement={
 "deadzone": 0.2,
 "events": []
 }
+[autoload]
+
+Global="*res://global.gd"
