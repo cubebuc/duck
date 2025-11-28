@@ -15,6 +15,12 @@ run/main_scene="uid://ebes5ua5u1a5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MoneyManager="*res://scripts/money_manager.gd"
+TimeManager="*res://scripts/time_manager.gd"
+DialogManager="*res://dialog_manager.gd"
+
 [input]
 
 Interact={
@@ -27,7 +33,3 @@ Movement={
 "deadzone": 0.2,
 "events": []
 }
-[autoload]
-
-MoneyManager="*res://money_manager.gd"
-TimeManager="*res://time_manager.gd"
