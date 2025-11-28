@@ -1,11 +1,6 @@
 extends Node
 
 
-const DEFAULT_TIME_LIMIT: int = 1 * 60
-const SHORT_PASS_TIME: int = 5
-const LONG_PASS_TIME: int = 15
-var time_remaining: int = DEFAULT_TIME_LIMIT
-
 const SALARY_AMOUNT: int = 100
 const TIP_AMOUNTS: Array[int] = [5, 10, 15]
 const NASEL_MANZELKU_BONUSES: Array[int] = [15, 30, 40]
@@ -28,14 +23,6 @@ GAME LOOP:
     4. Pay RENT and BILLS, get NASEL MANZELKU BONUS
     5. Advance DAY -> Go to 1.
 '''
-
-
-func pass_time_short() -> void:
-    time_remaining -= SHORT_PASS_TIME
-
-
-func pass_time_long() -> void:
-    time_remaining -= LONG_PASS_TIME
 
 
 func add_money_salary() -> void:
@@ -63,7 +50,6 @@ func pay_bill() -> void:
 
 func next_day() -> void:
     current_day += 1
-    time_remaining = DEFAULT_TIME_LIMIT
     todays_salary = 0
     todays_tips = 0
     todays_nasel_manzelku_bonuses_count = 0

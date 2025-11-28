@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Duck"
-run/main_scene="uid://bjyxidbj5bif2"
+run/main_scene="uid://sb1av710gjfw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -29,4 +29,5 @@ Movement={
 }
 [autoload]
 
-Global="*res://global.gd"
+MoneyManager="*res://money_manager.gd"
+TimeManager="*res://time_manager.gd"
