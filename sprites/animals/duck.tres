@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AnimalConfig" load_steps=3 format=3 uid="uid://boonqfhaihbv2"]
+
+[ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="1_8d0bx"]
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://animal_config.gd" id="1_346fv"]
+
+[resource]
+script = ExtResource("1_346fv")
+character_texture = ExtResource("1_8d0bx")
+hat_texture = ExtResource("1_8d0bx")
+glasses_texture = ExtResource("1_8d0bx")
+metadata/_custom_type_script = "uid://dbqjym86hvdvm"

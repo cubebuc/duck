@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ebes5ua5u1a5"]
+
+[ext_resource type="Script" uid="uid://p0u8642sa8a4" path="res://character.gd" id="2_ocmp7"]
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://animal_config.gd" id="2_urelp"]
+[ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck.tres" id="3_4txb3"]
+[ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/giraffe.tres" id="4_ja4wx"]
+
+[node name="RandomDuck" type="Node3D"]
+script = ExtResource("2_ocmp7")
+animal_configs = Array[ExtResource("2_urelp")]([ExtResource("3_4txb3"), ExtResource("4_ja4wx")])
+
+[node name="Character" type="Sprite3D" parent="."]
+
+[node name="Hat" type="Sprite3D" parent="Character"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.7895881, 0)
+visible = false
+modulate = Color(0, 0, 0, 1)
+
+[node name="Glasses" type="Sprite3D" parent="Character"]
+transform = Transform3D(1.3, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.22464848, 0)
+visible = false
+modulate = Color(0, 1, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6733509)
