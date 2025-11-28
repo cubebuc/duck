@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://sb1av710gjfw"]
+
+[ext_resource type="PackedScene" uid="uid://cgj7cgqj0qkdj" path="res://player.tscn" id="1_mijvv"]
+[ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="2_dxu3u"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mijvv")]
+
+[node name="Background" type="Sprite3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -10.416007)
+modulate = Color(0.16469999, 0.61, 0.18696497, 1)
+texture = ExtResource("2_dxu3u")
+
+[node name="Ground" type="Sprite3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, -4.371139e-07, -10, 0, 10, -4.371139e-07, 0, -3.9634917, -4.098164)
+modulate = Color(0.09449999, 0.35, 0.10727499, 1)
+texture = ExtResource("2_dxu3u")
+
+[node name="Table" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1, -1)
+modulate = Color(0.72156864, 0.40392157, 0.08627451, 1)
+texture = ExtResource("2_dxu3u")
+
+[node name="Sign" type="Node3D" parent="."]
+transform = Transform3D(0.83464605, 0, -0.5507867, 0, 1, 0, 0.5507867, 0, 0.83464605, 3.9906685, -1.3470052, -4.8336596)
+
+[node name="Sprite3D" type="Sprite3D" parent="Sign"]
+transform = Transform3D(0.41182584, 0, -0.5670969, 0, 6, 0, 0.28354844, 0, 0.8236517, 4.151762, 1.0629525, -1.6918316)
+modulate = Color(1, 0.8333334, 0, 1)
+texture = ExtResource("2_dxu3u")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Sign"]
+transform = Transform3D(1.7113042, 0, -0.72899294, 0, 0.29999998, 0, 1.822482, 0, 0.6845219, 4.0538597, 4.0812683, -1.2272587)
+modulate = Color(1, 0.8333334, 0, 1)
+texture = ExtResource("2_dxu3u")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Sign"]
+transform = Transform3D(2.4790378, 0, -0.12922847, 0, 0.29999995, 0, 0.32307124, 0, 0.9916152, 4.086054, 3.2588568, -1.3447943)
+modulate = Color(1, 0.8333334, 0, 1)
+texture = ExtResource("2_dxu3u")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sign"]
+transform = Transform3D(2.1598969, 0, -0.5035633, 0, 0.29999992, 0, 1.2589083, 0, 0.86395895, 4.086054, 2.355279, -1.3447943)
+modulate = Color(1, 0.8333334, 0, 1)
+texture = ExtResource("2_dxu3u")
