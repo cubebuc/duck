@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=12 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="1_u34ps"]
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="1_wu11x"]
 [ext_resource type="Script" uid="uid://dqtjcrrt8h173" path="res://scripts/camera_3d.gd" id="2_xd7wd"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
+[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="4_furwo"]
 [ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="4_j8xxv"]
 [ext_resource type="Texture2D" uid="uid://djdpnse2r3grs" path="res://images/Letter E.png" id="5_3hn84"]
 
@@ -18,6 +19,7 @@ size = Vector3(5, 1, 1)
 [node name="DaveTestScene" type="Node3D"]
 
 [node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 4)
 script = ExtResource("1_j8xxv")
 
 [node name="CameraHolder" type="Node3D" parent="Player"]
@@ -35,8 +37,8 @@ mesh = SubResource("SphereMesh_u34ps")
 target_position = Vector3(0, 0, -10)
 
 [node name="TableCameraCollider" parent="." instance=ExtResource("3_wu11x")]
-deafult_sprite = ExtResource("1_u34ps")
-highlighted_sprite = ExtResource("1_u34ps")
+deafult_sprite = ExtResource("4_furwo")
+highlighted_sprite = ExtResource("4_furwo")
 
 [node name="Sign" type="Node3D" parent="."]
 transform = Transform3D(1.6692921, 0, -1.1015733, 0, 2, 0, 1.1015733, 0, 1.6692921, -3.337, -3.247, -7.349)
@@ -62,7 +64,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_wu11x")
 
-[node name="Sprite3D" type="Sprite3D" parent="Sign/Sign1"]
+[node name="InteractableSprite" type="Sprite3D" parent="Sign/Sign1"]
 transform = Transform3D(550, 0, 0, 0, 137.843, 0, 0, 0, 92.296, 0, 0, 0)
 modulate = Color(0, 0.53932494, 0.6205045, 1)
 axis = 1
@@ -88,7 +90,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_wu11x")
 
-[node name="Sprite3D" type="Sprite3D" parent="Sign/Sign2"]
+[node name="InteractableSprite" type="Sprite3D" parent="Sign/Sign2"]
 transform = Transform3D(550, 0, 0, 0, 137.843, 0, 0, 0, 92.296, 0, 0, 0)
 modulate = Color(0.31614405, 0.54496676, 3.85046e-07, 1)
 axis = 1
@@ -114,7 +116,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_wu11x")
 
-[node name="Sprite3D" type="Sprite3D" parent="Sign/Sign3"]
+[node name="InteractableSprite" type="Sprite3D" parent="Sign/Sign3"]
 transform = Transform3D(550, 0, 0, 0, 137.843, 0, 0, 0, 92.296, 0, 0, 0)
 modulate = Color(0.62069577, 0.42558005, 0.1985071, 1)
 axis = 1

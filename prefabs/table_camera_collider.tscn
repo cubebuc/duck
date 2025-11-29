@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://2oflqpfynavu"]
+[gd_scene load_steps=8 format=3 uid="uid://2oflqpfynavu"]
 
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="1_v4l15"]
-[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="2_rylho"]
+[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="2_61fo3"]
+[ext_resource type="Texture2D" uid="uid://cg4ebcfl5cidt" path="res://imports/table_lamp.PNG" id="3_15eam"]
 [ext_resource type="Texture2D" uid="uid://djdpnse2r3grs" path="res://images/Letter E.png" id="3_61fo3"]
+[ext_resource type="Texture2D" uid="uid://tfq4c4vs0lwi" path="res://imports/rubber_duck.PNG" id="4_1iwbp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xd7wd"]
 size = Vector3(5, 1, 1)
@@ -21,9 +23,21 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_wu11x")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, -2.1855694e-06, -50, 0, 50, -2.1855694e-06, 0, 0, 0)
-texture = ExtResource("2_rylho")
+[node name="InteractableSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+layers = 512
+flip_v = true
+texture = ExtResource("2_61fo3")
+
+[node name="TableLampSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3441515, 2.4588714, -2.3288336)
+sorting_offset = 10.0
+texture = ExtResource("3_15eam")
+
+[node name="RubberDuckSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.177155, 1.038934, -3.6715202)
+sorting_offset = 10.0
+texture = ExtResource("4_1iwbp")
 
 [node name="SpriteLetterE" type="Sprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.08746197, 0.04848096, 0, -0.04848096, 0.08746197, -0.21288525, 0.20180053, -0.12998837)
