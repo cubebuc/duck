@@ -23,27 +23,6 @@ func _ready() -> void:
 		character_manager.add_character()
 
 
-func _process(delta: float) -> void:
-	if Input.is_key_pressed(Key.KEY_R):
-		if pr:
-			return
-		pr = true
-		read_book()
-	else:
-		pr = false
-
-	if Input.is_key_pressed(Key.KEY_A):
-		if pa:
-			return
-		pa = true
-		answer_animal("")
-	else:
-		pa = false
-
-	if Input.is_key_pressed(Key.KEY_M):
-		print(MoneyManager.money)
-
-
 func read_book() -> void:
 	'''
 	1. Close eyes
@@ -76,7 +55,7 @@ func read_book() -> void:
 	# TODO
 	
 
-func answer_animal(answer: String) -> void:
+func answer_animal(answer: DialogueText.Answer) -> void:
 	'''
 	1. Close eyes
 	2. Update money (bonus for quick and random)
