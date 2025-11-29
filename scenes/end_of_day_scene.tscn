@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://df85jfb21s0i0"]
+[gd_scene load_steps=5 format=3 uid="uid://dma62pseyc6cp"]
 
 [ext_resource type="Script" uid="uid://b4e0xh1d56moc" path="res://scripts/EndOfDay/end_of_day_scene.gd" id="1_6vg3a"]
 [ext_resource type="Script" uid="uid://c3twuvgu76b4e" path="res://scripts/EndOfDay/money_label.gd" id="2_0tbst"]
@@ -14,11 +14,6 @@ offset_bottom = 23.0
 theme_override_font_sizes/font_size = 50
 text = "Total money: "
 script = ExtResource("2_0tbst")
-tween_fly_in_duration = null
-tween_color_change_duration = null
-tween_color_stay_duration = null
-color_after_money_insert = null
-color_after_money_remove = null
 fly_in_label_start_pos = Vector2(410, 98)
 fly_in_label_end_pos = Vector2(336, 19)
 
@@ -109,3 +104,109 @@ offset_top = 229.0
 offset_right = 557.0
 offset_bottom = 252.0
 text = "Total day balance: "
+script = ExtResource("3_agv5m")
+
+[node name="CountLabel" type="Label" parent="EODBalanceLabel"]
+layout_mode = 0
+offset_left = 151.0
+offset_right = 191.0
+offset_bottom = 23.0
+text = "8"
+
+[node name="MoneyLabel" type="Label" parent="EODBalanceLabel"]
+layout_mode = 0
+offset_left = 184.0
+offset_right = 224.0
+offset_bottom = 23.0
+text = "80"
+
+[node name="StickyNoteSpaces" type="Node2D" parent="."]
+position = Vector2(597, 229)
+
+[node name="Space1" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(-471, -41)
+rotation = -0.43579105
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space1"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space2" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(370, -110)
+rotation = 0.3421585
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space2"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space3" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(-33, 189)
+rotation = 0.018647403
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space3"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space4" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(101.000015, -143.00002)
+rotation = -0.1901415
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space4"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space5" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(-307, 66.999985)
+rotation = 0.3925405
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space5"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space6" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(144, 57.999985)
+rotation = -0.43655288
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space6"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space7" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(-492, 201.99998)
+rotation = 0.2158013
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space7"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space8" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(359, 85.999985)
+rotation = 0.44148868
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space8"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space9" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(241, 237.99998)
+rotation = 0.44148868
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space9"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space10" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(-221, 254)
+rotation = -0.22682571
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space10"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")
+
+[node name="Space11" type="Node2D" parent="StickyNoteSpaces"]
+position = Vector2(444, 263)
+rotation = -0.1979605
+
+[node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space11"]
+scale = Vector2(150, 150)
+texture = ExtResource("2_wjh2n")

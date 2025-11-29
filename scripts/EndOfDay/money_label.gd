@@ -4,7 +4,8 @@ class_name money_label_class
 
 const basic_string: String = "Total money"
 
-@export var tween_fly_in_duration: float = 0.5
+@export var tween_fly_in_duration: float = 1.2
+@export var tween_fly_in_enlarge_duration: float = 0.3
 @export var tween_color_change_duration: float = 0.2
 @export var tween_color_stay_duration: float = 0.1
 @export var color_after_money_insert: Color = Color.WEB_GREEN
@@ -25,6 +26,7 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	orig_color = self.self_modulate
 	self.self_modulate = Color(self_modulate, 0)
+	$AddedMoney.self_modulate = Color($AddedMoney.self_modulate,0)
 
 func appear():
 	self.text = basic_string + ': ' + str(money_count)
@@ -61,16 +63,23 @@ func add_money(count:int):
 func fly_in_money(count:int, color: Color):
 	var money_label = $AddedMoney
 	
-	money_label.text = "+" + str(count)
+	if count > 0:
+		money_label.text = "+" + str(count)
+	else: 
+		money_label.text = str(count)
 	money_label.self_modulate = color
 	
 	var start_pos = fly_in_label_start_pos
 	var end_pos = fly_in_label_end_pos
-		
+	
+	var orig_size = money_label.scale
+	
 	money_label.visible = true
+	money_label.position = start_pos
 	money_fly_in_tween = get_tree().create_tween()
 	money_fly_in_fade_tween = get_tree().create_tween()
-	money_label.position = start_pos
+	money_fly_in_tween.tween_property(money_label, "scale", orig_size*1.5, tween_fly_in_enlarge_duration/2)
+	money_fly_in_tween.tween_property(money_label, "scale", orig_size, tween_fly_in_enlarge_duration/2)
 	money_fly_in_tween.tween_property(money_label, "position", end_pos, tween_fly_in_duration)
 	var faded_color = Color(color, 0)
 	money_fly_in_fade_tween.tween_property(money_label, "self_modulate", faded_color, tween_fly_in_duration)
