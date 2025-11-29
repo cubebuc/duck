@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cn0nwl3iljv3i"
+path="res://.godot/imported/fish4.wav-2d50398206bbc77745fa7d0a50a12a71.sample"
+
+[deps]
+
+source_file="res://audio/animal sounds/fish4.wav"
+dest_files=["res://.godot/imported/fish4.wav-2d50398206bbc77745fa7d0a50a12a71.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://clrps5kjccanq"
+path="res://.godot/imported/rabbit2.wav-d4a997b3e751b79488a695c71908e968.sample"
+
+[deps]
+
+source_file="res://audio/animal sounds/rabbit2.wav"
+dest_files=["res://.godot/imported/rabbit2.wav-d4a997b3e751b79488a695c71908e968.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

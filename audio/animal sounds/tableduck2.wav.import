@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ct5024ww35lql"
+path="res://.godot/imported/tableduck2.wav-4c51313d4e206c9e7b723d1c08236425.sample"
+
+[deps]
+
+source_file="res://audio/animal sounds/tableduck2.wav"
+dest_files=["res://.godot/imported/tableduck2.wav-4c51313d4e206c9e7b723d1c08236425.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

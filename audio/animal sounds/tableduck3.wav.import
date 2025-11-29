@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://73km2xd0bkb5"
+path="res://.godot/imported/tableduck3.wav-0130d1601fef72f3e8fb78bb92424e44.sample"
+
+[deps]
+
+source_file="res://audio/animal sounds/tableduck3.wav"
+dest_files=["res://.godot/imported/tableduck3.wav-0130d1601fef72f3e8fb78bb92424e44.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
