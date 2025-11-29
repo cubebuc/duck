@@ -6,4 +6,3 @@
 [node name="CharacterManager" type="Node3D"]
 script = ExtResource("1_f075j")
 character_prefab = ExtResource("2_tomrq")
-character_offset = null

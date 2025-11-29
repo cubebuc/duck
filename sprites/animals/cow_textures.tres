@@ -7,7 +7,6 @@
 
 [resource]
 script = ExtResource("1_ptarq")
-animal_type = "cow"
 character_texture = ExtResource("1_2xln4")
 hat_texture = ExtResource("3_nl0xc")
 glasses_texture = ExtResource("2_hpwt5")

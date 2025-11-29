@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 MoneyManager="*res://scripts/money_manager.gd"
-DialogManager="*res://dialog_manager.gd"
 
 [input]
 

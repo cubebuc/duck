@@ -1,23 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://sb1av710gjfw"]
+[gd_scene load_steps=13 format=3 uid="uid://sb1av710gjfw"]
 
 [ext_resource type="PackedScene" uid="uid://cgj7cgqj0qkdj" path="res://scenes/player.tscn" id="1_mijvv"]
 [ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="2_dxu3u"]
+[ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="3_fodur"]
+[ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="5_w6snl"]
+[ext_resource type="Resource" uid="uid://dyskpaylug8hn" path="res://resources/dialogues/test_dialogue1.tres" id="6_14htr"]
+[ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="7_a8mqo"]
+[ext_resource type="Resource" uid="uid://c5rympbwdxgjl" path="res://resources/dialogues/test_dialogue2.tres" id="7_o6l4j"]
+[ext_resource type="PackedScene" uid="uid://bim67it3qalvr" path="res://scenes/time_manager.tscn" id="8_0axd3"]
+[ext_resource type="Resource" uid="uid://8tdhnbl2vreo" path="res://resources/animal_speech/cow_speech.tres" id="8_a8mqo"]
+[ext_resource type="Resource" uid="uid://djuatlp43s5m6" path="res://resources/animal_speech/duck_speech.tres" id="9_0axd3"]
+[ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="9_n8y6j"]
+[ext_resource type="Resource" uid="uid://bfejj2jci1clr" path="res://resources/animal_speech/rabbit_speech.tres" id="10_n8y6j"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_mijvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8083332, 2.5988626, 3.5952554)
 
-[node name="Background" type="Sprite3D" parent="."]
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Background" type="Sprite3D" parent="Environment"]
 transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -10.416007)
 modulate = Color(0.16469999, 0.61, 0.18696497, 1)
 texture = ExtResource("2_dxu3u")
 
-[node name="Ground" type="Sprite3D" parent="."]
+[node name="Ground" type="Sprite3D" parent="Environment"]
 transform = Transform3D(20, 0, 0, 0, -4.371139e-07, -10, 0, 10, -4.371139e-07, 0, -3.9634917, -4.098164)
 modulate = Color(0.09449999, 0.35, 0.10727499, 1)
 texture = ExtResource("2_dxu3u")
 
-[node name="Table" type="Sprite3D" parent="."]
+[node name="Table" type="Sprite3D" parent="Environment"]
 transform = Transform3D(3, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1, -1)
 modulate = Color(0.72156864, 0.40392157, 0.08627451, 1)
 texture = ExtResource("2_dxu3u")
@@ -44,3 +57,18 @@ texture = ExtResource("2_dxu3u")
 transform = Transform3D(2.1598969, 0, -0.5035633, 0, 0.29999992, 0, 1.2589083, 0, 0.86395895, 4.086054, 2.355279, -1.3447943)
 modulate = Color(1, 0.8333334, 0, 1)
 texture = ExtResource("2_dxu3u")
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("dialog_manager", "time_manager", "character_manager") instance=ExtResource("3_fodur")]
+dialog_manager = NodePath("../SpeechBubble")
+time_manager = NodePath("../TimeManager")
+character_manager = NodePath("../CharacterManager")
+
+[node name="SpeechBubble" parent="." instance=ExtResource("7_a8mqo")]
+dialogues = Array[ExtResource("5_w6snl")]([ExtResource("6_14htr"), ExtResource("7_o6l4j")])
+cow_speech = ExtResource("8_a8mqo")
+duck_speech = ExtResource("9_0axd3")
+rabbit_speech = ExtResource("10_n8y6j")
+
+[node name="TimeManager" parent="." instance=ExtResource("8_0axd3")]
+
+[node name="CharacterManager" parent="." instance=ExtResource("9_n8y6j")]
