@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MoneyManager="*res://scripts/money_manager.gd"
 SceneTransition="*res://scripts/scene_transition.gd"
+AudioManager="*res://scenes/audio_manager.tscn"
 
 [global_group]
 
