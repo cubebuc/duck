@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueText" load_steps=2 format=3 uid="uid://du1uj3gbra5k5"]
+
+[ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="1_4q23x"]
+
+[resource]
+script = ExtResource("1_4q23x")
+text = "I’m meeting my friend for a coffee. Where should I go?"
+priorities = Array[int]([1, 3, 2, 2, 1, 1, 3, 3, 2, 1, 1])
+metadata/_custom_type_script = "uid://3fc1sr0rcpji"

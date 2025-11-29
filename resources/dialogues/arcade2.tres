@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueText" load_steps=2 format=3 uid="uid://dmy6ejs1sw40k"]
+
+[ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="1_bujok"]
+
+[resource]
+script = ExtResource("1_bujok")
+text = “I want to return this defective gaming console. Where do i go?”
+priorities = Array[int]([1, 2, 1, 2, 3, 2, 3, 3, 1, 2, 1, 2])
+metadata/_custom_type_script = "uid://3fc1sr0rcpji"
