@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmmejlvwp1g1h"]
+[gd_scene load_steps=5 format=3 uid="uid://bmmejlvwp1g1h"]
 
 [ext_resource type="Script" uid="uid://bgujty3ir3gii" path="res://scripts/intro_paper.gd" id="1_3a5gd"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="1_xl8py"]
 [ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="3_3a5gd"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_n0hfq"]
-[ext_resource type="Texture2D" uid="uid://yawvi7jv1xya" path="res://images/Black_Pixel_1x1.jpg" id="5_n0hfq"]
 
 [node name="IntroductionPaper" type="Node2D"]
 script = ExtResource("1_3a5gd")
@@ -53,9 +52,3 @@ z_index = -10
 position = Vector2(1562, -295)
 scale = Vector2(2, 2)
 texture = ExtResource("1_xl8py")
-
-[node name="Curtain" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-750, 300)
-scale = Vector2(1500, 1500)
-texture = ExtResource("5_n0hfq")
