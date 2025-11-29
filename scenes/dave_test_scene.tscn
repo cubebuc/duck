@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=30 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
@@ -20,7 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://bafmjk805c1s2" path="res://imports/grass.PNG" id="15_8vbiy"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
 [ext_resource type="Texture2D" uid="uid://cfw30f606nvx5" path="res://imports/background_houses_middle.PNG" id="16_ngndu"]
+[ext_resource type="Texture2D" uid="uid://c1ow2nqhibbp6" path="res://imports/tree1.PNG" id="16_pbj1o"]
 [ext_resource type="Texture2D" uid="uid://cpqfqlk6p4obs" path="res://imports/background_houses_nearest.PNG" id="17_mbwrw"]
+[ext_resource type="Texture2D" uid="uid://cyrvrda1ps633" path="res://imports/tree2.PNG" id="17_nav1a"]
+[ext_resource type="Texture2D" uid="uid://b3ldqdyuakayn" path="res://imports/bush1.PNG" id="18_rxgwk"]
+[ext_resource type="Texture2D" uid="uid://ha0i7ljj1326" path="res://imports/bush2.PNG" id="19_p8asg"]
+[ext_resource type="Texture2D" uid="uid://coqfjinxqjly0" path="res://imports/bush3.PNG" id="20_v8kl7"]
 
 [sub_resource type="Environment" id="Environment_ifw80"]
 
@@ -768,9 +773,91 @@ texture = ExtResource("15_8vbiy")
 [node name="Trees" type="Node3D" parent="GroundObjects"]
 
 [node name="Tree" type="Sprite3D" parent="GroundObjects/Trees"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.765938, 0, -39.902607)
+transform = Transform3D(11.237424, 0, -4.20955, 0, 12, 0, 4.20955, 0, 11.237424, 56.93169, 35.636467, -40.753212)
+sorting_offset = -1.0
+texture = ExtResource("16_pbj1o")
+
+[node name="Tree3" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(6.032892, 0, 3.5502424, 0, 6.9999995, 0, -3.5502424, 0, 6.032892, -45.128685, 19.999996, -49.1017)
+sorting_offset = -1.0
+texture = ExtResource("16_pbj1o")
+
+[node name="OtherTree" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(3.7791114, 0, -5.8922253, 0, 6.9999986, 0, 5.8922253, 0, 3.7791114, 138.93982, 19.999996, -33.627075)
+sorting_offset = -1.0
+texture = ExtResource("17_nav1a")
+
+[node name="OtherTree2" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(6.7947807, 0, -1.6825457, 0, 6.999998, 0, 1.6825457, 0, 6.7947807, 65.43147, 19.999996, -123.234276)
+sorting_offset = -1.0
+texture = ExtResource("17_nav1a")
+
+[node name="OtherTree3" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(4.3046875, 0, 2.543554, 0, 5, 0, -2.543554, 0, 4.3046875, -34.94006, 11.312016, -121.17099)
+sorting_offset = -1.0
+texture = ExtResource("17_nav1a")
+
+[node name="OtherTree4" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(3.98556, 0, 5.7545915, 0, 6.999998, 0, -5.7545915, 0, 3.98556, -115.86272, 20, -35.027435)
+sorting_offset = -1.0
+texture = ExtResource("17_nav1a")
 
 [node name="Bushes" type="Node3D" parent="GroundObjects"]
+
+[node name="BushOne" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2899342, 0, 1.9380922, 0, 3, 0, -1.9380922, 0, 2.2899342, -30.935543, -2, -81.18323)
+sorting_offset = -1.0
+texture = ExtResource("18_rxgwk")
+
+[node name="BushOne2" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(1.7702109, 0, -2.4220552, 0, 3, 0, 2.4220552, 0, 1.7702109, 81.22612, -2, -7.3566303)
+sorting_offset = -1.0
+texture = ExtResource("18_rxgwk")
+
+[node name="BushTwo" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(-1.152354, 0, -2.7698517, 0, 3, 0, 2.7698517, 0, -1.152354, -39.26812, -2, -36.346687)
+sorting_offset = -1.0
+texture = ExtResource("19_p8asg")
+
+[node name="BushTwo2" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(-1.3294951, 0, -2.6893198, 0, 3, 0, 2.6893198, 0, -1.3294951, -57.861004, -2, 10.371784)
+sorting_offset = -1.0
+texture = ExtResource("19_p8asg")
+
+[node name="BushTwo3" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2263837, 0, -2.0107744, 0, 2.9999998, 0, 2.0107744, 0, 2.2263837, 105.59813, -2, -44.746056)
+sorting_offset = -1.0
+texture = ExtResource("19_p8asg")
+
+[node name="BushThree" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2263837, 0, -2.0107744, 0, 2.9999998, 0, 2.0107744, 0, 2.2263837, 53.29576, -4.6322374, -25.53574)
+sorting_offset = -1.0
+texture = ExtResource("20_v8kl7")
+
+[node name="BushThree2" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(1.6668854, 0, -2.494292, 0, 2.9999995, 0, 2.494292, 0, 1.6668854, 23.809568, -4.6322393, -18.488153)
+sorting_offset = -1.0
+texture = ExtResource("20_v8kl7")
+
+[node name="BushThree3" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 26.245481, -4.6322412, -60.71821)
+sorting_offset = -1.0
+texture = ExtResource("20_v8kl7")
+
+[node name="BushThree4" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 60.783707, -4.6322393, -114.04451)
+sorting_offset = -1.0
+texture = ExtResource("20_v8kl7")
+
+[node name="BushThree5" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 66.581406, -4.6322403, -85.47956)
+sorting_offset = -1.0
+texture = ExtResource("20_v8kl7")
+
+[node name="BushThree6" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 72.47088, -4.6322403, -103.130424)
+sorting_offset = -1.0
+texture = ExtResource("20_v8kl7")
 
 [node name="Backgrounds" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3264351, -7.1686907, -12.036208)
