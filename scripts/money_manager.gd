@@ -26,30 +26,30 @@ GAME LOOP:
 
 
 func add_money_salary() -> void:
-    money += SALARY_AMOUNT
+	money += SALARY_AMOUNT
 
 
 func add_money_tip() -> void:
-    var tip = TIP_AMOUNTS.pick_random()
-    money += tip
-    todays_tips += tip
+	var tip = TIP_AMOUNTS.pick_random()
+	money += tip
+	todays_tips += tip
 
 
 func add_money_nasel_manzelku_bonus() -> void:
-    var bonus = NASEL_MANZELKU_BONUSES.pick_random()
-    money += bonus
+	var bonus = NASEL_MANZELKU_BONUSES.pick_random()
+	money += bonus
 
 
 func pay_rent() -> void:
-    money -= RENT_AMOUNT
+	money -= RENT_AMOUNT
 
 
 func pay_bill() -> void:
-    money -= BILL_AMOUNTS[current_day]
+	money -= BILL_AMOUNTS[current_day]
 
 
 func next_day() -> void:
-    current_day += 1
-    todays_salary = 0
-    todays_tips = 0
-    todays_nasel_manzelku_bonuses_count = 0
+	current_day += 1
+	todays_salary = 0
+	todays_tips = 0
+	todays_nasel_manzelku_bonuses_count = 0
