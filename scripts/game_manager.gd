@@ -3,6 +3,7 @@ extends Node3D
 class_name game_manager
 
 
+@export var blinking_manager: Node
 @export var dialog_manager: Node
 @export var time_manager: Node
 @export var character_manager: Node
@@ -35,7 +36,6 @@ func _ready() -> void:
 	dialog_manager.display_text()
 
 
-
 func read_book() -> void:
 	'''
 	1. Close eyes
@@ -44,28 +44,24 @@ func read_book() -> void:
 	4. Advance time (check time limit)
 	5. Open eyes
 	'''
-	# Mark as read
-	book_used = true
+	blinking_manager.blink_eyes(func() -> void:
+		# Mark as read
+		book_used = true
 
-	# Close eyes
-	# TODO
+		# Update knowledge
+		var animal_type = character_manager.characters[0].my_config.animal_type
+		knowledge_map[animal_type] += 1
 
-	# Update knowledge
-	var animal_type = character_manager.characters[0].my_config.animal_type
-	knowledge_map[animal_type] += 1
+		# Update dialog
+		dialog_manager.set_knowledge_level(knowledge_map[animal_type])
+		dialog_manager.adjust_text()
+		dialog_manager.display_text()
 
-	# Update dialog
-	dialog_manager.set_knowledge_level(knowledge_map[animal_type])
-	dialog_manager.adjust_text()
-	dialog_manager.display_text()
-
-	# Advance time
-	time_manager.pass_time_long()
-	if time_manager.is_time_up():
-		pass # TODO: end day
-
-	# Open eyes
-	# TODO
+		# Advance time
+		time_manager.pass_time_long()
+		if time_manager.is_time_up():
+			pass # TODO: end day
+	)
 	
 
 func answer_animal(answer: DialogueText.Answer) -> void:
@@ -78,34 +74,30 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 	6. Advance time (check time limit)
 	7. Open eyes
 	'''
-	# Close eyes
-	# TODO
+	blinking_manager.blink_eyes(func() -> void:
+		# Update money
+		var animal_type = character_manager.characters[0].my_config.animal_type
+		var knowledge_level = knowledge_map[animal_type]
+		var answered_quickly = not book_used
+		var answered_randomly = knowledge_level <= knowledge_guess_threshold
+		MoneyManager.serve_customer(answered_quickly, answered_randomly)
 
-	# Update money
-	var animal_type = character_manager.characters[0].my_config.animal_type
-	var knowledge_level = knowledge_map[animal_type]
-	var answered_quickly = not book_used
-	var answered_randomly = knowledge_level <= knowledge_guess_threshold
-	MoneyManager.serve_customer(answered_quickly, answered_randomly)
+		# Check for wrong answer
+		if knowledge_level > knowledge_guess_threshold and answer != dialog_manager.get_correct_answer():
+			wrong_answer_count += 1
 
-	# Check for wrong answer
-	if knowledge_level > knowledge_guess_threshold and answer != dialog_manager.get_correct_answer():
-		wrong_answer_count += 1
+		# Update animals
+		character_manager.advance_characters()
+		character_manager.add_character()
 
-	# Update animals
-	character_manager.advance_characters()
-	character_manager.add_character()
+		# Update dialog
+		dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
+		dialog_manager.set_knowledge_level(knowledge_map[character_manager.characters[0].my_config.animal_type])
+		dialog_manager.adjust_text()
+		dialog_manager.display_text()
 
-	# Update dialog
-	dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
-	dialog_manager.set_knowledge_level(knowledge_map[character_manager.characters[0].my_config.animal_type])
-	dialog_manager.adjust_text()
-	dialog_manager.display_text()
-
-	# Advance time
-	time_manager.pass_time_short()
-	if time_manager.is_time_up():
-		pass # TODO: end day
-
-	# Open eyes
-	# TODO
+		# Advance time
+		time_manager.pass_time_short()
+		if time_manager.is_time_up():
+			pass # TODO: end day
+	)
