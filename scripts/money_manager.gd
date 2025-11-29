@@ -2,15 +2,15 @@ extends Node
 
 
 const SALARY_AMOUNT: int = 100
-const TIP_AMOUNTS: Array[int] = [5, 10, 15]
+const TIP_AMOUNT: int = 10
 const NASEL_MANZELKU_BONUSES: Array[int] = [15, 30, 40]
 const RENT_AMOUNT: int = 100
 const BILL_AMOUNTS: Array[int] = [0, 25, 50, 75, 100, 150, 200]
 const INITIAL_MONEY: int = 250
 var money: int = INITIAL_MONEY
-var todays_salary: int = 0
-var todays_tips: int = 0
-var todays_nasel_manzelku_bonuses_count: int = 0
+var customers_served_today: int = 0
+var customers_served_quickly_today: int = 0
+var nasel_manzelku_bonuses_today: int = 0
 
 var current_day: int = 0
 
@@ -25,19 +25,18 @@ GAME LOOP:
 '''
 
 
-func add_money_salary() -> void:
+func serve_customer(quickly: bool, nasel_manzelku_bonus: bool) -> void:
 	money += SALARY_AMOUNT
+	customers_served_today += 1
 
+	if quickly:
+		money += TIP_AMOUNT
+		customers_served_quickly_today += 1
 
-func add_money_tip() -> void:
-	var tip = TIP_AMOUNTS.pick_random()
-	money += tip
-	todays_tips += tip
-
-
-func add_money_nasel_manzelku_bonus() -> void:
-	var bonus = NASEL_MANZELKU_BONUSES.pick_random()
-	money += bonus
+	if nasel_manzelku_bonus:
+		var bonus = NASEL_MANZELKU_BONUSES.pick_random()
+		money += bonus
+		nasel_manzelku_bonuses_today += 1
 
 
 func pay_rent() -> void:
@@ -50,6 +49,6 @@ func pay_bill() -> void:
 
 func next_day() -> void:
 	current_day += 1
-	todays_salary = 0
-	todays_tips = 0
-	todays_nasel_manzelku_bonuses_count = 0
+	customers_served_today = 0
+	customers_served_quickly_today = 0
+	nasel_manzelku_bonuses_today = 0

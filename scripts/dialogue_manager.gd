@@ -38,11 +38,11 @@ func display_text():
 func set_knowledge_level(level):
 	knowledge_level = level
 	
-func set_speech_resource(type: String):
+func set_speech_resource(type: AnimalConfig.AnimalType):
 	match type:
-		"cow":
+		AnimalConfig.AnimalType.Cow:
 			speech_resource = cow_speech
-		"rabbit":
+		AnimalConfig.AnimalType.Rabbit:
 			speech_resource = rabbit_speech
-		"duck":
+		AnimalConfig.AnimalType.Goose:
 			speech_resource = duck_speech
