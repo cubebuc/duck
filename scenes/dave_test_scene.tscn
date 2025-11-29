@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=24 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="14_nav1a"]
 [ext_resource type="Texture2D" uid="uid://byyoprlt375c" path="res://imports/background_houses_farthest.PNG" id="15_5n3sa"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
+[ext_resource type="Texture2D" uid="uid://cfw30f606nvx5" path="res://imports/background_houses_middle.PNG" id="16_ngndu"]
+[ext_resource type="Texture2D" uid="uid://cpqfqlk6p4obs" path="res://imports/background_houses_nearest.PNG" id="17_mbwrw"]
 
 [sub_resource type="Environment" id="Environment_ifw80"]
 
@@ -102,8 +104,39 @@ texture = ExtResource("15_5n3sa")
 
 [node name="HousesFarthestLeft" type="Sprite3D" parent="Backgrounds"]
 transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -245.95699, 63.873386, 163.72397)
-sorting_offset = -180.0
+sorting_offset = -190.0
 texture = ExtResource("15_5n3sa")
+
+[node name="HousesMiddleFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -0.029000044, 55.49938, -91.80271)
+sorting_offset = -180.0
+texture = ExtResource("16_ngndu")
+
+[node name="HousesMiddleRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 161.91974, 52.849808, 175.4749)
+sorting_offset = -180.0
+texture = ExtResource("16_ngndu")
+
+[node name="HousesMiddleLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -228.6324, 41.52026, 163.72397)
+sorting_offset = -180.0
+texture = ExtResource("16_ngndu")
+
+[node name="HousesNearestFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -0.029000044, 39.422684, -91.80271)
+sorting_offset = -170.0
+texture = ExtResource("17_mbwrw")
+
+[node name="HousesNearestRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 150.04121, 39.223186, 172.23909)
+sorting_offset = -150.0
+flip_h = true
+texture = ExtResource("17_mbwrw")
+
+[node name="HousesNearestLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -206.04756, 37.725266, 163.72397)
+sorting_offset = -170.0
+texture = ExtResource("17_mbwrw")
 
 [node name="SkyFront" type="Sprite3D" parent="Backgrounds"]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 100, -155.52649)
