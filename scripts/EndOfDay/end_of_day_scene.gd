@@ -58,6 +58,7 @@ func start_showing_all():
 	start_delay_timer.timeout.connect(start_showing_rows)
 
 func start_showing_rows():	
+	#This mess is just all the row showing functions called as callbacks after each other with delay
 	customers_served_label.show_row(customers_served_count, customers_served_money, \
 	func(): add_money_and_call_after_delay(customers_served_money, between_rows_delay, \
 	func(): customers_served_quickly_label.show_row(customers_served_quickly_count, customers_served_quickly_money, \
