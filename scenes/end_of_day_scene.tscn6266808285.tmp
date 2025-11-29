@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://df85jfb21s0i0"]
+
+[ext_resource type="Script" uid="uid://b4e0xh1d56moc" path="res://scripts/end_of_day_scene.gd" id="1_6vg3a"]
+[ext_resource type="Script" uid="uid://c3twuvgu76b4e" path="res://scripts/money_label.gd" id="2_0tbst"]
+[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="2_wjh2n"]
+
+[node name="EndOfDayScene" type="Node2D"]
+script = ExtResource("1_6vg3a")
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_right = 105.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Total money: "
+script = ExtResource("2_0tbst")
+tween_fly_in_duration = null
+tween_color_change_duration = null
+tween_color_stay_duration = null
+color_after_money_insert = null
+fly_in_label_start_pos = Vector2(410, 98)
+fly_in_label_end_pos = Vector2(336, 19)
+
+[node name="AddedMoney" type="Label" parent="MoneyLabel"]
+self_modulate = Color(0.20559928, 0.67871237, 0.1760197, 1)
+layout_mode = 0
+offset_left = 336.0
+offset_top = 19.0
+offset_right = 376.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 30
+text = "+1"
+
+[node name="CustomersServedLabel" type="Label" parent="."]
+offset_left = 422.0
+offset_top = 145.0
+offset_right = 558.0
+offset_bottom = 168.0
+text = "Cutomers served:"
+
+[node name="CustomersServedFastLabel" type="Label" parent="."]
+offset_left = 355.0
+offset_top = 170.0
+offset_right = 562.0
+offset_bottom = 193.0
+text = "Customers served quickly: "
+
+[node name="RentLabel" type="Label" parent="."]
+offset_left = 516.0
+offset_top = 200.0
+offset_right = 574.0
+offset_bottom = 223.0
+text = "Rent: "
+
+[node name="LineSprite" type="Sprite2D" parent="."]
+position = Vector2(487, 227)
+scale = Vector2(200, 2)
+texture = ExtResource("2_wjh2n")
+
+[node name="EODBalanceLabel" type="Label" parent="."]
+offset_left = 413.0
+offset_top = 229.0
+offset_right = 557.0
+offset_bottom = 252.0
+text = "Total day balance: "

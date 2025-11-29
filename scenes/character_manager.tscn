@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw2he5e1okuta"]
+
+[ext_resource type="Script" uid="uid://61a4qrvo6pyp" path="res://scripts/character_manager.gd" id="1_f075j"]
+[ext_resource type="PackedScene" uid="uid://ebes5ua5u1a5" path="res://scenes/random_character.tscn" id="2_tomrq"]
+
+[node name="CharacterManager" type="Node3D"]
+script = ExtResource("1_f075j")
+character_prefab = ExtResource("2_tomrq")
+character_offset = null

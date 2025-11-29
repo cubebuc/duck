@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjyxidbj5bif2"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_j8xxv"]
+[ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="1_u34ps"]
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="1_wu11x"]
 [ext_resource type="Script" uid="uid://dqtjcrrt8h173" path="res://scripts/camera_3d.gd" id="2_xd7wd"]
@@ -35,6 +35,8 @@ mesh = SubResource("SphereMesh_u34ps")
 target_position = Vector3(0, 0, -10)
 
 [node name="TableCameraCollider" parent="." instance=ExtResource("3_wu11x")]
+deafult_sprite = ExtResource("1_u34ps")
+highlighted_sprite = ExtResource("1_u34ps")
 
 [node name="Sign" type="Node3D" parent="."]
 transform = Transform3D(1.6692921, 0, -1.1015733, 0, 2, 0, 1.1015733, 0, 1.6692921, -3.337, -3.247, -7.349)
@@ -48,6 +50,8 @@ texture = ExtResource("4_j8xxv")
 transform = Transform3D(0.5177783, -0.30315953, 1.3251524e-08, 0, -2.6226834e-08, -0.6, 0.30315953, 0.5177783, -2.2632806e-08, 4.2791195, 2.4259112, -1.2690508)
 script = ExtResource("1_wu11x")
 displayed_text = "Blue sign"
+deafult_sprite = ExtResource("1_u34ps")
+highlighted_sprite = ExtResource("1_u34ps")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/Sign1"]
 transform = Transform3D(1.0000001, -2.9802322e-08, -1.7763567e-15, 2.9802322e-08, 1.0000001, -8.881784e-16, 1.7763567e-15, 8.8817837e-16, 1.0000001, 0, 0, 0)
@@ -72,6 +76,8 @@ texture = ExtResource("5_3hn84")
 transform = Transform3D(0.5919349, -0.098047286, 4.2857895e-09, 2.1285478e-15, -2.6226823e-08, -0.59999985, 0.098047286, 0.5919349, -2.5874304e-08, 4.2791214, 3.2869003, -1.2690508)
 script = ExtResource("1_wu11x")
 displayed_text = "Green sign"
+deafult_sprite = ExtResource("1_u34ps")
+highlighted_sprite = ExtResource("1_u34ps")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/Sign2"]
 transform = Transform3D(1.0000001, -2.9802322e-08, -1.7763567e-15, 2.9802322e-08, 1.0000001, -8.881784e-16, 1.7763567e-15, 8.8817837e-16, 1.0000001, 0, 0, 0)
@@ -96,6 +102,8 @@ texture = ExtResource("5_3hn84")
 transform = Transform3D(0.25466198, -0.54327494, 2.3747312e-08, 2.8508416e-16, -2.6226829e-08, -0.5999999, 0.54327494, 0.25466198, -1.1131627e-08, 4.026555, 4.0751233, -0.8907733)
 script = ExtResource("1_wu11x")
 displayed_text = "Brown sign"
+deafult_sprite = ExtResource("1_u34ps")
+highlighted_sprite = ExtResource("1_u34ps")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/Sign3"]
 transform = Transform3D(1.0000001, -2.9802322e-08, -1.7763567e-15, 2.9802322e-08, 1.0000001, -8.881784e-16, 1.7763567e-15, 8.8817837e-16, 1.0000001, 0, 0, 0)
