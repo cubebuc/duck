@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=16 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
 [ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="4_vyvv1"]
-[ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
+[ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
-[ext_resource type="PackedScene" path="res://scenes/time_manager.tscn" id="13_pbj1o"]
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="9_vyvv1"]
+[ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/cow_textures.tres" id="10_1ytyg"]
+[ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck_textures.tres" id="11_ifw80"]
+[ext_resource type="Resource" uid="uid://dexyiqvdv4gkg" path="res://sprites/animals/rabbit_textures.tres" id="12_5n3sa"]
+[ext_resource type="PackedScene" uid="uid://bim67it3qalvr" path="res://scenes/time_manager.tscn" id="13_pbj1o"]
 [ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="14_nav1a"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
 [ext_resource type="Texture2D" uid="uid://cas1vwkm2l7vm" path="res://imports/map.PNG" id="16_ifw80"]
@@ -39,6 +43,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 7, -7)
 
 [node name="CharacterManager" parent="." instance=ExtResource("14_nav1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6591535, -4.7683716e-07, -3.0018067)
+animal_config_types = Array[ExtResource("9_vyvv1")]([ExtResource("10_1ytyg"), ExtResource("11_ifw80"), ExtResource("12_5n3sa")])
 character_offset = Vector3(1.5, 0, -15)
 
 [node name="Map" parent="." instance=ExtResource("15_vyvv1")]

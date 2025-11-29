@@ -21,7 +21,8 @@ func _ready() -> void:
 	for animal_type in AnimalConfig.AnimalType.values():
 		knowledge_map[animal_type] = 0
 
-
+	if(not character_manager.is_node_ready()):
+		await character_manager.ready
 	for i in base_character_count:
 		character_manager.add_character()
 	
