@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="AnimalConfig" load_steps=5 format=3 uid="uid://bbvfmieq55hbb"]
+[gd_resource type="Resource" script_class="AnimalConfig" load_steps=6 format=3 uid="uid://bbvfmieq55hbb"]
 
 [ext_resource type="Texture2D" uid="uid://bdwulxvrrfs0d" path="res://imports/cow.PNG" id="1_2xln4"]
 [ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="1_ptarq"]
 [ext_resource type="Texture2D" uid="uid://cmlbsoi84tgu2" path="res://imports/cow_glasses.PNG" id="2_hpwt5"]
 [ext_resource type="Texture2D" uid="uid://diijuodta1wvp" path="res://imports/cow_hat.PNG" id="3_nl0xc"]
+[ext_resource type="Texture2D" uid="uid://1cylgj3te24g" path="res://imports/cow_neck.PNG" id="4_hpwt5"]
 
 [resource]
 script = ExtResource("1_ptarq")
 character_texture = ExtResource("1_2xln4")
 hat_texture = ExtResource("3_nl0xc")
 glasses_texture = ExtResource("2_hpwt5")
+neck_texture = ExtResource("4_hpwt5")
 metadata/_custom_type_script = "uid://dbqjym86hvdvm"

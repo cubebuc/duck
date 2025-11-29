@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="AnimalConfig" load_steps=3 format=3 uid="uid://boonqfhaihbv2"]
+[gd_resource type="Resource" script_class="AnimalConfig" load_steps=6 format=3 uid="uid://boonqfhaihbv2"]
 
-[ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="1_8d0bx"]
 [ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="1_346fv"]
+[ext_resource type="Texture2D" uid="uid://b2bcf0juxbxt1" path="res://imports/duck.PNG" id="1_ilhuk"]
+[ext_resource type="Texture2D" uid="uid://b5ohhmo6qvydw" path="res://imports/duck_glasses.PNG" id="2_4drl1"]
+[ext_resource type="Texture2D" uid="uid://csoon73pt04nu" path="res://imports/duck_hat.PNG" id="3_ax7sw"]
+[ext_resource type="Texture2D" uid="uid://cbw0m6vvhiyt1" path="res://imports/duck_neck.PNG" id="4_34wes"]
 
 [resource]
 script = ExtResource("1_346fv")
-character_texture = ExtResource("1_8d0bx")
-hat_texture = ExtResource("1_8d0bx")
-glasses_texture = ExtResource("1_8d0bx")
+animal_type = 2
+character_texture = ExtResource("1_ilhuk")
+hat_texture = ExtResource("3_ax7sw")
+glasses_texture = ExtResource("2_4drl1")
+neck_texture = ExtResource("4_34wes")
 metadata/_custom_type_script = "uid://dbqjym86hvdvm"

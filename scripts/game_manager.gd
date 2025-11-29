@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name game_manager
+
 
 @export var dialog_manager: Node
 @export var time_manager: Node
@@ -23,6 +25,7 @@ func _ready() -> void:
 		character_manager.add_character()
 
 
+
 func read_book() -> void:
 	'''
 	1. Close eyes
@@ -42,6 +45,7 @@ func read_book() -> void:
 	knowledge_map[animal_type] += 1
 
 	# Update dialog
+	dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
 	dialog_manager.set_knowledge_level(knowledge_map[animal_type])
 	dialog_manager.adjust_text()
 	dialog_manager.display_text()

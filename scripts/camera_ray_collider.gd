@@ -6,6 +6,10 @@ extends Area3D
 
 @export var target_sprite: Sprite3D
 
+@export var game_manager: game_manager
+@export var answer_type: DialogueText.Answer
+@export var is_book: bool = true
+
 
 var is_active: bool = false
 
@@ -32,7 +36,9 @@ func camera_ray_left():
 	
 
 func interact():
-	if not displayed_text:
-		print("Congratulations! You just read the book and lost 2 hours of your life. Hope you are balder next time")
-	else:
-		print(displayed_text)
+	if is_book:
+		game_manager.read_book()
+		return
+	
+	game_manager.answer_animal(answer_type)
+	return

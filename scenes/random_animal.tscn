@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://ebes5ua5u1a5"]
+
+[ext_resource type="Script" uid="uid://p0u8642sa8a4" path="res://scripts/character.gd" id="1_sq5b7"]
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="2_ukd0u"]
+[ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck_textures.tres" id="3_0fvv7"]
+[ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/cow_textures.tres" id="4_uehl2"]
+[ext_resource type="Resource" uid="uid://dexyiqvdv4gkg" path="res://sprites/animals/rabbit_textures.tres" id="5_ukd0u"]
+
+[node name="RandomAnimal" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_sq5b7")
+animal_configs = Array[ExtResource("2_ukd0u")]([ExtResource("3_0fvv7"), ExtResource("4_uehl2"), ExtResource("5_ukd0u")])
+
+[node name="Character" type="Sprite3D" parent="."]
+
+[node name="Hat" type="Sprite3D" parent="Character"]
+visible = false
+sorting_offset = 1.0
+
+[node name="Glasses" type="Sprite3D" parent="Character"]
+visible = false
+sorting_offset = 1.0
+
+[node name="Neck" type="Sprite3D" parent="Character"]
+visible = false
+sorting_offset = 1.0

@@ -1,7 +1,16 @@
-[gd_resource type="Resource" script_class="AnimalConfig" load_steps=2 format=3 uid="uid://dexyiqvdv4gkg"]
+[gd_resource type="Resource" script_class="AnimalConfig" load_steps=6 format=3 uid="uid://dexyiqvdv4gkg"]
 
-[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://animal_config.gd" id="1_pdgpg"]
+[ext_resource type="Texture2D" uid="uid://b7rpg2noj4yyf" path="res://imports/rabbit.PNG" id="1_a10ke"]
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="1_pdgpg"]
+[ext_resource type="Texture2D" uid="uid://bpdaelhjcqne4" path="res://imports/rabbit_glasses.PNG" id="2_w6mut"]
+[ext_resource type="Texture2D" uid="uid://itvw32qlf82l" path="res://imports/rabbit_hat.PNG" id="3_d87ct"]
+[ext_resource type="Texture2D" uid="uid://dh6w5op1u7jjw" path="res://imports/rabbit_neck.PNG" id="4_gm54l"]
 
 [resource]
 script = ExtResource("1_pdgpg")
+animal_type = 1
+character_texture = ExtResource("1_a10ke")
+hat_texture = ExtResource("3_d87ct")
+glasses_texture = ExtResource("2_w6mut")
+neck_texture = ExtResource("4_gm54l")
 metadata/_custom_type_script = "uid://dbqjym86hvdvm"
