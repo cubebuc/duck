@@ -1,6 +1,10 @@
 extends Area3D
 
-@export var displayed_text = ""
+@export var displayed_text: String = ""
+@export var deafult_sprite: Texture2D
+@export var highlighted_sprite: Texture2D
+
+
 
 var is_active: bool = false
 
@@ -15,11 +19,18 @@ func _process(delta: float) -> void:
 func camera_ray_entered():
 	$SpriteLetterE.visible = true
 	is_active = true
+	$Sprite3D.texture = highlighted_sprite
 	
+	#testing purposes - remove
+	$Sprite3D.modulate = Color.BISQUE
 
 func camera_ray_left():
 	$SpriteLetterE.visible = false
 	is_active = false
+	$Sprite3D.texture = highlighted_sprite
+	
+	#testing purposes - remove
+	$Sprite3D.modulate = Color.WHITE
 
 func interact():
 	if not displayed_text:
