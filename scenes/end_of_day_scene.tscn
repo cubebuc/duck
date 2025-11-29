@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dma62pseyc6cp"]
+[gd_scene load_steps=6 format=3 uid="uid://dma62pseyc6cp"]
 
 [ext_resource type="Script" uid="uid://b4e0xh1d56moc" path="res://scripts/EndOfDay/end_of_day_scene.gd" id="1_6vg3a"]
 [ext_resource type="Script" uid="uid://c3twuvgu76b4e" path="res://scripts/EndOfDay/money_label.gd" id="2_0tbst"]
 [ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="2_wjh2n"]
 [ext_resource type="Script" uid="uid://3fr7va3p6bqe" path="res://scripts/EndOfDay/show_result_row.gd" id="3_agv5m"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="5_1sibo"]
 
 [node name="EndOfDayScene" type="Node2D"]
 script = ExtResource("1_6vg3a")
@@ -237,3 +238,15 @@ rotation = -0.1979605
 [node name="Sprite2D" type="Sprite2D" parent="StickyNoteSpaces/Space11"]
 scale = Vector2(150, 150)
 texture = ExtResource("2_wjh2n")
+
+[node name="ContinueLabel" type="Label" parent="."]
+offset_left = 727.0
+offset_top = 601.0
+offset_right = 1125.0
+offset_bottom = 636.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_1sibo")
+theme_override_font_sizes/font_size = 40
+text = "Press E to Start a new day"

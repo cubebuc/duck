@@ -4,6 +4,7 @@ extends Node2D
 @export var between_rows_delay: float = 1
 @export var before_sticky_notes_delay: float = 2
 @export var between_sticky_notes_delay: float = 1.5
+@export var delay_before_continue_button: float = 3
 
 var money_label: money_label_class
 var customers_served_label: result_row
@@ -30,6 +31,8 @@ var sticky_notes_bonuses: Array[int]
 @onready var game_scene: PackedScene = load("res://scenes/dave_test_scene.tscn")
 
 var active_tweens: Array[Tween] = []
+
+var can_continue: bool = false
 
 func _ready() -> void:
 	money_label = $MoneyLabel
@@ -63,6 +66,8 @@ func _ready() -> void:
 	
 	SceneTransition.transition_done.connect(start_showing_all)
 	
+	$ContinueLabel.self_modulate = Color($ContinueLabel.self_modulate, 0)
+	
 	start_showing_all()
 	
 func hide_all_sticky_notes():
@@ -71,11 +76,13 @@ func hide_all_sticky_notes():
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
+		if can_continue:
+			SceneTransition.change_scene(game_scene, get_tree().current_scene)
+		
 		for tween in active_tweens:
 			if tween.is_running():
 				tween.custom_step(1)
-	pass
-		
+	
 
 func start_showing_all():
 	money_label.appear()
@@ -118,7 +125,16 @@ func start_showing_sticky_notes():
 			sticky_note_appear_tween.tween_interval(between_sticky_notes_delay)
 			
 		else:
-			break
+			sticky_note_appear_tween.tween_callback(on_all_shown)
 		index += 1
+
+func on_all_shown():
+	await get_tree().create_timer(delay_before_continue_button).timeout
 	
+	var continue_game_label = $ContinueLabel
+	can_continue = true
+	var blinking_tween = get_tree().create_tween()
+	blinking_tween.set_loops()
+	blinking_tween.tween_property(continue_game_label, "self_modulate", Color(continue_game_label.self_modulate,1), 1)
+	blinking_tween.tween_property(continue_game_label, "self_modulate", Color(continue_game_label.self_modulate,0), 1)
 	
