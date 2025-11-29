@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var dialogues: Array[DialogueText]
+
 var text_real: DialogueText
 
 var knowledge_level: int
@@ -10,6 +12,9 @@ var speech_resource: AnimalSpeech
 var cow_speech: AnimalSpeech
 var duck_speech: AnimalSpeech
 var rabbit_speech: AnimalSpeech
+
+func _ready() -> void:
+	dialogues.shuffle()
 
 func adjust_text():
 	text_to_display = ""
@@ -39,6 +44,11 @@ func set_knowledge_level(level):
 	knowledge_level = level
 	
 func set_speech_resource(type: AnimalConfig.AnimalType):
+	#setup dialog for the new animal
+	dialogues.pop_front()
+	text_real = dialogues[0]
+	
+	#setup correct speech resource for the new animal
 	match type:
 		AnimalConfig.AnimalType.Cow:
 			speech_resource = cow_speech
@@ -46,3 +56,6 @@ func set_speech_resource(type: AnimalConfig.AnimalType):
 			speech_resource = rabbit_speech
 		AnimalConfig.AnimalType.Goose:
 			speech_resource = duck_speech
+			
+func get_correct_answer() -> String:
+	return text_real.answer

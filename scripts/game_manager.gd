@@ -58,10 +58,10 @@ func answer_animal(answer: String) -> void:
 	6. Advance time (check time limit)
 	7. Open eyes
 	'''
-    # Close eyes
-    # TODO
+	# Close eyes
+	# TODO
 
-    # Update money
+	# Update money
 	var animal_type = character_manager.characters[0].my_config.animal_type
 	var knowledge_level = knowledge_map[animal_type]
 	var answered_quickly = not book_used
