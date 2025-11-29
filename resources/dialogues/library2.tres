@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueText" load_steps=2 format=3 uid="uid://d2bjuyff7xa43"]
+
+[ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="1_26k7a"]
+
+[resource]
+script = ExtResource("1_26k7a")
+text = "My friend told me about this amazing book. I need to go buy it!"
+priorities = Array[int]([1, 2, 3, 2, 1, 2, 2, 3, 1, 1, 2, 3, 3, 1])
+answer = 4
+metadata/_custom_type_script = "uid://3fc1sr0rcpji"

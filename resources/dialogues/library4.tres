@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueText" load_steps=2 format=3 uid="uid://uf4m4ea8qi7b"]
+
+[ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="1_y64kn"]
+
+[resource]
+script = ExtResource("1_y64kn")
+text = "My grandson wishes for a new comic book. Where can I get one?"
+priorities = Array[int]([1, 2, 3, 1, 1, 2, 3, 3, 2, 1, 1, 2, 1])
+answer = 4
+metadata/_custom_type_script = "uid://3fc1sr0rcpji"
