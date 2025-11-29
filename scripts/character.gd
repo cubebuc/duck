@@ -1,4 +1,5 @@
 extends Node3D
+class_name Character
 
 @export var animal_configs: Array[AnimalConfig]
 
