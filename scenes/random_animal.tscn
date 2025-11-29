@@ -12,15 +12,16 @@ script = ExtResource("1_sq5b7")
 animal_configs = Array[ExtResource("2_ukd0u")]([ExtResource("3_0fvv7"), ExtResource("4_uehl2"), ExtResource("5_ukd0u")])
 
 [node name="Character" type="Sprite3D" parent="."]
+sorting_offset = 1.0
 
 [node name="Hat" type="Sprite3D" parent="Character"]
 visible = false
-sorting_offset = 1.0
+sorting_offset = 2.0
 
 [node name="Glasses" type="Sprite3D" parent="Character"]
 visible = false
-sorting_offset = 1.0
+sorting_offset = 2.0
 
 [node name="Neck" type="Sprite3D" parent="Character"]
 visible = false
-sorting_offset = 1.0
+sorting_offset = 2.0

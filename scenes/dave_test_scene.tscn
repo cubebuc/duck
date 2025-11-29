@@ -93,63 +93,63 @@ transform = Transform3D(46.138226, 0, 0, 0, 7.136767e-07, 1.0000007, 0, -59.8477
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3264351, -7.1686907, -12.036208)
 
 [node name="HousesFarthestFront" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -0.029000044, 80, -110.26886)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.029000044, 73.60466, -407.23965)
 sorting_offset = -190.0
 texture = ExtResource("15_5n3sa")
 
 [node name="HousesFarthestRight" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 187.99683, 65.69562, 175.4749)
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 381.19592, 61.03978, 4.8187933)
 sorting_offset = -190.0
 texture = ExtResource("15_5n3sa")
 
 [node name="HousesFarthestLeft" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -245.95699, 63.873386, 163.72397)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -357.39517, 63.8734, -41.78427)
 sorting_offset = -190.0
 texture = ExtResource("15_5n3sa")
 
 [node name="HousesMiddleFront" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -0.029000044, 55.49938, -91.80271)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.029000044, 49.10404, -388.77353)
 sorting_offset = -180.0
 texture = ExtResource("16_ngndu")
 
 [node name="HousesMiddleRight" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 161.91974, 52.849808, 175.4749)
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 355.11884, 48.19397, 4.8187933)
 sorting_offset = -180.0
 texture = ExtResource("16_ngndu")
 
 [node name="HousesMiddleLeft" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -228.6324, 41.52026, 163.72397)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -340.0706, 41.520275, -41.78427)
 sorting_offset = -180.0
 texture = ExtResource("16_ngndu")
 
 [node name="HousesNearestFront" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -0.029000044, 39.422684, -91.80271)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.029000044, 33.027344, -388.77353)
 sorting_offset = -170.0
 texture = ExtResource("17_mbwrw")
 
 [node name="HousesNearestRight" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 150.04121, 39.223186, 172.23909)
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 343.24033, 34.56735, 1.5829849)
 sorting_offset = -150.0
 flip_h = true
 texture = ExtResource("17_mbwrw")
 
 [node name="HousesNearestLeft" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -206.04756, 37.725266, 163.72397)
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -317.48575, 37.72528, -41.78427)
 sorting_offset = -170.0
 texture = ExtResource("17_mbwrw")
 
 [node name="SkyFront" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 100, -155.52649)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 93.60466, -452.49728)
 sorting_offset = -300.0
 texture = ExtResource("11_8nv4v")
 
 [node name="SkyRight" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 280.30685, 100, 137.256)
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 399.2852, 95.34416, -89.63143)
 sorting_offset = -300.0
 texture = ExtResource("11_8nv4v")
 
 [node name="SkyLeft" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -314.4991, 95, 98.743)
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -425.9373, 108.95102, -118.20978)
 sorting_offset = -300.0
 texture = ExtResource("11_8nv4v")
 
