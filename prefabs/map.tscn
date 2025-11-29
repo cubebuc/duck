@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6lndb8hrug8m"]
+[gd_scene load_steps=11 format=3 uid="uid://6lndb8hrug8m"]
 
 [ext_resource type="PackedScene" uid="uid://cjpflfkyj6rbu" path="res://prefabs/map_interactable.tscn" id="1_hjd75"]
 [ext_resource type="Texture2D" uid="uid://cas1vwkm2l7vm" path="res://imports/map.PNG" id="2_0o778"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://fp76wu6lq7lk" path="res://imports/map_arcade_hl.PNG" id="5_g0w84"]
 [ext_resource type="Texture2D" uid="uid://bmvqqtdgjlu02" path="res://imports/map_cafe_hl.PNG" id="6_dq20s"]
 [ext_resource type="Texture2D" uid="uid://ck4v2a7jcbj4f" path="res://imports/map_library_hl.PNG" id="7_go7kh"]
+[ext_resource type="Script" uid="uid://c34etppsqdgo8" path="res://scripts/camera_ray_collider_zoom.gd" id="8_go7kh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4una"]
 
 [node name="Map" type="Node3D"]
 
@@ -14,7 +20,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="AirportInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
-transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 2.691, 1.822, 0.3)
+transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 3.654469, 1.3885441, 0.3)
 
 [node name="Node3D" parent="OffsetParent/AirportInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
 displayed_text = "Clicked Airport"
@@ -24,7 +30,7 @@ target_sprite = NodePath("../../MapSprite")
 is_book = false
 
 [node name="ToiletInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
-transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 0.28486085, 0.22704649, 0)
+transform = Transform3D(1.437, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -0.03607011, -0.08269453, 0)
 
 [node name="Node3D" parent="OffsetParent/ToiletInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
 displayed_text = "Clicked Toilet"
@@ -35,7 +41,7 @@ answer_type = 1
 is_book = false
 
 [node name="ArcadeInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
-transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, -3.05, 2.228, -0.2)
+transform = Transform3D(1.842, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -3.7727535, 1.8158216, -0.2)
 
 [node name="Node3D" parent="OffsetParent/ArcadeInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
 displayed_text = "Clicked Arcade"
@@ -46,7 +52,7 @@ answer_type = 3
 is_book = false
 
 [node name="CafeInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
-transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, -3.322, -0.882, -0.2)
+transform = Transform3D(1.807, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -3.5176253, -1.9769211, -0.2)
 
 [node name="Node3D" parent="OffsetParent/CafeInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
 displayed_text = "Clicked Cafe"
@@ -57,7 +63,7 @@ answer_type = 2
 is_book = false
 
 [node name="LibraryInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
-transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 2.831, -1.886, 0.2)
+transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 3.4175193, -2.5005198, 0.2)
 
 [node name="Node3D" parent="OffsetParent/LibraryInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
 displayed_text = "Clicked Library"
@@ -66,6 +72,20 @@ highlighted_sprite = ExtResource("7_go7kh")
 target_sprite = NodePath("../../MapSprite")
 answer_type = 4
 is_book = false
+
+[node name="ZoomCollider" type="Node3D" parent="OffsetParent"]
+transform = Transform3D(5, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="OffsetParent/ZoomCollider" groups=["camera_ray_collider_group"]]
+script = ExtResource("8_go7kh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OffsetParent/ZoomCollider/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="OffsetParent/ZoomCollider/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
 
 [node name="MapSprite" type="Sprite3D" parent="OffsetParent"]
 sorting_offset = -1.0

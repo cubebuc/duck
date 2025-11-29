@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/cow_textures.tres" id="10_1ytyg"]
 [ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck_textures.tres" id="11_ifw80"]
 [ext_resource type="Resource" uid="uid://dexyiqvdv4gkg" path="res://sprites/animals/rabbit_textures.tres" id="12_5n3sa"]
+[ext_resource type="PackedScene" uid="uid://w22085tat7r8" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://bim67it3qalvr" path="res://scenes/time_manager.tscn" id="13_pbj1o"]
 [ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="14_nav1a"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
@@ -31,10 +32,13 @@ transform = Transform3D(1, 0, 0, 0, 0.94147056, 0.33709526, 0, -0.33709526, 0.94
 highlighted_sprite = ExtResource("4_vyvv1")
 game_manager = NodePath("../GameManager")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
+blinking_manager = NodePath("../Blinking")
 dialog_manager = NodePath("../SpeechBubble2")
 time_manager = NodePath("../TimeManager")
 character_manager = NodePath("../CharacterManager")
+
+[node name="Blinking" parent="." instance=ExtResource("6_lccll")]
 
 [node name="SpeechBubble2" parent="." instance=ExtResource("6_vyvv1")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 7, -7)
@@ -47,7 +51,7 @@ animal_config_types = Array[ExtResource("9_vyvv1")]([ExtResource("10_1ytyg"), Ex
 character_offset = Vector3(1.5, 0, -15)
 
 [node name="Map" parent="." instance=ExtResource("15_vyvv1")]
-transform = Transform3D(3.4473667, 0, -2.0287097, 0, 4, 0, 2.0287097, 0, 3.4473667, 23.902096, -4.612253, -24.498585)
+transform = Transform3D(1.2173702, 0, 2.0683353, 0, 2.4, 0, -2.0683353, 0, 1.2173702, -45.638645, -5.1072083, -16.517014)
 
 [node name="Node3D" parent="Map/OffsetParent/AirportInteractable" index="0" node_paths=PackedStringArray("game_manager")]
 game_manager = NodePath("../../../../GameManager")
@@ -63,6 +67,9 @@ game_manager = NodePath("../../../../GameManager")
 
 [node name="Node3D" parent="Map/OffsetParent/LibraryInteractable" index="0" node_paths=PackedStringArray("game_manager")]
 game_manager = NodePath("../../../../GameManager")
+
+[node name="Node3D" parent="Map/OffsetParent/ZoomCollider" index="0" node_paths=PackedStringArray("camera")]
+camera = NodePath("../../../../Player/CameraHolder/Camera3D")
 
 [node name="Floor" type="Sprite3D" parent="."]
 transform = Transform3D(46.138226, 0, 0, 0, 7.136767e-07, 1.0000007, 0, -59.8477, 1.19248895e-08, 1.3264351, -7.1686907, -12.036208)
