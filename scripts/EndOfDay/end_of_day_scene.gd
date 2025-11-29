@@ -36,13 +36,21 @@ func _ready() -> void:
 	
 	sticky_note_spaces = $StickyNoteSpaces
 	
-	#Replace with actual data
-	sticky_notes_recieved = 6
-	sticky_notes_bonuses = [8,4,2,-3,8,-4]
+	money_label.money_count = MoneyManager.money
 	
+	customers_served_count = MoneyManager.customers_served_today
+	customers_served_money = MoneyManager.SALARY_AMOUNT * customers_served_count
+	customers_served_quickly_count = MoneyManager.customers_served_quickly_today
+	customers_served_quickly_money = MoneyManager.TIP_AMOUNT * customers_served_quickly_count
+	rent_money = MoneyManager.RENT_AMOUNT
+	
+	#Replace with actual data
+	sticky_notes_bonuses = MoneyManager.nasel_manzelku_bonuses_today
+	sticky_notes_recieved = len(sticky_notes_bonuses)
+		
 	hide_all_sticky_notes()
 	
-	total_balance = customers_served_money+customers_served_quickly_money+rent_money
+	total_balance = MoneyManager.money_today
 	
 	SceneTransition.transition_done.connect(start_showing_all)
 	
