@@ -16,8 +16,8 @@ var current_day: int = 0
 
 '''
 GAME LOOP:
-    1. Player chooses LEARN or GUESS - can't learn over 100%
-    2. Add SALARY and TIP based on choice (TIP only if you CAN'T know the answer)
+	1. Player chooses LEARN or GUESS - can't learn over 100%
+	2. Add SALARY and TIP based on choice (TIP only if you CAN'T know the answer)
     3. Pass TIME based on choice
     --- Go back to 1. until TIME runs out ---
     4. Pay RENT and BILLS, get NASEL MANZELKU BONUS
