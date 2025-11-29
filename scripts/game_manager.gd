@@ -23,7 +23,7 @@ func _ready() -> void:
 	for animal_type in AnimalConfig.AnimalType.values():
 		knowledge_map[animal_type] = 0
 
-	if(not character_manager.is_node_ready()):
+	if (not character_manager.is_node_ready()):
 		await character_manager.ready
 	for i in base_character_count:
 		character_manager.add_character()
@@ -61,8 +61,9 @@ func read_book() -> void:
 		# Advance time
 		time_manager.pass_time_long()
 		if time_manager.is_time_up():
-			pass
-		SceneTransition.change_scene(end_of_day_scene)
+			MoneyManager.pay_rent()
+			MoneyManager.pay_bill()
+			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
 	)
 	
 
@@ -101,5 +102,7 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 		# Advance time
 		time_manager.pass_time_short()
 		if time_manager.is_time_up():
-			SceneTransition.change_scene(end_of_day_scene)
+			MoneyManager.pay_rent()
+			MoneyManager.pay_bill()
+			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
 	)
