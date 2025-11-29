@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://duuno71aoym18"]
+[gd_scene load_steps=26 format=3 uid="uid://duuno71aoym18"]
 
 [ext_resource type="Script" uid="uid://d3go84rnyjym7" path="res://scripts/dialogue_manager.gd" id="1_hxg5a"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="2_e1pub"]
@@ -22,10 +22,16 @@
 [ext_resource type="Resource" uid="uid://dq437sgq5wac8" path="res://resources/dialogues/library5.tres" id="18_6uowx"]
 [ext_resource type="Resource" uid="uid://lkfm6mgb3m4s" path="res://resources/dialogues/toilet1.tres" id="19_rg0ya"]
 [ext_resource type="Resource" uid="uid://dtktprt3pdbmg" path="res://resources/dialogues/toilet2.tres" id="20_5plt1"]
+[ext_resource type="Resource" uid="uid://8tdhnbl2vreo" path="res://resources/animal_speech/cow_speech.tres" id="21_gqacb"]
+[ext_resource type="Resource" uid="uid://djuatlp43s5m6" path="res://resources/animal_speech/duck_speech.tres" id="22_5vswk"]
+[ext_resource type="Resource" uid="uid://bfejj2jci1clr" path="res://resources/animal_speech/rabbit_speech.tres" id="23_p7wip"]
 
 [node name="SpeechBubble" type="Node3D"]
 script = ExtResource("1_hxg5a")
 dialogues = Array[ExtResource("2_o4nl7")]([ExtResource("3_nir5i"), ExtResource("4_dscmo"), ExtResource("5_gqacb"), ExtResource("6_5vswk"), ExtResource("7_p7wip"), ExtResource("8_u7ljp"), ExtResource("9_4hb4u"), ExtResource("10_euj8m"), ExtResource("11_0d3ho"), ExtResource("12_5nc2e"), ExtResource("13_o10sp"), ExtResource("14_x5udv"), ExtResource("15_mxq66"), ExtResource("16_yrysu"), ExtResource("17_yqlk7"), ExtResource("18_6uowx"), ExtResource("19_rg0ya"), ExtResource("20_5plt1")])
+cow_speech = ExtResource("21_gqacb")
+duck_speech = ExtResource("22_5vswk")
+rabbit_speech = ExtResource("23_p7wip")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.07753981)

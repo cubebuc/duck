@@ -14,6 +14,7 @@ var speech_resource: AnimalSpeech
 @export var rabbit_speech: AnimalSpeech
 
 func _ready() -> void:
+	randomize()
 	dialogues.shuffle()
 
 func adjust_text():
