@@ -1,19 +1,47 @@
 extends Node3D
 
 
-@export var dialog_manager: Script
-@export var time_manager: Script
-@export var character_manager: Script
-@export var speech_bubble: Script
+@export var dialog_manager: Node
+@export var time_manager: Node
+@export var character_manager: Node
 @export var knowledge_guess_threshold: int = 1
+@export var base_character_count: int = 3
 
 var knowledge_map = {}
 var book_used: bool = false
+var wrong_answer_count: int = 0
+
+var pr: bool = false
+var pa: bool = false
 
 
 func _ready() -> void:
 	for animal_type in AnimalConfig.AnimalType.values():
 		knowledge_map[animal_type] = 0
+
+	for i in base_character_count:
+		character_manager.add_character()
+
+
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(Key.KEY_R):
+		if pr:
+			return
+		pr = true
+		read_book()
+	else:
+		pr = false
+
+	if Input.is_key_pressed(Key.KEY_A):
+		if pa:
+			return
+		pa = true
+		answer_animal("")
+	else:
+		pa = false
+
+	if Input.is_key_pressed(Key.KEY_M):
+		print(MoneyManager.money)
 
 
 func read_book() -> void:
@@ -35,9 +63,9 @@ func read_book() -> void:
 	knowledge_map[animal_type] += 1
 
 	# Update dialog
-	speech_bubble.set_knowledge_level(knowledge_map[animal_type])
-	speech_bubble.adjust_text()
-	speech_bubble.display_text()
+	dialog_manager.set_knowledge_level(knowledge_map[animal_type])
+	dialog_manager.adjust_text()
+	dialog_manager.display_text()
 
 	# Advance time
 	time_manager.pass_time_long()
@@ -69,18 +97,18 @@ func answer_animal(answer: String) -> void:
 	MoneyManager.serve_customer(answered_quickly, answered_randomly)
 
 	# Check for wrong answer
-	if knowledge_level > knowledge_guess_threshold:
-		pass # TODO: log wrong answer to show warning in results
+	if knowledge_level > knowledge_guess_threshold and answer != dialog_manager.get_correct_answer():
+		wrong_answer_count += 1
 
 	# Update animals
 	character_manager.advance_characters()
 	character_manager.add_character()
 
 	# Update dialog
-	speech_bubble.set_speech_resource(character_manager.characters[0].my_config.animal_type)
-	speech_bubble.set_knowledge_level(knowledge_map[animal_type])
-	speech_bubble.adjust_text()
-	speech_bubble.display_text()
+	dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
+	dialog_manager.set_knowledge_level(knowledge_map[animal_type])
+	dialog_manager.adjust_text()
+	dialog_manager.display_text()
 
 	# Advance time
 	time_manager.pass_time_short()
