@@ -2,11 +2,11 @@ extends Resource
 class_name DialogueText
 
 enum Answer {
-    Airport,
-    Toilet,
-    Cafe,
-    Arcade,
-    Library
+	Airport,
+	Toilet,
+	Cafe,
+	Arcade,
+	Library
 }
 
 @export var text: String

@@ -6,4 +6,5 @@
 script = ExtResource("1_lyv7r")
 text = "I have a big exam tomorrow. Where can I find some good textbooks?"
 priorities = Array[int]([1, 2, 1, 1, 3, 2, 1, 2, 1, 3, 1, 2, 3])
+answer = 4
 metadata/_custom_type_script = "uid://3fc1sr0rcpji"

@@ -1,11 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://duuno71aoym18"]
+[gd_scene load_steps=23 format=3 uid="uid://duuno71aoym18"]
 
 [ext_resource type="Script" uid="uid://d3go84rnyjym7" path="res://scripts/dialogue_manager.gd" id="1_hxg5a"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="2_e1pub"]
+[ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="2_o4nl7"]
 [ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="2_ra651"]
+[ext_resource type="Resource" uid="uid://cdbeyw0h6ns35" path="res://resources/dialogues/airport1.tres" id="3_nir5i"]
+[ext_resource type="Resource" uid="uid://bgo40inc0i301" path="res://resources/dialogues/airport2.tres" id="4_dscmo"]
+[ext_resource type="Resource" uid="uid://dqwpcp3kin7on" path="res://resources/dialogues/airport3.tres" id="5_gqacb"]
+[ext_resource type="Resource" uid="uid://cwocq4he0m26t" path="res://resources/dialogues/airport4.tres" id="6_5vswk"]
+[ext_resource type="Resource" uid="uid://c0516pwc3u2q2" path="res://resources/dialogues/arcade1.tres" id="7_p7wip"]
+[ext_resource type="Resource" uid="uid://dmy6ejs1sw40k" path="res://resources/dialogues/arcade2.tres" id="8_u7ljp"]
+[ext_resource type="Resource" uid="uid://bc748mhsy5o61" path="res://resources/dialogues/arcade3.tres" id="9_4hb4u"]
+[ext_resource type="Resource" uid="uid://ddttyqw7hl71h" path="res://resources/dialogues/cafe1.tres" id="10_euj8m"]
+[ext_resource type="Resource" uid="uid://bgqs27ev0a0g3" path="res://resources/dialogues/cafe2.tres" id="11_0d3ho"]
+[ext_resource type="Resource" uid="uid://du1uj3gbra5k5" path="res://resources/dialogues/cafe3.tres" id="12_5nc2e"]
+[ext_resource type="Resource" uid="uid://7lnm71gqxspu" path="res://resources/dialogues/cafe4.tres" id="13_o10sp"]
+[ext_resource type="Resource" uid="uid://dwe0tuo0ypdki" path="res://resources/dialogues/library1.tres" id="14_x5udv"]
+[ext_resource type="Resource" uid="uid://d2bjuyff7xa43" path="res://resources/dialogues/library2.tres" id="15_mxq66"]
+[ext_resource type="Resource" uid="uid://4f7nb2lhvowy" path="res://resources/dialogues/library3.tres" id="16_yrysu"]
+[ext_resource type="Resource" uid="uid://uf4m4ea8qi7b" path="res://resources/dialogues/library4.tres" id="17_yqlk7"]
+[ext_resource type="Resource" uid="uid://dq437sgq5wac8" path="res://resources/dialogues/library5.tres" id="18_6uowx"]
+[ext_resource type="Resource" uid="uid://lkfm6mgb3m4s" path="res://resources/dialogues/toilet1.tres" id="19_rg0ya"]
+[ext_resource type="Resource" uid="uid://dtktprt3pdbmg" path="res://resources/dialogues/toilet2.tres" id="20_5plt1"]
 
 [node name="SpeechBubble" type="Node3D"]
 script = ExtResource("1_hxg5a")
+dialogues = Array[ExtResource("2_o4nl7")]([ExtResource("3_nir5i"), ExtResource("4_dscmo"), ExtResource("5_gqacb"), ExtResource("6_5vswk"), ExtResource("7_p7wip"), ExtResource("8_u7ljp"), ExtResource("9_4hb4u"), ExtResource("10_euj8m"), ExtResource("11_0d3ho"), ExtResource("12_5nc2e"), ExtResource("13_o10sp"), ExtResource("14_x5udv"), ExtResource("15_mxq66"), ExtResource("16_yrysu"), ExtResource("17_yqlk7"), ExtResource("18_6uowx"), ExtResource("19_rg0ya"), ExtResource("20_5plt1")])
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.07753981)

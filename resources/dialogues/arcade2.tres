@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_bujok")
-text = “I want to return this defective gaming console. Where do i go?”
+text = "I want to return this defective gaming console. Where do i go?"
 priorities = Array[int]([1, 2, 1, 2, 3, 2, 3, 3, 1, 2, 1, 2])
+answer = 3
 metadata/_custom_type_script = "uid://3fc1sr0rcpji"

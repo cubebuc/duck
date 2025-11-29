@@ -6,4 +6,5 @@
 script = ExtResource("1_2k1sb")
 text = "I drank too much water and I can’t hold it in anymore! Help!"
 priorities = Array[int]([1, 2, 3, 2, 2, 1, 1, 1, 3, 2, 2, 1, 3])
+answer = 1
 metadata/_custom_type_script = "uid://3fc1sr0rcpji"

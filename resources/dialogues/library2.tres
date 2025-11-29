@@ -6,4 +6,5 @@
 script = ExtResource("1_26k7a")
 text = "My friend told me about this amazing book. I need to go buy it!"
 priorities = Array[int]([1, 2, 3, 2, 1, 2, 2, 3, 1, 1, 2, 3, 3, 1])
+answer = 4
 metadata/_custom_type_script = "uid://3fc1sr0rcpji"

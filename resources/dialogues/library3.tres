@@ -6,4 +6,5 @@
 script = ExtResource("1_oiaow")
 text = "I want to get this new novel for my partner. Point me in the right direction!"
 priorities = Array[int]([1, 2, 1, 3, 1, 2, 3, 1, 1, 2, 3, 1, 2, 2, 3, 3])
+answer = 4
 metadata/_custom_type_script = "uid://3fc1sr0rcpji"
