@@ -77,6 +77,7 @@ func hide_all_sticky_notes():
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		if can_continue:
+			MoneyManager.next_day()
 			SceneTransition.change_scene(game_scene, get_tree().current_scene)
 		
 		for tween in active_tweens:

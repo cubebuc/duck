@@ -48,7 +48,8 @@ transform = Transform3D(1, 0, 0, 0, 0.94147056, 0.33709526, 0, -0.33709526, 0.94
 highlighted_sprite = ExtResource("4_vyvv1")
 game_manager = NodePath("../GameManager")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
+blinking_manager = NodePath("../Blinking")
 dialog_manager = NodePath("../SpeechBubble2")
 time_manager = NodePath("../TimeManager")
 character_manager = NodePath("../CharacterManager")

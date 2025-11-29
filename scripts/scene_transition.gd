@@ -7,18 +7,20 @@ signal transition_done
 
 @export var curtain_offset_base: Vector2 = Vector2.RIGHT*1500
 
+var curtain_on_right:bool = false
+
 var current_curtain_offset: Vector2
 
 func _ready() -> void:
 	curtain = curtain_packed_scene.instantiate()
 	
 
-func change_scene(next_packed_scene: PackedScene, origin_scene, reversed_curtain:bool = false):
+func change_scene(next_packed_scene: PackedScene, origin_scene):
 	if curtain.get_parent() != get_tree().root:
 		get_tree().root.add_child(curtain)
 		
 	current_curtain_offset = curtain_offset_base
-	if reversed_curtain:
+	if curtain_on_right:
 		current_curtain_offset = -curtain_offset_base
 	
 	var curtain_draw_tween = get_tree().create_tween()
@@ -31,7 +33,8 @@ func instantiate_next_scene_to_root(next_packed_scene: PackedScene, origin_scene
 	get_tree().scene_changed.connect(func(): reveal_next_scene())
 
 func reveal_next_scene():
-	print("ready")
+	#print("ready")
+	curtain_on_right = not curtain_on_right
 	var curtain_draw_tween = get_tree().create_tween()
 	curtain_draw_tween.tween_property(curtain, "position", curtain.position+current_curtain_offset, 2)
 	curtain_draw_tween.tween_callback(func(): transition_done.emit())

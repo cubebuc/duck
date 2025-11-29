@@ -17,6 +17,7 @@ var wrong_answer_count: int = 0
 var pr: bool = false
 var pa: bool = false
 
+var end_of_day_scene: PackedScene = load("res://scenes/end_of_day_scene.tscn")
 
 func _ready() -> void:
 	for animal_type in AnimalConfig.AnimalType.values():
@@ -60,7 +61,7 @@ func read_book() -> void:
 		# Advance time
 		time_manager.pass_time_long()
 		if time_manager.is_time_up():
-			pass # TODO: end day
+			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
 	)
 	
 
@@ -99,5 +100,5 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 		# Advance time
 		time_manager.pass_time_short()
 		if time_manager.is_time_up():
-			pass # TODO: end day
+			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
 	)
