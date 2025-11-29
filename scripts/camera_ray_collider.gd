@@ -44,7 +44,7 @@ func camera_ray_left():
 	
 
 func interact():
-	camera_ray_left()
+	#camera_ray_left()
 	
 	if is_book:
 		game_manager.read_book()

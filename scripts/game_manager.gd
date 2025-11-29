@@ -21,8 +21,17 @@ func _ready() -> void:
 	for animal_type in AnimalConfig.AnimalType.values():
 		knowledge_map[animal_type] = 0
 
+
 	for i in base_character_count:
 		character_manager.add_character()
+	
+	var timer = get_tree().create_timer(0.1)
+	await timer.timeout
+		
+	dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
+	dialog_manager.set_knowledge_level(0)
+	dialog_manager.adjust_text()
+	dialog_manager.display_text()
 
 
 
@@ -45,7 +54,6 @@ func read_book() -> void:
 	knowledge_map[animal_type] += 1
 
 	# Update dialog
-	dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
 	dialog_manager.set_knowledge_level(knowledge_map[animal_type])
 	dialog_manager.adjust_text()
 	dialog_manager.display_text()
@@ -89,7 +97,7 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 
 	# Update dialog
 	dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
-	dialog_manager.set_knowledge_level(knowledge_map[animal_type])
+	dialog_manager.set_knowledge_level(knowledge_map[character_manager.characters[0].my_config.animal_type])
 	dialog_manager.adjust_text()
 	dialog_manager.display_text()
 

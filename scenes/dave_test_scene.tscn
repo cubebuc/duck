@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=12 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
@@ -6,14 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="4_vyvv1"]
 [ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
-[ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="7_1ytyg"]
-[ext_resource type="Resource" uid="uid://dyskpaylug8hn" path="res://resources/dialogues/test_dialogue1.tres" id="8_ifw80"]
-[ext_resource type="Resource" uid="uid://c5rympbwdxgjl" path="res://resources/dialogues/test_dialogue2.tres" id="9_5n3sa"]
-[ext_resource type="Resource" uid="uid://8tdhnbl2vreo" path="res://resources/animal_speech/cow_speech.tres" id="10_ngndu"]
-[ext_resource type="Resource" uid="uid://djuatlp43s5m6" path="res://resources/animal_speech/duck_speech.tres" id="11_mbwrw"]
-[ext_resource type="Resource" uid="uid://bfejj2jci1clr" path="res://resources/animal_speech/rabbit_speech.tres" id="12_8vbiy"]
 [ext_resource type="PackedScene" path="res://scenes/time_manager.tscn" id="13_pbj1o"]
-[ext_resource type="PackedScene" path="res://scenes/character_manager.tscn" id="14_nav1a"]
+[ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="14_nav1a"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
 [ext_resource type="Texture2D" uid="uid://cas1vwkm2l7vm" path="res://imports/map.PNG" id="16_ifw80"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="17_5n3sa"]
@@ -34,16 +28,12 @@ highlighted_sprite = ExtResource("4_vyvv1")
 game_manager = NodePath("../GameManager")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
-dialog_manager = NodePath("../SpeechBubble")
+dialog_manager = NodePath("../SpeechBubble2")
 time_manager = NodePath("../TimeManager")
 character_manager = NodePath("../CharacterManager")
 
-[node name="SpeechBubble" parent="." instance=ExtResource("6_vyvv1")]
+[node name="SpeechBubble2" parent="." instance=ExtResource("6_vyvv1")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 7, -7)
-dialogues = Array[ExtResource("7_1ytyg")]([ExtResource("8_ifw80"), ExtResource("9_5n3sa")])
-cow_speech = ExtResource("10_ngndu")
-duck_speech = ExtResource("11_mbwrw")
-rabbit_speech = ExtResource("12_8vbiy")
 
 [node name="TimeManager" parent="." instance=ExtResource("13_pbj1o")]
 
