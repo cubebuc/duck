@@ -43,10 +43,11 @@ alpha_cut = 1
 outline_modulate = Color(0.30804384, 0.03417382, 0.2818127, 1)
 text = "helloo ahoj bruh what is going on here bekfest pokracuju hahahahah oh no fuuuuck what is happening"
 font = ExtResource("2_e1pub")
-outline_size = 3
+outline_size = 7
 autowrap_mode = 2
 width = 350.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.14, 0, 0, 0, 0.13, 0, 0, 0, 1, 0, -0.10218233, 0)
+flip_h = true
 texture = ExtResource("25_gqacb")
