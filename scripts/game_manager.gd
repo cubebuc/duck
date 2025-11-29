@@ -35,9 +35,9 @@ func read_book() -> void:
 	knowledge_map[animal_type] += 1
 
 	# Update dialog
-	speech_bubble.set_speech_resource(character_manager.characters[0].my_config.animal_type)
 	speech_bubble.set_knowledge_level(knowledge_map[animal_type])
 	speech_bubble.adjust_text()
+	speech_bubble.display_text()
 
 	# Advance time
 	time_manager.pass_time_long()
@@ -80,6 +80,7 @@ func answer_animal(answer: String) -> void:
 	speech_bubble.set_speech_resource(character_manager.characters[0].my_config.animal_type)
 	speech_bubble.set_knowledge_level(knowledge_map[animal_type])
 	speech_bubble.adjust_text()
+	speech_bubble.display_text()
 
 	# Advance time
 	time_manager.pass_time_short()
