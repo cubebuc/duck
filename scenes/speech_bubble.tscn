@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://duuno71aoym18"]
+[gd_scene load_steps=4 format=3 uid="uid://duuno71aoym18"]
 
-[ext_resource type="Script" uid="uid://d3go84rnyjym7" path="res://dialogue_manager.gd" id="1_hxg5a"]
+[ext_resource type="Script" uid="uid://d3go84rnyjym7" path="res://scripts/dialogue_manager.gd" id="1_hxg5a"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="2_e1pub"]
 [ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="2_ra651"]
 
 [node name="SpeechBubble" type="Node3D"]
 script = ExtResource("1_hxg5a")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-modulate = Color(0, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.07753981)
+alpha_cut = 1
+outline_modulate = Color(0.30804384, 0.03417382, 0.2818127, 1)
 text = "helloo ahoj bruh what is going on here bekfest"
+font = ExtResource("2_e1pub")
+outline_size = 3
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0)
