@@ -25,6 +25,8 @@ var total_balance:int = 0
 var sticky_notes_recieved: int = 0
 var sticky_notes_bonuses: Array[int]
 
+@onready var game_scene: PackedScene = load("res://scenes/dave_test_scene.tscn")
+
 func _ready() -> void:
 	money_label = $MoneyLabel
 	customers_served_label = $CustomersServedLabel
@@ -41,8 +43,8 @@ func _ready() -> void:
 	hide_all_sticky_notes()
 	
 	total_balance = customers_served_money+customers_served_quickly_money+rent_money
-		
-	start_showing_all()
+	
+	SceneTransition.transition_done.connect(start_showing_all)
 	
 func hide_all_sticky_notes():
 	for space in sticky_note_spaces.get_children():
