@@ -14,6 +14,7 @@ var customers_served_quickly_today: int = 0
 var nasel_manzelku_bonuses_today: Array[int] = []
 
 var current_day: int = 0
+var day_money_history: Array[int] = []
 
 
 func serve_customer(quickly: bool, nasel_manzelku_bonus: bool) -> void:
@@ -27,7 +28,7 @@ func serve_customer(quickly: bool, nasel_manzelku_bonus: bool) -> void:
 	if nasel_manzelku_bonus:
 		var bonus = NASEL_MANZELKU_BONUSES.pick_random()
 		money_today += bonus
-		nasel_manzelku_bonuses_today += [bonus]
+		nasel_manzelku_bonuses_today.append(bonus)
 
 
 func pay_rent() -> void:
@@ -41,6 +42,7 @@ func pay_bill() -> void:
 func next_day() -> void:
 	current_day += 1
 	money += money_today
+	day_money_history.append(money_today)
 	money_today = 0
 	customers_served_today = 0
 	customers_served_quickly_today = 0
