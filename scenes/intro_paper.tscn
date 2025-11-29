@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmmejlvwp1g1h"]
+
+[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="1_xl8py"]
+[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="3_3a5gd"]
+
+[node name="IntroductionPaper" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+z_index = 200
+offset_left = 370.0
+offset_top = 257.0
+offset_right = 770.0
+offset_bottom = 757.0
+rotation = -0.38759273
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
+theme_override_font_sizes/font_size = 18
+text = "Hello, 
+we are glad to announce, that we considered your application to our information center employment. 
+The fact, that you can speak all the animal languages is perfectly alligned with our needs. And that is why we decided to hire you!
+You will be stationed in the Central Park, where most of our fellow animals get lost. 
+We are excited to start working with you.
+
+From Quackity Informations,
+Ducky Quack"
+autowrap_mode = 2
+text_overrun_behavior = 2
+
+[node name="LabelBackground" type="Sprite2D" parent="Label"]
+z_as_relative = false
+position = Vector2(195, 220)
+scale = Vector2(400, 450)
+texture = ExtResource("3_3a5gd")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(1562, -295)
+scale = Vector2(2, 2)
+texture = ExtResource("1_xl8py")
