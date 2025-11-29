@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=18 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
+[ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="4_vyvv1"]
 [ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
 [ext_resource type="Script" uid="uid://3fc1sr0rcpji" path="res://scripts/dialgoue_text.gd" id="7_1ytyg"]
@@ -14,6 +15,8 @@
 [ext_resource type="PackedScene" path="res://scenes/time_manager.tscn" id="13_pbj1o"]
 [ext_resource type="PackedScene" path="res://scenes/character_manager.tscn" id="14_nav1a"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
+[ext_resource type="Texture2D" uid="uid://cas1vwkm2l7vm" path="res://imports/map.PNG" id="16_ifw80"]
+[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="17_5n3sa"]
 
 [node name="DaveTestScene" type="Node3D"]
 
@@ -27,6 +30,7 @@ script = ExtResource("1_j8xxv")
 transform = Transform3D(1, 0, 0, 0, 0.94147056, 0.33709526, 0, -0.33709526, 0.94147056, 0, 0.5, 0.5)
 
 [node name="TableCameraCollider" parent="." instance=ExtResource("3_wu11x")]
+highlighted_sprite = ExtResource("4_vyvv1")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
 dialog_manager = NodePath("../SpeechBubble")
@@ -44,4 +48,24 @@ rabbit_speech = ExtResource("12_8vbiy")
 [node name="CharacterManager" parent="." instance=ExtResource("14_nav1a")]
 
 [node name="Map" parent="." instance=ExtResource("15_vyvv1")]
-transform = Transform3D(1.7236834, 0, -1.0143548, 0, 2, 0, 1.0143548, 0, 1.7236834, 16.93637, -4.612253, -18.145)
+transform = Transform3D(3.4473667, 0, -2.0287097, 0, 4, 0, 2.0287097, 0, 3.4473667, 23.902096, -4.612253, -24.498585)
+
+[node name="Floor" type="Sprite3D" parent="."]
+transform = Transform3D(46.138226, 0, 0, 0, 7.136767e-07, 1.0000007, 0, -59.8477, 1.19248895e-08, 1.3264351, -7.1686907, -12.036208)
+texture = ExtResource("16_ifw80")
+
+[node name="Background" type="Sprite3D" parent="."]
+transform = Transform3D(27.71075, 0, 0, 0, 17.695126, 0, 0, 0, 1, 0, 0, -129.77658)
+texture = ExtResource("17_5n3sa")
+
+[node name="Background2" type="Sprite3D" parent="."]
+transform = Transform3D(27.71075, 0, 0, 0, 17.695126, 0, 0, 0, 1, 0, 0, -129.77658)
+texture = ExtResource("17_5n3sa")
+
+[node name="Background3" type="Sprite3D" parent="."]
+transform = Transform3D(-1.2112754e-06, 0, 1, 0, 17.695126, 0, -27.71075, 0, -4.371139e-08, -240.42346, 0, -46.793762)
+texture = ExtResource("17_5n3sa")
+
+[node name="Background4" type="Sprite3D" parent="."]
+transform = Transform3D(-1.2112754e-06, 0, 1, 0, 17.695126, 0, -27.71075, 0, -4.371139e-08, 155.14777, 0, -46.793762)
+texture = ExtResource("17_5n3sa")

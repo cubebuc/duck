@@ -59,6 +59,7 @@ highlighted_sprite = ExtResource("7_go7kh")
 target_sprite = NodePath("../../MapSprite")
 
 [node name="MapSprite" type="Sprite3D" parent="OffsetParent"]
+sorting_offset = 100.0
 texture = ExtResource("2_0o778")
 
 [editable path="OffsetParent/AirportInteractable"]
