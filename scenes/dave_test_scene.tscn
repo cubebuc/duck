@@ -1,21 +1,29 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=22 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
 [ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="4_vyvv1"]
 [ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
+[ext_resource type="PackedScene" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
 [ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="9_vyvv1"]
 [ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/cow_textures.tres" id="10_1ytyg"]
+[ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="11_8nv4v"]
 [ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck_textures.tres" id="11_ifw80"]
+[ext_resource type="Texture2D" uid="uid://dud3nfjjs0054" path="res://imports/floor_wood.png" id="11_lccll"]
 [ext_resource type="Resource" uid="uid://dexyiqvdv4gkg" path="res://sprites/animals/rabbit_textures.tres" id="12_5n3sa"]
-[ext_resource type="PackedScene" uid="uid://w22085tat7r8" path="res://scenes/blinking.tscn" id="6_lccll"]
+[ext_resource type="Texture2D" uid="uid://b5lqw1xggldsx" path="res://imports/ground.PNG" id="12_ltvu5"]
 [ext_resource type="PackedScene" uid="uid://bim67it3qalvr" path="res://scenes/time_manager.tscn" id="13_pbj1o"]
 [ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="14_nav1a"]
+[ext_resource type="Texture2D" uid="uid://byyoprlt375c" path="res://imports/background_houses_farthest.PNG" id="15_5n3sa"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
-[ext_resource type="Texture2D" uid="uid://cas1vwkm2l7vm" path="res://imports/map.PNG" id="16_ifw80"]
-[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="17_5n3sa"]
+
+[sub_resource type="Environment" id="Environment_ifw80"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5n3sa"]
+
+[sub_resource type="Compositor" id="Compositor_ngndu"]
 
 [node name="DaveTestScene" type="Node3D"]
 
@@ -32,8 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 0.94147056, 0.33709526, 0, -0.33709526, 0.94
 highlighted_sprite = ExtResource("4_vyvv1")
 game_manager = NodePath("../GameManager")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
-blinking_manager = NodePath("../Blinking")
+[node name="GameManager" parent="." node_paths=PackedStringArray("dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
 dialog_manager = NodePath("../SpeechBubble2")
 time_manager = NodePath("../TimeManager")
 character_manager = NodePath("../CharacterManager")
@@ -71,30 +78,62 @@ game_manager = NodePath("../../../../GameManager")
 [node name="Node3D" parent="Map/OffsetParent/ZoomCollider" index="0" node_paths=PackedStringArray("camera")]
 camera = NodePath("../../../../Player/CameraHolder/Camera3D")
 
-[node name="Floor" type="Sprite3D" parent="."]
+[node name="GroundObjects" type="Node3D" parent="."]
 transform = Transform3D(46.138226, 0, 0, 0, 7.136767e-07, 1.0000007, 0, -59.8477, 1.19248895e-08, 1.3264351, -7.1686907, -12.036208)
+
+[node name="Grasses" type="Node3D" parent="GroundObjects"]
+
+[node name="Trees" type="Node3D" parent="GroundObjects"]
+
+[node name="Bushes" type="Node3D" parent="GroundObjects"]
+
+[node name="Backgrounds" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3264351, -7.1686907, -12.036208)
+
+[node name="HousesFarthestFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -0.029000044, 80, -110.26886)
+sorting_offset = -190.0
+texture = ExtResource("15_5n3sa")
+
+[node name="HousesFarthestRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 187.99683, 65.69562, 175.4749)
+sorting_offset = -190.0
+texture = ExtResource("15_5n3sa")
+
+[node name="HousesFarthestLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, -15, 0, 15, 0, 15, 0, -6.556708e-07, -245.95699, 63.873386, 163.72397)
+sorting_offset = -180.0
+texture = ExtResource("15_5n3sa")
+
+[node name="SkyFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 100, -155.52649)
+sorting_offset = -300.0
+texture = ExtResource("11_8nv4v")
+
+[node name="SkyRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, 280.30685, 100, 137.256)
+sorting_offset = -300.0
+texture = ExtResource("11_8nv4v")
+
+[node name="SkyLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-6.556708e-07, 0, 15, 0, 15, 0, -15, 0, -6.556708e-07, -314.4991, 95, 98.743)
+sorting_offset = -300.0
+texture = ExtResource("11_8nv4v")
+
+[node name="Floor" type="Sprite3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 1, 0, -20, -4.371139e-08, 1.3264351, -7.1686907, -12.036208)
 sorting_offset = -90.0
-texture = ExtResource("16_ifw80")
+texture = ExtResource("12_ltvu5")
 
-[node name="Background" type="Sprite3D" parent="."]
-transform = Transform3D(27.71075, 0, 0, 0, 17.695126, 0, 0, 0, 1, 0, 0, -129.77658)
-sorting_offset = -100.0
-texture = ExtResource("17_5n3sa")
+[node name="WoodenFloor" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -7.169, 7.502862)
+sorting_offset = -80.0
+texture = ExtResource("11_lccll")
 
-[node name="Background2" type="Sprite3D" parent="."]
-transform = Transform3D(27.71075, 0, 0, 0, 17.695126, 0, 0, 0, 1, 0, 0, -129.77658)
-sorting_offset = -100.0
-texture = ExtResource("17_5n3sa")
-
-[node name="Background3" type="Sprite3D" parent="."]
-transform = Transform3D(-1.2112754e-06, 0, 1, 0, 17.695126, 0, -27.71075, 0, -4.371139e-08, -240.42346, 0, -46.793762)
-sorting_offset = -100.0
-texture = ExtResource("17_5n3sa")
-
-[node name="Background4" type="Sprite3D" parent="."]
-transform = Transform3D(-1.2112754e-06, 0, 1, 0, 17.695126, 0, -27.71075, 0, -4.371139e-08, 155.14777, 0, -46.793762)
-sorting_offset = -100.0
-texture = ExtResource("17_5n3sa")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ifw80")
+camera_attributes = SubResource("CameraAttributesPractical_5n3sa")
+compositor = SubResource("Compositor_ngndu")
 
 [editable path="Map"]
 [editable path="Map/OffsetParent/AirportInteractable"]

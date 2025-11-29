@@ -36,3 +36,7 @@ Movement={
 "deadzone": 0.2,
 "events": []
 }
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.63529414, 0.6117647, 0.8392157, 1)
