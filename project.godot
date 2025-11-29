@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 MoneyManager="*res://scripts/money_manager.gd"
+SceneTransition="*res://scripts/scene_transition.gd"
 
 [global_group]
 

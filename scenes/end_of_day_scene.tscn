@@ -28,10 +28,11 @@ theme_override_font_sizes/font_size = 30
 text = "+1"
 
 [node name="CustomersServedLabel" type="Label" parent="."]
-offset_left = 422.0
-offset_top = 145.0
-offset_right = 558.0
-offset_bottom = 168.0
+offset_left = 400.0
+offset_top = 111.0
+offset_right = 536.0
+offset_bottom = 134.0
+pivot_offset = Vector2(136, 0)
 text = "Cutomers served:"
 script = ExtResource("3_agv5m")
 
@@ -44,16 +45,17 @@ text = "8"
 
 [node name="MoneyLabel" type="Label" parent="CustomersServedLabel"]
 layout_mode = 0
-offset_left = 177.0
-offset_right = 217.0
+offset_left = 173.0
+offset_right = 213.0
 offset_bottom = 23.0
 text = "80"
 
 [node name="CustomersServedFastLabel" type="Label" parent="."]
-offset_left = 355.0
-offset_top = 170.0
-offset_right = 562.0
-offset_bottom = 193.0
+offset_left = 332.0
+offset_top = 140.0
+offset_right = 539.0
+offset_bottom = 163.0
+pivot_offset = Vector2(207, 0)
 text = "Customers served quickly: "
 script = ExtResource("3_agv5m")
 
@@ -66,59 +68,84 @@ text = "8"
 
 [node name="MoneyLabel" type="Label" parent="CustomersServedFastLabel"]
 layout_mode = 0
-offset_left = 242.0
-offset_right = 282.0
+offset_left = 241.0
+offset_right = 281.0
 offset_bottom = 23.0
 text = "80"
 
 [node name="RentLabel" type="Label" parent="."]
-offset_left = 516.0
-offset_top = 200.0
-offset_right = 574.0
-offset_bottom = 223.0
+offset_left = 494.0
+offset_top = 172.0
+offset_right = 539.0
+offset_bottom = 195.0
+pivot_offset = Vector2(45, 0)
 text = "Rent: "
 script = ExtResource("3_agv5m")
 
 [node name="CountLabel" type="Label" parent="RentLabel"]
 layout_mode = 0
-offset_left = 50.0
-offset_right = 90.0
+offset_left = 47.0
+offset_right = 87.0
 offset_bottom = 23.0
 text = "8"
 
 [node name="MoneyLabel" type="Label" parent="RentLabel"]
 layout_mode = 0
-offset_left = 80.0
-offset_right = 120.0
+offset_left = 79.0
+offset_right = 119.0
 offset_bottom = 23.0
 text = "80"
 
-[node name="LineSprite" type="Sprite2D" parent="."]
-position = Vector2(487, 227)
-scale = Vector2(200, 2)
-texture = ExtResource("2_wjh2n")
+[node name="RandomExpenseLabel" type="Label" parent="."]
+offset_left = 407.0
+offset_top = 200.0
+offset_right = 538.0
+offset_bottom = 223.0
+pivot_offset = Vector2(45, 0)
+text = "Living expenses: "
+script = ExtResource("3_agv5m")
+
+[node name="CountLabel" type="Label" parent="RandomExpenseLabel"]
+layout_mode = 0
+offset_left = 134.0
+offset_right = 174.0
+offset_bottom = 23.0
+text = "8"
+
+[node name="MoneyLabel" type="Label" parent="RandomExpenseLabel"]
+layout_mode = 0
+offset_left = 166.0
+offset_right = 206.0
+offset_bottom = 23.0
+text = "80"
 
 [node name="EODBalanceLabel" type="Label" parent="."]
-offset_left = 413.0
-offset_top = 229.0
-offset_right = 557.0
-offset_bottom = 252.0
+offset_left = 395.0
+offset_top = 230.0
+offset_right = 539.0
+offset_bottom = 253.0
+pivot_offset = Vector2(144, 0)
 text = "Total day balance: "
 script = ExtResource("3_agv5m")
 
 [node name="CountLabel" type="Label" parent="EODBalanceLabel"]
 layout_mode = 0
-offset_left = 151.0
-offset_right = 191.0
+offset_left = 146.0
+offset_right = 186.0
 offset_bottom = 23.0
 text = "8"
 
 [node name="MoneyLabel" type="Label" parent="EODBalanceLabel"]
 layout_mode = 0
-offset_left = 184.0
-offset_right = 224.0
+offset_left = 178.0
+offset_right = 218.0
 offset_bottom = 23.0
 text = "80"
+
+[node name="LineSprite" type="Sprite2D" parent="."]
+position = Vector2(495, 226)
+scale = Vector2(200, 2)
+texture = ExtResource("2_wjh2n")
 
 [node name="StickyNoteSpaces" type="Node2D" parent="."]
 position = Vector2(597, 229)

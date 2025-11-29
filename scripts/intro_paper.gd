@@ -2,7 +2,7 @@ extends Node2D
 
 @export var time_before_can_start: float = 5
 
-var next_scene: PackedScene = preload("res://scenes/dave_test_scene.tscn")
+var next_scene: PackedScene = load("res://scenes/dave_test_scene.tscn")
 
 var curtain: Sprite2D
 
@@ -30,7 +30,7 @@ func enable_start_game():
 func _process(delta: float) -> void:
 	if can_start:
 		if Input.is_action_just_pressed("Interact"):
-			change_scene()
+			SceneTransition.change_scene(next_scene, get_tree().current_scene)
 			
 func change_scene():
 	curtain.reparent(get_tree().root)
