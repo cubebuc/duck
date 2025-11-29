@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AnimalConfig" load_steps=6 format=3 uid="uid://b1tv72r6bthue"]
+
+[ext_resource type="Texture2D" uid="uid://bi66faknbslhr" path="res://imports/panda.PNG" id="1_5o2kn"]
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="1_i10dr"]
+[ext_resource type="Texture2D" uid="uid://ps2to4kawkfe" path="res://imports/panda_glasses.PNG" id="2_ysuti"]
+[ext_resource type="Texture2D" uid="uid://d2agctkuasx8g" path="res://imports/panda_hat.PNG" id="3_sc5ok"]
+[ext_resource type="Texture2D" uid="uid://5er15l6vcycn" path="res://imports/panda_neck.PNG" id="4_0jg66"]
+
+[resource]
+script = ExtResource("1_i10dr")
+animal_type = 4
+character_texture = ExtResource("1_5o2kn")
+hat_texture = ExtResource("3_sc5ok")
+glasses_texture = ExtResource("2_ysuti")
+neck_texture = ExtResource("4_0jg66")
+metadata/_custom_type_script = "uid://dbqjym86hvdvm"

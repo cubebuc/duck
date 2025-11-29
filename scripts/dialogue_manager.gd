@@ -12,6 +12,8 @@ var speech_resource: AnimalSpeech
 @export var cow_speech: AnimalSpeech
 @export var duck_speech: AnimalSpeech
 @export var rabbit_speech: AnimalSpeech
+@export var fish_speech: AnimalSpeech
+@export var panda_speech: AnimalSpeech
 
 func _ready() -> void:
 	randomize()
@@ -59,6 +61,10 @@ func set_speech_resource(type: AnimalConfig.AnimalType):
 			speech_resource = rabbit_speech
 		AnimalConfig.AnimalType.Goose:
 			speech_resource = duck_speech
+		AnimalConfig.AnimalType.Fish:
+			speech_resource = fish_speech
+		AnimalConfig.AnimalType.Panda:
+			speech_resource = panda_speech
 			
 func get_correct_answer() -> DialogueText.Answer:
 	return text_real.answer

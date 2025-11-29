@@ -1,8 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw2he5e1okuta"]
+[gd_scene load_steps=9 format=3 uid="uid://cw2he5e1okuta"]
 
 [ext_resource type="Script" uid="uid://61a4qrvo6pyp" path="res://scripts/character_manager.gd" id="1_f075j"]
-[ext_resource type="PackedScene" uid="uid://ebes5ua5u1a5" path="res://scenes/random_character.tscn" id="2_tomrq"]
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="2_idyi4"]
+[ext_resource type="PackedScene" uid="uid://ebes5ua5u1a5" path="res://scenes/random_animal.tscn" id="2_tomrq"]
+[ext_resource type="Resource" uid="uid://bbvfmieq55hbb" path="res://sprites/animals/cow_textures.tres" id="3_aex88"]
+[ext_resource type="Resource" uid="uid://boonqfhaihbv2" path="res://sprites/animals/duck_textures.tres" id="4_2ml84"]
+[ext_resource type="Resource" uid="uid://q0fe6mpk2rmv" path="res://sprites/animals/fish_textures.tres" id="5_s8pqa"]
+[ext_resource type="Resource" uid="uid://b1tv72r6bthue" path="res://sprites/animals/panda_textures.tres" id="6_20jdg"]
+[ext_resource type="Resource" uid="uid://dexyiqvdv4gkg" path="res://sprites/animals/rabbit_textures.tres" id="7_b017s"]
 
 [node name="CharacterManager" type="Node3D"]
 script = ExtResource("1_f075j")
+animal_config_types = Array[ExtResource("2_idyi4")]([ExtResource("3_aex88"), ExtResource("4_2ml84"), ExtResource("5_s8pqa"), ExtResource("6_20jdg"), ExtResource("7_b017s")])
 character_prefab = ExtResource("2_tomrq")

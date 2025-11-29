@@ -5,7 +5,9 @@ class_name AnimalConfig
 enum AnimalType {
 	Cow,
 	Rabbit,
-	Goose
+	Goose,
+	Fish,
+	Panda
 }
 
 

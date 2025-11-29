@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkw180c2sgvx1"
-path.s3tc="res://.godot/imported/speech_bubble.png-5777333324273aa7d9e69b5ae2c3a684.s3tc.ctex"
+uid="uid://bgu1a2oweofse"
+path.s3tc="res://.godot/imported/fish.PNG-abba8079835fe87d5eb1603b3fa80252.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://imports/speech_bubble.png"
-dest_files=["res://.godot/imported/speech_bubble.png-5777333324273aa7d9e69b5ae2c3a684.s3tc.ctex"]
+source_file="res://imports/fish.PNG"
+dest_files=["res://.godot/imported/fish.PNG-abba8079835fe87d5eb1603b3fa80252.s3tc.ctex"]
 
 [params]
 

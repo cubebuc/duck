@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AnimalConfig" load_steps=6 format=3 uid="uid://q0fe6mpk2rmv"]
+
+[ext_resource type="Script" uid="uid://dbqjym86hvdvm" path="res://scripts/animal_config.gd" id="1_8b0sj"]
+[ext_resource type="Texture2D" uid="uid://bgu1a2oweofse" path="res://imports/fish.PNG" id="1_poinr"]
+[ext_resource type="Texture2D" uid="uid://cviyy40ie81vv" path="res://imports/fish_glasses.PNG" id="2_38yjm"]
+[ext_resource type="Texture2D" uid="uid://dgb6lxvgnvfq6" path="res://imports/fish_hat.PNG" id="3_6qtqm"]
+[ext_resource type="Texture2D" uid="uid://vridwrx5d4e1" path="res://imports/fish_neck.PNG" id="4_5m7us"]
+
+[resource]
+script = ExtResource("1_8b0sj")
+animal_type = 3
+character_texture = ExtResource("1_poinr")
+hat_texture = ExtResource("3_6qtqm")
+glasses_texture = ExtResource("2_38yjm")
+neck_texture = ExtResource("4_5m7us")
+metadata/_custom_type_script = "uid://dbqjym86hvdvm"

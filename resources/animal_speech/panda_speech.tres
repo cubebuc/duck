@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AnimalSpeech" load_steps=2 format=3 uid="uid://cnihe44l636xi"]
+
+[ext_resource type="Script" uid="uid://0oq53h4jjtrg" path="res://scripts/animal_speech.gd" id="1_ni7yy"]
+
+[resource]
+script = ExtResource("1_ni7yy")
+fixed_prefix = "br"
+repeatable_letter = "u"
+fixed_suffix = "m"
+base_sound_length = 4
+short_sound = "brm"
+metadata/_custom_type_script = "uid://0oq53h4jjtrg"
