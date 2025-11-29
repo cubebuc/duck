@@ -8,6 +8,8 @@ var characters: Array[Character] = []
 var pc: bool = false
 var pm: bool = false
 
+@export var speech_bubble: Script
+
 
 func add_character() -> void:
 	var new_character = character_prefab.instantiate() as Character
@@ -27,6 +29,12 @@ func advance_characters() -> void:
 	for i in range(characters.size()):
 		var character = characters[i]
 		character.global_transform.origin -= character_offset
+		
+	#TODO:--------TOHLE PŘEHODIT JINAM!!!--------
+	speech_bubble.set_speech_resource(characters[0].my_config.animal_type)
+	speech_bubble.set_knowledge_level(0)
+	speech_bubble.adjust_text()
+	#---------------------------------------
 
 
 func _process(delta: float) -> void:
