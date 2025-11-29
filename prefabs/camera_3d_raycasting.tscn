@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4pl28bqchaxl"]
+
+[ext_resource type="Script" uid="uid://dqtjcrrt8h173" path="res://scripts/camera_3d.gd" id="1_3ho2g"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_u34ps"]
+
+[node name="Camera3D" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.94147056, 0.33709526, 0, -0.33709526, 0.94147056, 0, 0, 0)
+script = ExtResource("1_3ho2g")
+
+[node name="TestMiddleOfViewMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.099999994, 0, 0, -1)
+visible = false
+mesh = SubResource("SphereMesh_u34ps")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 MoneyManager="*res://scripts/money_manager.gd"
 
+[global_group]
+
+camera_ray_collider_group="These objects are recognized by the camera raycaster"
+
 [input]
 
 Interact={

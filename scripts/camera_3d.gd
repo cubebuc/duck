@@ -13,7 +13,7 @@ func raycast_forward_and_invoke_colliders():
 	
 	var forward_vec = self.global_basis * Vector3.FORWARD
 	
-	var query = PhysicsRayQueryParameters3D.create(self.position, self.position + forward_vec*RAY_LENGTH)
+	var query = PhysicsRayQueryParameters3D.create(self.global_position, self.global_position + forward_vec*RAY_LENGTH)
 	query.collide_with_areas = true
 
 	var result = space_state.intersect_ray(query)

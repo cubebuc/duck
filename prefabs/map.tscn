@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://6lndb8hrug8m"]
+
+[ext_resource type="PackedScene" uid="uid://cjpflfkyj6rbu" path="res://prefabs/map_interactable.tscn" id="1_hjd75"]
+[ext_resource type="Texture2D" uid="uid://cas1vwkm2l7vm" path="res://imports/map.PNG" id="2_0o778"]
+[ext_resource type="Texture2D" uid="uid://drecyouparja1" path="res://imports/map_airport_hl.PNG" id="3_0o778"]
+[ext_resource type="Texture2D" uid="uid://bxys5bc0rcrb0" path="res://imports/map_toilet_hl.PNG" id="4_ccydk"]
+[ext_resource type="Texture2D" uid="uid://fp76wu6lq7lk" path="res://imports/map_arcade_hl.PNG" id="5_g0w84"]
+[ext_resource type="Texture2D" uid="uid://bmvqqtdgjlu02" path="res://imports/map_cafe_hl.PNG" id="6_dq20s"]
+[ext_resource type="Texture2D" uid="uid://ck4v2a7jcbj4f" path="res://imports/map_library_hl.PNG" id="7_go7kh"]
+
+[node name="Map" type="Node3D"]
+
+[node name="OffsetParent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="AirportInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
+transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 2.691, 1.822, 0.3)
+
+[node name="Node3D" parent="OffsetParent/AirportInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
+displayed_text = "Clicked Airport"
+default_sprite = ExtResource("2_0o778")
+highlighted_sprite = ExtResource("3_0o778")
+target_sprite = NodePath("../../MapSprite")
+
+[node name="ToiletInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
+transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 0.28486085, 0.22704649, 0)
+
+[node name="Node3D" parent="OffsetParent/ToiletInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
+displayed_text = "Clicked Toilet"
+default_sprite = ExtResource("2_0o778")
+highlighted_sprite = ExtResource("4_ccydk")
+target_sprite = NodePath("../../MapSprite")
+
+[node name="ArcadeInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
+transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, -3.05, 2.228, -0.2)
+
+[node name="Node3D" parent="OffsetParent/ArcadeInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
+displayed_text = "Clicked Arcade"
+default_sprite = ExtResource("2_0o778")
+highlighted_sprite = ExtResource("5_g0w84")
+target_sprite = NodePath("../../MapSprite")
+
+[node name="CafeInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
+transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, -3.322, -0.882, -0.2)
+
+[node name="Node3D" parent="OffsetParent/CafeInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
+displayed_text = "Clicked Cafe"
+default_sprite = ExtResource("2_0o778")
+highlighted_sprite = ExtResource("6_dq20s")
+target_sprite = NodePath("../../MapSprite")
+
+[node name="LibraryInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
+transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 2.831, -1.886, 0.2)
+
+[node name="Node3D" parent="OffsetParent/LibraryInteractable" index="0" node_paths=PackedStringArray("target_sprite")]
+displayed_text = "Clicked Library"
+default_sprite = ExtResource("2_0o778")
+highlighted_sprite = ExtResource("7_go7kh")
+target_sprite = NodePath("../../MapSprite")
+
+[node name="MapSprite" type="Sprite3D" parent="OffsetParent"]
+texture = ExtResource("2_0o778")
+
+[editable path="OffsetParent/AirportInteractable"]
+[editable path="OffsetParent/ToiletInteractable"]
+[editable path="OffsetParent/ArcadeInteractable"]
+[editable path="OffsetParent/CafeInteractable"]
+[editable path="OffsetParent/LibraryInteractable"]
