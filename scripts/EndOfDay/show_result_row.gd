@@ -16,6 +16,11 @@ func _ready() -> void:
 	$CountLabel.self_modulate = Color($CountLabel.self_modulate, 0)
 	$MoneyLabel.self_modulate = Color($MoneyLabel.self_modulate, 0)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Interact"):
+		if appear_tween and appear_tween.is_running():
+			appear_tween.custom_step(1)
+
 func show_row(count:int, money:int, callback: Callable = func(): print(" ")):
 	var count_label = $CountLabel
 	var money_label = $MoneyLabel

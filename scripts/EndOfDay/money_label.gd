@@ -20,17 +20,26 @@ var money_color_tween: Tween
 var money_fly_in_tween: Tween
 var money_fly_in_fade_tween: Tween
 
+var active_tweens:Array[Tween]
+
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Interact"):
+		for tween in active_tweens:
+			if tween and tween.is_running():
+				tween.custom_step(1)
 	pass
 
 func _ready() -> void:
 	orig_color = self.self_modulate
 	self.self_modulate = Color(self_modulate, 0)
 	$AddedMoney.self_modulate = Color($AddedMoney.self_modulate,0)
+	
+	active_tweens = [money_color_tween, money_fly_in_tween, money_fly_in_fade_tween]
 
 func appear():
 	self.text = basic_string + ': ' + str(money_count)
 	var appear_tween = get_tree().create_tween()
+	active_tweens.append(appear_tween)
 	appear_tween.tween_property(self, "self_modulate", orig_color, 1)
 	
 

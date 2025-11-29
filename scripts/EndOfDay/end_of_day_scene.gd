@@ -9,6 +9,7 @@ var money_label: money_label_class
 var customers_served_label: result_row
 var customers_served_quickly_label: result_row
 var rent_label: result_row
+var rand_expense_label: result_row
 var total_balance_label: result_row
 
 var sticky_note_spaces: Node2D
@@ -19,6 +20,7 @@ var customers_served_money: int = 80
 var customers_served_quickly_count: int = 2
 var customers_served_quickly_money: int = 4
 var rent_money:int = -80
+var random_expenses:int = -10
 
 var total_balance:int = 0
 
@@ -27,11 +29,14 @@ var sticky_notes_bonuses: Array[int]
 
 @onready var game_scene: PackedScene = load("res://scenes/dave_test_scene.tscn")
 
+var active_tweens: Array[Tween] = []
+
 func _ready() -> void:
 	money_label = $MoneyLabel
 	customers_served_label = $CustomersServedLabel
 	customers_served_quickly_label = $CustomersServedFastLabel
 	rent_label = $RentLabel
+	rand_expense_label = $RandomExpenseLabel
 	total_balance_label = $EODBalanceLabel
 	
 	sticky_note_spaces = $StickyNoteSpaces
@@ -42,11 +47,15 @@ func _ready() -> void:
 	customers_served_money = MoneyManager.SALARY_AMOUNT * customers_served_count
 	customers_served_quickly_count = MoneyManager.customers_served_quickly_today
 	customers_served_quickly_money = MoneyManager.TIP_AMOUNT * customers_served_quickly_count
-	rent_money = MoneyManager.RENT_AMOUNT
+	rent_money = -MoneyManager.RENT_AMOUNT
+	random_expenses = -MoneyManager.BILL_AMOUNTS[MoneyManager.current_day]
 	
-	#Replace with actual data
-	sticky_notes_bonuses = MoneyManager.nasel_manzelku_bonuses_today
-	sticky_notes_recieved = len(sticky_notes_bonuses)
+	
+	#sticky_notes_bonuses = MoneyManager.nasel_manzelku_bonuses_today
+	#sticky_notes_recieved = len(sticky_notes_bonuses)
+	
+	sticky_notes_bonuses = [4,5,1,2]
+	sticky_notes_recieved = 4
 		
 	hide_all_sticky_notes()
 	
@@ -54,11 +63,17 @@ func _ready() -> void:
 	
 	SceneTransition.transition_done.connect(start_showing_all)
 	
+	start_showing_all()
+	
 func hide_all_sticky_notes():
 	for space in sticky_note_spaces.get_children():
 		space.modulate = Color(space.modulate, 0)
 	
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Interact"):
+		for tween in active_tweens:
+			if tween.is_running():
+				tween.custom_step(1)
 	pass
 		
 
@@ -74,8 +89,10 @@ func start_showing_rows():
 	func(): customers_served_quickly_label.show_row(customers_served_quickly_count, customers_served_quickly_money, \
 	func(): add_money_and_call_after_delay(customers_served_quickly_money, between_rows_delay, \
 	func(): rent_label.show_row(0,rent_money, \
-	func(): add_money_and_call_after_delay(rent_money,0, \
-	func(): total_balance_label.show_row(0, total_balance, on_finished_showing_rows)))))))
+	func(): add_money_and_call_after_delay(rent_money,between_rows_delay, \
+	func(): rand_expense_label.show_row(0, random_expenses,\
+	func(): add_money_and_call_after_delay(random_expenses,0, \
+	func(): total_balance_label.show_row(0, total_balance, on_finished_showing_rows)))))))))
 
 func add_money_and_call_after_delay(money:int, delay: float, callback: Callable):
 	money_label.add_money(money)
@@ -88,6 +105,7 @@ func on_finished_showing_rows():
 
 func start_showing_sticky_notes():
 	var sticky_note_appear_tween = get_tree().create_tween()
+	active_tweens.append(sticky_note_appear_tween)
 	
 	#wait a bit before showing
 	sticky_note_appear_tween.tween_interval(before_sticky_notes_delay)
