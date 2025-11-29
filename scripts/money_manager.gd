@@ -16,6 +16,13 @@ var nasel_manzelku_bonuses_today: Array[int] = []
 var current_day: int = 0
 var day_money_history: Array[int] = []
 
+class WrongAnswer:
+	var animal_type: AnimalConfig.AnimalType
+	var correct_answer: DialogueText.Answer
+	var given_answer: DialogueText.Answer
+
+var wrong_answers: Array[WrongAnswer] = []
+
 
 func serve_customer(quickly: bool, nasel_manzelku_bonus: bool) -> void:
 	money += SALARY_AMOUNT
@@ -47,3 +54,4 @@ func next_day() -> void:
 	customers_served_today = 0
 	customers_served_quickly_today = 0
 	nasel_manzelku_bonuses_today = []
+	wrong_answers = []

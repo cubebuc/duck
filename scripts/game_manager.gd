@@ -8,14 +8,11 @@ class_name game_manager
 @export var time_manager: Node
 @export var character_manager: Node
 @export var knowledge_guess_threshold: int = 1
+@export var intentional_wrong_answer_threshold: int = 3
 @export var base_character_count: int = 3
 
 var knowledge_map = {}
 var book_used: bool = false
-var wrong_answer_count: int = 0
-
-var pr: bool = false
-var pa: bool = false
 
 var end_of_day_scene: PackedScene = load("res://scenes/end_of_day_scene.tscn")
 
@@ -86,8 +83,12 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 		MoneyManager.serve_customer(answered_quickly, answered_randomly)
 
 		# Check for wrong answer
-		if knowledge_level > knowledge_guess_threshold and answer != dialog_manager.get_correct_answer():
-			wrong_answer_count += 1
+		if knowledge_level > intentional_wrong_answer_threshold and answer != dialog_manager.get_correct_answer():
+			var wrong_answer = MoneyManager.WrongAnswer.new()
+			wrong_answer.animal_type = animal_type
+			wrong_answer.correct_answer = dialog_manager.get_correct_answer()
+			wrong_answer.given_answer = answer
+			MoneyManager.wrong_answers.append(wrong_answer)
 
 		# Update animals
 		character_manager.advance_characters()
