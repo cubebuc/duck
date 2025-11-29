@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="1_v4l15"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="2_61fo3"]
 [ext_resource type="Texture2D" uid="uid://cg4ebcfl5cidt" path="res://imports/table_lamp.PNG" id="3_15eam"]
-[ext_resource type="Texture2D" uid="uid://djdpnse2r3grs" path="res://images/Letter E.png" id="3_61fo3"]
 [ext_resource type="Texture2D" uid="uid://tfq4c4vs0lwi" path="res://imports/rubber_duck.PNG" id="4_1iwbp"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="5_61fo3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xd7wd"]
 size = Vector3(20, 10, 1)
@@ -43,6 +43,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.177155, 1.038934, -3.67152
 sorting_offset = 15.0
 texture = ExtResource("4_1iwbp")
 
-[node name="SpriteLetterE" type="Sprite3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.08746197, 0.04848096, 0, -0.04848096, 0.08746197, -0.21288525, 0.20180053, -0.12998837)
-texture = ExtResource("3_61fo3")
+[node name="LabelOnHover" type="Label3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1.7492394, 0.9696192, 0, -0.9696192, 1.7492394, 0.40796357, 0.7633915, -3.6491625)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "Press E to Interact
+
+This will take 20 minutes"
+font = ExtResource("5_61fo3")
+font_size = 80
+outline_size = 30
