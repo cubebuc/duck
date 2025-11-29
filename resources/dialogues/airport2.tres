@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_u6dbk")
 text = "I need to get as far away from everything as possible. Please help me!"
-priorities = Array[int]([1, 2, 1, 2, 1, 3, 3, 2, 3, 1, 2, 1, 3, 2])
+priorities = Array[int]([1, 2, 1, 3, 1, 3, 3, 2, 3, 1, 2, 1, 2, 1])
 metadata/_custom_type_script = "uid://3fc1sr0rcpji"
