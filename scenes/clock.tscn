@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfnjcw5cy8gp4"]
+
+[ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="1_vlc7k"]
+[ext_resource type="Script" uid="uid://dsidp0qw2yqvm" path="res://scripts/clock.gd" id="1_y58p0"]
+
+[node name="Clock" type="Node3D"]
+script = ExtResource("1_y58p0")
+
+[node name="Base" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00043064356, 0.0041179955, -0.00079643726)
+texture = ExtResource("1_vlc7k")
+
+[node name="HourHolder" type="Node3D" parent="Base"]
+
+[node name="Hour" type="Sprite3D" parent="Base/HourHolder"]
+transform = Transform3D(0.1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.15, 0.05)
+sorting_offset = 0.2
+modulate = Color(1, 0.792, 0.04000002, 1)
+texture = ExtResource("1_vlc7k")
+
+[node name="MinuteHolder" type="Node3D" parent="Base"]
+
+[node name="Minute" type="Sprite3D" parent="Base/MinuteHolder"]
+transform = Transform3D(0.05, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 0.25, 0.03)
+sorting_offset = 0.1
+modulate = Color(1, 0.792, 0.04000002, 1)
+texture = ExtResource("1_vlc7k")
