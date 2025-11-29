@@ -4,17 +4,14 @@ class_name Character
 @export var animal_configs: Array[AnimalConfig]
 
 var my_config: AnimalConfig
+	
 
-func _ready() -> void:
+func _setup_random_animal(config: AnimalConfig):
+	my_config = config
 	randomize()
-	_pick_animal_type()
 	_assign_textures()
 	_randomize_accessories()
 
-
-func _pick_animal_type() -> void:
-	var index = randi_range(0, len(animal_configs) - 1)
-	my_config = animal_configs[index]
 	
 func _assign_textures() -> void:
 	$Character.texture = my_config.character_texture
