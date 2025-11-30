@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdfn2dspjy8cw"]
+
+[ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="1_g5hos"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="1_qi3bb"]
+[ext_resource type="Script" uid="uid://dohh7lcqor08y" path="res://scenes/titles.gd" id="1_wwc4r"]
+[ext_resource type="Texture2D" uid="uid://b80t5dt85rlo8" path="res://imports/team_bg.PNG" id="2_ecmpm"]
+[ext_resource type="Texture2D" uid="uid://byyoprlt375c" path="res://imports/background_houses_farthest.PNG" id="2_qi3bb"]
+[ext_resource type="Texture2D" uid="uid://cfw30f606nvx5" path="res://imports/background_houses_middle.PNG" id="3_ecmpm"]
+
+[sub_resource type="Animation" id="Animation_ecmpm"]
+resource_name = "titles"
+length = 10.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("AnimationPlayer/Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.033333335)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(549, -0.25, 0, 0.25, 0, -478, -2.6333332, 51, 0, 0),
+"times": PackedFloat32Array(1.0333333, 8.066667)
+}
+
+[sub_resource type="Animation" id="Animation_wwc4r"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Node2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Node2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8dk5"]
+_data = {
+&"RESET": SubResource("Animation_wwc4r"),
+&"titles": SubResource("Animation_ecmpm")
+}
+
+[node name="Titulky" type="Node2D"]
+script = ExtResource("1_wwc4r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i8dk5")
+}
+autoplay = "titles"
+
+[node name="Node2D" type="Node2D" parent="AnimationPlayer"]
+
+[node name="Label" type="Label" parent="AnimationPlayer/Node2D"]
+offset_left = 434.0
+offset_top = -309.0
+offset_right = 731.0
+offset_bottom = -128.0
+scale = Vector2(0.93, 0.93)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_qi3bb")
+theme_override_font_sizes/font_size = 50
+text = "Julie Rihoskova
+Antonin Voracek
+David Riha
+Daniel Martinek"
+
+[node name="Label2" type="Label" parent="AnimationPlayer/Node2D"]
+offset_left = 236.0
+offset_top = 762.0
+offset_right = 830.0
+offset_bottom = 805.0
+scale = Vector2(1.15, 1.15)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_qi3bb")
+theme_override_font_sizes/font_size = 50
+text = "Thank you for playing our game!"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer/Node2D"]
+position = Vector2(577.99994, 309)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("2_ecmpm")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(558.4, 296.4)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("1_g5hos")
+
+[node name="Houses2" type="Sprite2D" parent="."]
+position = Vector2(558.4, 296.4)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("2_qi3bb")
+
+[node name="houses1" type="Sprite2D" parent="."]
+position = Vector2(558.4, 484.4)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("3_ecmpm")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

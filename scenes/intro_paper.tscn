@@ -28,7 +28,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
 theme_override_font_sizes/font_size = 155
 text = "Hello,
-In your resume you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.
+In your resume, you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.
 Your task is to help customers find their destination on the map, based on their requests.
 You are expected to serve AS MANY customers as you are able each day.
 During the following days, an INSPECTOR may visit you as one of your customers to evaluate your performance, so be sure to point them in the right direction.

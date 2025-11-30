@@ -58,11 +58,12 @@ offset_bottom = 479.8462
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
 theme_override_font_sizes/font_size = 30
-text = "Due to your low income and low performance rate, the Quackity Informations corporation can no longer afford to employ you and as a result can no longer afford to provide accommodation for you.
+text = "Due to your low income and low performance rate, the Quackity Informations Corporation can no longer afford to employ you and as a result will no longer provide accommodation for you.
 The reason for the employment termination given by the employer goes as follows:
 “The employee failed to meet the company standard of speed and efficiency when serving customers. Complaints from customers include remarks of obvious misunderstandings, long wait times and tens of minutes spent waiting for the employee to finish reading their book before answering the customer’s requests.”
 
 If you get another chance at such a prestigious position, we recommend trying to serve customers quicker to achieve better results during your work hours.
+And remember: Fortune favours the bold!
  "
 autowrap_mode = 2
 text_overrun_behavior = 2
