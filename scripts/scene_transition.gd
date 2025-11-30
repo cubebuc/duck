@@ -23,12 +23,14 @@ func change_scene(next_packed_scene: PackedScene):
 		return
 	
 	is_transition_running = true
-	print("setting input process to false")
+	#print("setting input process to false")
 	set_process_input(false)
 	
 	if curtain.get_parent() != get_tree().root:
 		get_tree().root.add_child(curtain)
 		
+	
+	print("Curtain is on righ " + str(curtain_on_right))
 	current_curtain_offset = curtain_offset_base
 	if curtain_on_right:
 		current_curtain_offset = -curtain_offset_base
@@ -40,7 +42,8 @@ func change_scene(next_packed_scene: PackedScene):
 func instantiate_next_scene_to_root(next_packed_scene: PackedScene):	
 	get_tree().change_scene_to_packed(next_packed_scene)
 	
-	get_tree().scene_changed.connect(func(): reveal_next_scene())
+	if not get_tree().scene_changed.is_connected(reveal_next_scene):
+		get_tree().scene_changed.connect(reveal_next_scene)
 
 func reveal_next_scene():
 	#print("ready")
