@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://w22085tat7r8"]
 
 [ext_resource type="Script" uid="uid://cmidnun5qus3k" path="res://scripts/blinking.gd" id="1_vjbpe"]
-[ext_resource type="Texture2D" uid="uid://cgk0ppv2ii3gp" path="res://icon.svg" id="1_wwftt"]
+[ext_resource type="Texture2D" uid="uid://kj1fnu3q26yw" path="res://imports/eyelid.png" id="2_vjbpe"]
 
 [node name="Blinking" type="Node3D"]
 script = ExtResource("1_vjbpe")
@@ -12,13 +12,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -582.0
-offset_top = -648.0
-offset_right = 570.0
+offset_left = -576.0
+offset_top = -824.0
+offset_right = 576.0
 offset_bottom = -324.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_wwftt")
+pivot_offset = Vector2(576, 0)
+texture = ExtResource("2_vjbpe")
+expand_mode = 1
 
 [node name="BottomLid" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -29,7 +31,10 @@ anchor_bottom = 0.5
 offset_left = -576.0
 offset_top = 324.0
 offset_right = 576.0
-offset_bottom = 648.0
+offset_bottom = 824.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_wwftt")
+pivot_offset = Vector2(576, 0)
+texture = ExtResource("2_vjbpe")
+expand_mode = 1
+flip_v = true

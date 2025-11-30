@@ -21,6 +21,10 @@ MoneyManager="*res://scripts/money_manager.gd"
 SceneTransition="*res://scripts/scene_transition.gd"
 AudioManager="*res://scenes/audio_manager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 camera_ray_collider_group="These objects are recognized by the camera raycaster"
