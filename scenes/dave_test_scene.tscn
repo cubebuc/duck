@@ -49,17 +49,18 @@ blinking_manager = NodePath("../Blinking")
 dialog_manager = NodePath("../SpeechBubble2")
 time_manager = NodePath("../TimeManager")
 character_manager = NodePath("../CharacterManager")
+base_character_count = 5
 
 [node name="Blinking" parent="." instance=ExtResource("6_lccll")]
 
 [node name="SpeechBubble2" parent="." instance=ExtResource("6_vyvv1")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 7, -7)
+transform = Transform3D(4.3736486, 0, 2.4230556, 0, 4.9999995, 0, -2.4230556, 0, 4.3736486, -7.008544, 7.557762, -6.0303802)
 
 [node name="TimeManager" parent="." instance=ExtResource("13_pbj1o")]
 
 [node name="CharacterManager" parent="." instance=ExtResource("14_nav1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6591535, -4.7683716e-07, -3.0018067)
-character_offset = Vector3(1.5, 0, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64246273, 0.9597764, -11.996862)
+character_offset = Vector3(7, 0, -10)
 
 [node name="Map" parent="." instance=ExtResource("15_vyvv1")]
 transform = Transform3D(1.2173702, 0, 2.0683353, 0, 2.4, 0, -2.0683353, 0, 1.2173702, -45.638645, -5.1072083, -16.517014)

@@ -8,8 +8,6 @@ var start_bot_y: float
 var end_top_y: float
 var end_bot_y: float
 
-var pb: bool = false
-
 
 func _ready() -> void:
 	top_lid = $TopLid
@@ -19,15 +17,6 @@ func _ready() -> void:
 	start_bot_y = bot_lid.global_position.y
 	end_top_y = start_top_y + top_lid.size.y
 	end_bot_y = start_bot_y - bot_lid.size.y
-
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Interact"):
-		if not pb:
-			pb = true
-			blink_eyes(func() -> void: pass )
-	else:
-		pb = false
 
 
 # blinking with callback as argument

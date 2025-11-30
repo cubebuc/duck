@@ -15,13 +15,13 @@ func _ready() -> void:
 		for k in starting_weight:
 			random_indices.append(index)
 		config_weights.append(starting_weight)
-	print("after setup: ", len(random_indices) )
+	print("after setup: ", len(random_indices))
 			
 func halve_weights(index: int):
-	if(config_weights[index] == 1):
+	if (config_weights[index] == 1):
 		return
 	
-	var reduce_by = config_weights[index]/2
+	var reduce_by = config_weights[index] / 2
 	config_weights[index] -= reduce_by
 	
 	var index_to_remove_at = 0
@@ -34,13 +34,13 @@ func halve_weights(index: int):
 
 func add_character() -> void:
 	var new_character = character_prefab.instantiate() as Character
-	var spawn_position = global_transform.origin + character_offset * (characters.size() + 1)
+	var spawn_position = global_transform.origin + character_offset * characters.size()
 	add_child(new_character)
 	new_character.global_transform.origin = spawn_position
 	
 	#randomise animal type for new character
 	print(len(random_indices))
-	var random_index = randi_range(0, len(random_indices)-1)
+	var random_index = randi_range(0, len(random_indices) - 1)
 	new_character._setup_random_animal(animal_config_types[random_indices[random_index]])
 	halve_weights(random_indices[random_index])
 	
