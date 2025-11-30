@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://mxb0fw1v1mi2"]
+[gd_scene load_steps=4 format=3 uid="uid://mxb0fw1v1mi2"]
 
-[ext_resource type="Texture2D" uid="uid://yawvi7jv1xya" path="res://images/Black_Pixel_1x1.jpg" id="1_5vt4c"]
+[ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="1_5vt4c"]
+[ext_resource type="Texture2D" uid="uid://cpqfqlk6p4obs" path="res://imports/background_houses_nearest.PNG" id="2_skt0b"]
+[ext_resource type="Texture2D" uid="uid://cfw30f606nvx5" path="res://imports/background_houses_middle.PNG" id="3_agusd"]
 
 [node name="Curtain" type="Node2D"]
 
-[node name="Curtain" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 1)
+[node name="Background" type="Sprite2D" parent="."]
 z_index = 1000
-position = Vector2(-750, 300)
-scale = Vector2(1500, 1500)
+position = Vector2(-1930, 441)
 texture = ExtResource("1_5vt4c")
+
+[node name="CityFront" type="Sprite2D" parent="."]
+z_index = 1010
+position = Vector2(-1930, 418)
+texture = ExtResource("2_skt0b")
+
+[node name="CityMid" type="Sprite2D" parent="."]
+z_index = 1005
+position = Vector2(-1930, 318)
+texture = ExtResource("3_agusd")
