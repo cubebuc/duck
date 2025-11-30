@@ -11,6 +11,7 @@ var customers_served_label: result_row
 var customers_served_quickly_label: result_row
 var rent_label: result_row
 var rand_expense_label: result_row
+var line_sprite: Sprite2D
 var total_balance_label: result_row
 
 var sticky_note_spaces: Node2D
@@ -42,6 +43,7 @@ func _ready() -> void:
 	customers_served_quickly_label = $CustomersServedFastLabel
 	rent_label = $RentLabel
 	rand_expense_label = $RandomExpenseLabel
+	line_sprite = $LineSprite
 	total_balance_label = $EODBalanceLabel
 	
 	sticky_note_spaces = $StickyNoteSpaces
@@ -63,6 +65,7 @@ func _ready() -> void:
 	sticky_notes_recieved = 4
 		
 	hide_all_sticky_notes()
+	line_sprite.self_modulate = Color(self_modulate, 0)
 	
 	total_balance = MoneyManager.money_today
 	
@@ -110,12 +113,18 @@ func start_showing_rows():
 	func(): add_money_and_call_after_delay(rent_money,between_rows_delay, \
 	func(): rand_expense_label.show_row(0, random_expenses,\
 	func(): add_money_and_call_after_delay(random_expenses,0, \
-	func(): total_balance_label.show_row(0, total_balance, on_finished_showing_rows)))))))))
+	func(): show_line_and_call_synchronously(\
+	func(): total_balance_label.show_row(0, total_balance, on_finished_showing_rows))))))))))
 
 func add_money_and_call_after_delay(money:int, delay: float, callback: Callable):
 	money_label.add_money(money)
 	var delay_timer = get_tree().create_timer(delay)
 	delay_timer.timeout.connect(callback)
+
+func show_line_and_call_synchronously(call: Callable):
+	var tween = get_tree().create_tween() 
+	tween.tween_property(line_sprite, "self_modulate", Color(line_sprite.self_modulate,1),0.1)
+	call.call()
 
 func on_finished_showing_rows():
 	start_showing_sticky_notes()
