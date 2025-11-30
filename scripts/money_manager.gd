@@ -33,7 +33,6 @@ var wrong_answers: Array[WrongAnswer] = []
 
 
 func serve_customer(quickly: bool, nasel_manzelku_bonus: bool, answer: DialogueText.Answer) -> void:
-	money += SALARY_AMOUNT
 	customers_served_today += 1
 
 	if quickly:
@@ -55,11 +54,11 @@ func serve_customer(quickly: bool, nasel_manzelku_bonus: bool, answer: DialogueT
 
 
 func pay_rent() -> void:
-	money -= RENT_AMOUNT
+	money_today -= RENT_AMOUNT
 
 
 func pay_bill() -> void:
-	money -= BILL_AMOUNTS[current_day]
+	money_today -= BILL_AMOUNTS[current_day]
 
 
 func next_day() -> void:
