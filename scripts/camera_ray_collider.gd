@@ -41,7 +41,7 @@ func _ready() -> void:
 	if not target_sprite:
 		target_sprite = $InteractableSprite
 	
-	label_on_hover = $LabelOnHover
+	label_on_hover = get_node_or_null("LabelOnHover")
 	if label_on_hover:
 		label_on_hover.visible = false
 	
