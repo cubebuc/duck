@@ -5,7 +5,7 @@ var curtain: Node2D
 
 signal transition_done
 
-@export var curtain_offset_base: Vector2 = Vector2.RIGHT*1500
+@export var curtain_offset_base: Vector2 = Vector2.RIGHT*5000
 
 var curtain_on_right:bool = false
 
@@ -15,6 +15,7 @@ var is_transition_running: bool = false
 
 func _ready() -> void:
 	curtain = curtain_packed_scene.instantiate()
+	curtain_offset_base = Vector2.RIGHT*curtain.get_child(0).texture.get_width()
 	
 
 func change_scene(next_packed_scene: PackedScene):
