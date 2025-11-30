@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=5 format=3 uid="uid://cnr2sy2v7jhqw"]
+
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_yp678"]
+[ext_resource type="AudioStream" uid="uid://cnjs86srrdtqd" path="res://audio/soundtracks/lofi beat.wav" id="2_hb71n"]
+[ext_resource type="AudioStream" uid="uid://cniw2nlo4yjt0" path="res://audio/soundtracks/funky ah song.wav" id="3_wh6ec"]
+[ext_resource type="AudioStream" uid="uid://b84y6dvx3awvk" path="res://audio/soundtracks/african beat.wav" id="4_uad4s"]
+
+[resource]
+script = ExtResource("1_yp678")
+sounds = Array[AudioStream]([ExtResource("2_hb71n"), ExtResource("3_wh6ec"), ExtResource("4_uad4s")])
+metadata/_custom_type_script = "uid://c3ni445qqu2hq"

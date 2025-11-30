@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://by7skdqtdxyy2"]
+[gd_scene load_steps=3 format=3 uid="uid://by7skdqtdxyy2"]
 
 [ext_resource type="Script" uid="uid://xdvdhonxnufs" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
+[ext_resource type="Resource" uid="uid://cnr2sy2v7jhqw" path="res://resources/audio/music.tres" id="2_liach"]
 
 [node name="AudioManager" type="Node3D"]
 script = ExtResource("1_8qd8g")
+music_tracks = ExtResource("2_liach")
 
 [node name="Music" type="AudioStreamPlayer3D" parent="."]
 
