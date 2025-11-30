@@ -1,30 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfnjcw5cy8gp4"]
+[gd_scene load_steps=6 format=3 uid="uid://dfnjcw5cy8gp4"]
 
 [ext_resource type="Script" uid="uid://dsidp0qw2yqvm" path="res://scripts/clock.gd" id="1_y58p0"]
 [ext_resource type="Texture2D" uid="uid://ddodar217qypb" path="res://imports/clock_cleaned_finally_hopefully_no_hands.png" id="2_7dv1d"]
 [ext_resource type="Texture2D" uid="uid://ugvmtgur33i1" path="res://imports/clock_hand_short.PNG" id="3_er1xc"]
+[ext_resource type="Texture2D" uid="uid://oplseqndct7e" path="res://imports/lamppost.png" id="3_r7ruc"]
 [ext_resource type="Texture2D" uid="uid://ddj5kp43pwbbm" path="res://imports/clock_hand_long.PNG" id="4_r7ruc"]
 
 [node name="Clock" type="Node3D"]
 script = ExtResource("1_y58p0")
 
-[node name="Base" type="Sprite3D" parent="."]
+[node name="ClockBase" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00043064356, 0.0041179955, -0.00079643726)
 texture = ExtResource("2_7dv1d")
 
-[node name="HourHolder" type="Node3D" parent="Base"]
-transform = Transform3D(0.43837115, 0.89879405, 0, -0.89879405, 0.43837115, 0, 0, 0, 1, 1.2779984, -1.4373341, 0.01)
+[node name="Lamppost" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.2944764, 0, 0, 0, 1, -3.4638896, -3.8255892, 0)
+texture = ExtResource("3_r7ruc")
 
-[node name="Hour" type="Sprite3D" parent="Base/HourHolder"]
+[node name="HourHolder" type="Node3D" parent="."]
+transform = Transform3D(0.43837115, 0.89879405, 0, -0.89879405, 0.43837115, 0, 0, 0, 1, 1.2775679, -1.4332161, 0.0092035625)
+
+[node name="Hour" type="Sprite3D" parent="HourHolder"]
 sorting_offset = 2.0
 offset = Vector2(-5.635, 4.045)
 modulate = Color(1, 0.792, 0.04000002, 1)
 texture = ExtResource("3_er1xc")
 
-[node name="MinuteHolder" type="Node3D" parent="Base"]
-transform = Transform3D(0.9304176, -0.3665012, 0, 0.3665012, 0.9304176, 0, 0, 0, 1, 1.2784872, -1.4444525, 0.01)
+[node name="MinuteHolder" type="Node3D" parent="."]
+transform = Transform3D(0.9304176, -0.3665012, 0, 0.3665012, 0.9304176, 0, 0, 0, 1, 1.2780566, -1.4403346, 0.0092035625)
 
-[node name="Minute" type="Sprite3D" parent="Base/MinuteHolder"]
+[node name="Minute" type="Sprite3D" parent="MinuteHolder"]
 sorting_offset = 1.0
 offset = Vector2(-0.75, 6.08)
 modulate = Color(1, 0.792, 0.04000002, 1)
