@@ -80,7 +80,7 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 		var knowledge_level = knowledge_map[animal_type]
 		var answered_quickly = not book_used
 		var answered_randomly = knowledge_level <= knowledge_guess_threshold
-		MoneyManager.serve_customer(answered_quickly, answered_randomly)
+		MoneyManager.serve_customer(answered_quickly, answered_randomly, answer)
 
 		# Check for wrong answer
 		if knowledge_level > intentional_wrong_answer_threshold and answer != dialog_manager.get_correct_answer():
