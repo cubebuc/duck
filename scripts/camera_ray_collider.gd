@@ -22,6 +22,8 @@ enum RadioInteraction {
 @export var default_sprite: Texture2D
 @export var highlighted_sprite: Texture2D
 
+@export var interaction_sprite: Texture2D
+
 @export var target_sprite: Sprite3D
 
 @export var gm: game_manager
@@ -90,7 +92,10 @@ func interact():
 			RadioInteraction.VOLUME_DOWN:
 				AudioManager.music_volume_down()
 			RadioInteraction.NONE:
-				pass
+				if target_sprite.texture == interaction_sprite:
+					target_sprite.texture = default_sprite
+				else:
+					target_sprite.texture = interaction_sprite
 		AudioManager.play_radio_sound()
 	elif interaction_type == InteractionType.TABLE_DUCK:
 		AudioManager.play_tableduck_sound()
