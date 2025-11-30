@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://wtyixu6db0rt"]
+
+[ext_resource type="Script" uid="uid://der3ju3g6nr1v" path="res://scripts/ending_paper.gd" id="1_gkop4"]
+[ext_resource type="Texture2D" uid="uid://bnaumxg10xi0l" path="res://imports/paper.png" id="2_un24k"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="4_0pdjq"]
+[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="5_lhnxe"]
+
+[node name="EndingPaper" type="Node2D"]
+script = ExtResource("1_gkop4")
+cur_ending = 1
+note_text_dic = Dictionary[int, String]({
+0: "Hey! \\n So I heard you made it big at that company you started working for. I’m hearing rumours of a miracle employee that makes everyone in the city happy. I’m happy for you, really!Although I heard you were doing such an amazing job that no one needs your services anymore :D Well, at least now you’re set for life! I hope you enjoy your well-deserved vacation!And most of all: Well done!Best regards,your friend, Quackster McQuack.",
+1: "Due to your low income and low performance rate, the Quackity Informations corporation can no longer afford to employ you and as a result can no longer afford to provide accommodation for you.The reason for the employment termination given by the employer goes as follows:“The employee failed to meet the company standard of speed and efficiency when serving customers. Complaints from customers include remarks of obvious misunderstandings, long wait times and tens of minutes spent waiting for the employee to finish reading their book before answering the customer’s requests.”If you get another chance at such a prestigious position, we recommend trying to serve customers quicker to achieve better results during your work hours.",
+2: "BALANCED Hello,In your resume you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.Your task is to help customers find their destination on the map, based on their requests.You are expected to serve AS MANY customers as you are able each day.During the following days, an INSPECTOR may visit you as one of your customers to evaluate your performance, so be sure to point them in the right direction.We are excited to have you working for our company and wish you the best of luck!From Quackity Informations,Ducky Quack "
+})
+warning_text_dic = Dictionary[int, String]({
+0: "",
+1: "EVICTION NOTICED",
+2: ""
+})
+background_pos_dict = Dictionary[int, Vector2]({
+0: Vector2(336, 608),
+1: Vector2(-662, -295.00003),
+2: Vector2(381, -271)
+})
+background_scale_dict = Dictionary[int, Vector2]({
+0: Vector2(1.5, 1.5),
+1: Vector2(-2.5, -2.5),
+2: Vector2(2, 2)
+})
+paper_pos_dict = Dictionary[int, Vector2]({
+0: Vector2(616, 388.99994),
+1: Vector2(204.00002, 321),
+2: Vector2(406, 340.00003)
+})
+paper_rot_dict = Dictionary[int, float]({
+0: -0.38759273,
+1: -0.06231889,
+2: 0.39942554
+})
+
+[node name="Paper" type="Node2D" parent="."]
+position = Vector2(394.99997, 375.99997)
+rotation = 0.26606777
+scale = Vector2(0.5, 0.5)
+
+[node name="LabelBackground" type="Sprite2D" parent="Paper"]
+z_as_relative = false
+texture = ExtResource("2_un24k")
+
+[node name="Label" type="Label" parent="Paper"]
+z_index = 200
+offset_left = -315.99292
+offset_top = -535.76526
+offset_right = 298.00708
+offset_bottom = 490.23474
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
+theme_override_font_sizes/font_size = 30
+text = "Well done!
+You have passed your trial week with the Quackity Informations company with flying colours, and we are pleased to see your performance was well within the bounds of what is expected of a full pledged Quackity family member!
+We also received some praise about your quick thinking and how efficient you are at helping people get where they actually need.
+
+All of that is why we are pleased to inform you we would like to offer you a lifelong position in our company with all due benefits. You can start at the beginning of the next week and we look forward to working with you for the foreseeable future!
+
+Best regards,
+Ducky Quack and the Quackity Informations family. "
+autowrap_mode = 2
+text_overrun_behavior = 2
+
+[node name="ContinueButton" type="Label" parent="."]
+offset_left = 796.0
+offset_top = 573.0
+offset_right = 1126.0
+offset_bottom = 608.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_0pdjq")
+theme_override_font_sizes/font_size = 40
+text = "Press E to Start Game"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(381, -271)
+scale = Vector2(2, 2)
+texture = ExtResource("5_lhnxe")

@@ -19,7 +19,9 @@ var book_used: bool = false
 var is_interacting: bool = false
 
 var end_of_day_scene: PackedScene = load("res://scenes/end_of_day_scene.tscn")
-var ending_scene: PackedScene = load("res://scenes/ending_paper.tscn")
+var ending_scene_good: PackedScene = load("res://scenes/ending_paper_good.tscn")
+var ending_scene_bad: PackedScene = load("res://scenes/ending_paper_bad.tscn")
+var ending_scene_balaced: PackedScene = load("res://scenes/ending_paper_balance.tscn")
 
 func _ready() -> void:
 	for animal_type in AnimalConfig.AnimalType.values():
@@ -71,9 +73,12 @@ func read_book() -> void:
 				MoneyManager.pay_rent()
 				MoneyManager.pay_bill()
 				var overall_money = MoneyManager.money + MoneyManager.money_today
-				if overall_money < poor_ending_threshold or overall_money > rich_ending_threshold or \
-					MoneyManager.current_day >= max_game_days:
-					SceneTransition.change_scene(ending_scene)
+				if overall_money < poor_ending_threshold:
+					SceneTransition.change_scene(ending_scene_bad)
+				elif overall_money > rich_ending_threshold:
+					SceneTransition.change_scene(ending_scene_good)
+				elif MoneyManager.current_day >= max_game_days:
+					SceneTransition.change_scene(ending_scene_balaced)
 				else:
 					SceneTransition.change_scene(end_of_day_scene)
 				
@@ -129,9 +134,12 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 				MoneyManager.pay_rent()
 				MoneyManager.pay_bill()
 				var overall_money = MoneyManager.money + MoneyManager.money_today
-				if overall_money < poor_ending_threshold or overall_money > rich_ending_threshold or \
-					MoneyManager.current_day >= max_game_days:
-					SceneTransition.change_scene(ending_scene)
+				if overall_money < poor_ending_threshold:
+					SceneTransition.change_scene(ending_scene_bad)
+				elif overall_money > rich_ending_threshold:
+					SceneTransition.change_scene(ending_scene_good)
+				elif MoneyManager.current_day >= max_game_days:
+					SceneTransition.change_scene(ending_scene_balaced)
 				else:
 					SceneTransition.change_scene(end_of_day_scene)
 				return
