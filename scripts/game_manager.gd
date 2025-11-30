@@ -12,7 +12,7 @@ class_name game_manager
 @export var intentional_wrong_answer_threshold: int = 3
 @export var base_character_count: int = 3
 @export var poor_ending_threshold: int = 0
-@export var rich_ending_threshold: int = 2000
+@export var rich_ending_threshold: int = 260
 @export var max_game_days: int = 5
 @export var player_node: player
 @export var clock_angle: Vector3
