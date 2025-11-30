@@ -68,11 +68,12 @@ gm = NodePath("../../../GameManager")
 [node name="Node3D" parent="TableCameraCollider/TableduckInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../GameManager")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager", "clock") instance=ExtResource("5_ltvu5")]
 blinking_manager = NodePath("../Blinking")
 dialog_manager = NodePath("../SpeechBubble2")
 time_manager = NodePath("../TimeManager")
 character_manager = NodePath("../CharacterManager")
+clock = NodePath("../Clock")
 base_character_count = 5
 
 [node name="Blinking" parent="." instance=ExtResource("6_lccll")]
