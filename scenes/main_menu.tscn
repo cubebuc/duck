@@ -1,24 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmmejlvwp1g1h"]
+[gd_scene load_steps=7 format=3 uid="uid://dvih3ues5lwgg"]
 
-[ext_resource type="Script" uid="uid://bgujty3ir3gii" path="res://scripts/intro_paper.gd" id="1_3a5gd"]
-[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="1_xl8py"]
-[ext_resource type="PackedScene" uid="uid://bjyxidbj5bif2" path="res://scenes/dave_test_scene.tscn" id="2_3mdwv"]
-[ext_resource type="Texture2D" uid="uid://bnaumxg10xi0l" path="res://imports/paper.png" id="2_n0hfq"]
-[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_n0hfq"]
-[ext_resource type="Texture2D" uid="uid://yawvi7jv1xya" path="res://images/Black_Pixel_1x1.jpg" id="5_n0hfq"]
+[ext_resource type="Script" uid="uid://bgujty3ir3gii" path="res://scripts/intro_paper.gd" id="1_8ln24"]
+[ext_resource type="PackedScene" uid="uid://bmmejlvwp1g1h" path="res://scenes/intro_paper.tscn" id="2_oa1go"]
+[ext_resource type="Texture2D" uid="uid://bnaumxg10xi0l" path="res://imports/paper.png" id="2_rtw2f"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="4_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://yawvi7jv1xya" path="res://images/Black_Pixel_1x1.jpg" id="5_jk1qb"]
 
 [node name="IntroductionPaper" type="Node2D"]
-script = ExtResource("1_3a5gd")
-next_scene = ExtResource("2_3mdwv")
+script = ExtResource("1_8ln24")
+time_before_can_start = 2.0
+next_scene = ExtResource("2_oa1go")
 
 [node name="LabelBackground" type="Sprite2D" parent="."]
+visible = false
 z_as_relative = false
 position = Vector2(609.88477, 381.39795)
 rotation = -0.38759273
 scale = Vector2(0.42, 0.42)
-texture = ExtResource("2_n0hfq")
+texture = ExtResource("2_rtw2f")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 200
 offset_left = 375.99997
 offset_top = 216.0
@@ -30,7 +33,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
 theme_override_font_sizes/font_size = 155
 text = "Hello,
-In your resume, you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.
+In your resume you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.
 Your task is to help customers find their destination on the map, based on their requests.
 You are expected to serve AS MANY customers as you are able each day.
 During the following days, an INSPECTOR may visit you as one of your customers to evaluate your performance, so be sure to point them in the right direction.
@@ -42,25 +45,37 @@ autowrap_mode = 2
 text_overrun_behavior = 2
 
 [node name="StartGameLabel" type="Label" parent="."]
-offset_left = 796.0
-offset_top = 573.0
-offset_right = 1126.0
-offset_bottom = 608.0
+offset_left = 422.0
+offset_top = 454.0
+offset_right = 752.0
+offset_bottom = 489.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("3_n0hfq")
+theme_override_fonts/font = ExtResource("3_oa1go")
 theme_override_font_sizes/font_size = 40
 text = "Press E to Start Game"
+
+[node name="StartGameLabel2" type="Label" parent="."]
+offset_left = 221.0
+offset_top = 108.0
+offset_right = 958.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 150
+text = "The Helpdesk"
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
 position = Vector2(1562, -295)
 scale = Vector2(2, 2)
-texture = ExtResource("1_xl8py")
+texture = ExtResource("4_tbmy8")
 
 [node name="Curtain" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(-750, 300)
 scale = Vector2(1500, 1500)
-texture = ExtResource("5_n0hfq")
+texture = ExtResource("5_jk1qb")

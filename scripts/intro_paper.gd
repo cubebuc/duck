@@ -2,7 +2,7 @@ extends Node2D
 
 @export var time_before_can_start: float = 5
 
-var next_scene: PackedScene = load("res://scenes/dave_test_scene.tscn")
+@export var next_scene: PackedScene
 
 var curtain: Sprite2D
 
@@ -23,8 +23,8 @@ func enable_start_game():
 	can_start = true
 	var blinking_tween = get_tree().create_tween()
 	blinking_tween.set_loops(100)
-	blinking_tween.tween_property(start_game_label, "self_modulate", Color(start_game_label.self_modulate,1), 1)
-	blinking_tween.tween_property(start_game_label, "self_modulate", Color(start_game_label.self_modulate,0), 1)
+	blinking_tween.tween_property(start_game_label, "self_modulate", Color(start_game_label.self_modulate, 1), 1)
+	blinking_tween.tween_property(start_game_label, "self_modulate", Color(start_game_label.self_modulate, 0), 1)
 	
 	
 func _process(delta: float) -> void:
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 func change_scene():
 	curtain.reparent(get_tree().root)
 	var curtain_draw_tween = get_tree().create_tween()
-	curtain_draw_tween.tween_property(curtain, "position", curtain.position+Vector2.RIGHT*curtain.scale.x, 2)
+	curtain_draw_tween.tween_property(curtain, "position", curtain.position + Vector2.RIGHT * curtain.scale.x, 2)
 	curtain_draw_tween.tween_callback(instantiate_next_scene_to_root)
 
 func instantiate_next_scene_to_root():
@@ -49,7 +49,7 @@ func instantiate_next_scene_to_root():
 	get_tree().root.remove_child(cur_scene)
 func reveal_next_scene():
 	var curtain_draw_tween = get_tree().create_tween()
-	curtain_draw_tween.tween_property(curtain, "position", curtain.position+Vector2.RIGHT*curtain.scale.x, 2)
+	curtain_draw_tween.tween_property(curtain, "position", curtain.position + Vector2.RIGHT * curtain.scale.x, 2)
 	curtain_draw_tween.tween_callback(remove_self_and_curtain)
 	
 func remove_self_and_curtain():
