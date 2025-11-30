@@ -7,6 +7,7 @@ class_name game_manager
 @export var dialog_manager: Node
 @export var time_manager: Node
 @export var character_manager: Node
+@export var clock: Node
 @export var knowledge_guess_threshold: int = 1
 @export var intentional_wrong_answer_threshold: int = 3
 @export var base_character_count: int = 3
@@ -40,6 +41,8 @@ func _ready() -> void:
 	dialog_manager.adjust_text()
 	dialog_manager.display_text()
 
+	clock.update_clock(time_manager.current_time)
+
 
 func read_book() -> void:
 	'''
@@ -65,7 +68,8 @@ func read_book() -> void:
 			dialog_manager.display_text()
 
 			# Advance time
-			time_manager.pass_time_long(),
+			time_manager.pass_time_long()
+			clock.update_clock(time_manager.current_time),
 
 
 		func() -> void:
@@ -126,7 +130,8 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 			dialog_manager.display_text()
 
 			# Advance time
-			time_manager.pass_time_short(),
+			time_manager.pass_time_short()
+			clock.update_clock(time_manager.current_time),
 
 
 		func() -> void:

@@ -1,10 +1,10 @@
 extends Node
 
 
-const DEFAULT_TIME_LIMIT: int = 1 * 60
+const DEFAULT_TIME_LIMIT: int = 20 * 60
 const SHORT_PASS_TIME: int = 5
 const LONG_PASS_TIME: int = 15
-var current_time: int = 0
+var current_time: int = 19 * 60
 
 
 func pass_time_short() -> void:
