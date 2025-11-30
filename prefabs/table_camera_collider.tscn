@@ -81,9 +81,11 @@ outline_size = 30
 transform = Transform3D(1.3131447, 0, 0, 0, 2.3007495, 0, 0, 0, 0.38987225, 5.495005, 2.5841143, -2.115934)
 
 [node name="Node3D" type="Area3D" parent="LampInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+transform = Transform3D(1.1120405, 0, 0, 0, 1.1463649, 0, 0, 0, 1, 0.14670587, 0, 0)
 script = ExtResource("1_v4l15")
 default_sprite = ExtResource("3_15eam")
-highlighted_sprite = ExtResource("8_17h0v")
+highlighted_sprite = ExtResource("3_15eam")
+interaction_sprite = ExtResource("8_17h0v")
 target_sprite = NodePath("../../TableLampSprite")
 interaction_type = 2
 radio_interaction = 5
