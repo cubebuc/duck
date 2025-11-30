@@ -117,4 +117,6 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 
 		func() -> void:
 			is_interacting = false
+			var animal_type = character_manager.characters[0].my_config.animal_type
+			AudioManager.play_animal_sound(animal_type)
 	)

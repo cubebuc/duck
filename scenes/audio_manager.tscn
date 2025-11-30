@@ -1,13 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://by7skdqtdxyy2"]
+[gd_scene load_steps=12 format=3 uid="uid://by7skdqtdxyy2"]
 
 [ext_resource type="Script" uid="uid://xdvdhonxnufs" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="Resource" uid="uid://cnr2sy2v7jhqw" path="res://resources/audio/music.tres" id="2_liach"]
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="3_kq7b2"]
+[ext_resource type="Resource" uid="uid://drxb8hxnv1ka" path="res://resources/audio/cow_sounds.tres" id="4_02gw7"]
+[ext_resource type="Resource" uid="uid://cstsrrfug61vh" path="res://resources/audio/rabbit_sounds.tres" id="5_ujhup"]
+[ext_resource type="Resource" uid="uid://t64pj4eq4x2h" path="res://resources/audio/goose_sounds.tres" id="6_064dn"]
+[ext_resource type="Resource" uid="uid://cslmkeadvsdrb" path="res://resources/audio/fish_sounds.tres" id="7_ic5jq"]
+[ext_resource type="Resource" uid="uid://dbj8cot02iftn" path="res://resources/audio/book_sounds.tres" id="8_064dn"]
+[ext_resource type="Resource" uid="uid://o2dfnyjs723u" path="res://resources/audio/panda_sounds.tres" id="8_ic5jq"]
+[ext_resource type="Resource" uid="uid://bilt45741ehsc" path="res://resources/audio/map_sounds.tres" id="9_ic5jq"]
+[ext_resource type="Resource" uid="uid://bkpm0d12mtkry" path="res://resources/audio/radio_sounds.tres" id="10_if78k"]
 
 [node name="AudioManager" type="Node3D"]
 script = ExtResource("1_8qd8g")
 music_tracks = ExtResource("2_liach")
+animal_sounds = Dictionary[int, ExtResource("3_kq7b2")]({
+0: ExtResource("4_02gw7"),
+1: ExtResource("5_ujhup"),
+2: ExtResource("6_064dn"),
+3: ExtResource("7_ic5jq"),
+4: ExtResource("8_ic5jq")
+})
+book_sounds = ExtResource("8_064dn")
+map_sounds = ExtResource("9_ic5jq")
+radio_sounds = ExtResource("10_if78k")
 min_music_volume_db = -40.0
-max_music_volume_db = 0.0
 music_volume_db_step = 4.0
 
 [node name="Music" type="AudioStreamPlayer3D" parent="."]
@@ -15,5 +33,7 @@ volume_db = -20.0
 max_db = 0.0
 
 [node name="Animals" type="AudioStreamPlayer3D" parent="."]
+volume_db = -10.0
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
+volume_db = -10.0

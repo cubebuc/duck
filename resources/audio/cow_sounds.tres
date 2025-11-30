@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=5 format=3 uid="uid://drxb8hxnv1ka"]
+
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_86m42"]
+[ext_resource type="AudioStream" uid="uid://cw5wa5qkh7hjk" path="res://audio/animal sounds/cow2.wav" id="3_q27d4"]
+[ext_resource type="AudioStream" uid="uid://dvlekimvyulto" path="res://audio/animal sounds/cow3.wav" id="4_j4iwn"]
+[ext_resource type="AudioStream" uid="uid://cu40jxvtsf43o" path="res://audio/animal sounds/cow4.wav" id="5_mnt8v"]
+
+[resource]
+script = ExtResource("1_86m42")
+sounds = Array[AudioStream]([ExtResource("3_q27d4"), ExtResource("4_j4iwn"), ExtResource("5_mnt8v")])
+metadata/_custom_type_script = "uid://c3ni445qqu2hq"

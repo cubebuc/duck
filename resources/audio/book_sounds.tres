@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=3 format=3 uid="uid://dbj8cot02iftn"]
+
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_lnusv"]
+[ext_resource type="AudioStream" uid="uid://c5logfc8u660o" path="res://audio/sound effects/book_rustle.wav" id="2_sej5h"]
+
+[resource]
+script = ExtResource("1_lnusv")
+sounds = Array[AudioStream]([ExtResource("2_sej5h")])
+metadata/_custom_type_script = "uid://c3ni445qqu2hq"

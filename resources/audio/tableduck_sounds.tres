@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=6 format=3 uid="uid://c1dy1c0ol4yx1"]
+
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_xwr0d"]
+[ext_resource type="AudioStream" uid="uid://bdau01g740n72" path="res://audio/animal sounds/tableduck1.wav" id="2_tonax"]
+[ext_resource type="AudioStream" uid="uid://ct5024ww35lql" path="res://audio/animal sounds/tableduck2.wav" id="3_k18fq"]
+[ext_resource type="AudioStream" uid="uid://73km2xd0bkb5" path="res://audio/animal sounds/tableduck3.wav" id="4_jty4j"]
+[ext_resource type="AudioStream" uid="uid://dopcvm8cefpcb" path="res://audio/animal sounds/tableduck4.wav" id="5_hyaqt"]
+
+[resource]
+script = ExtResource("1_xwr0d")
+sounds = Array[AudioStream]([ExtResource("2_tonax"), ExtResource("3_k18fq"), ExtResource("4_jty4j"), ExtResource("5_hyaqt")])
+metadata/_custom_type_script = "uid://c3ni445qqu2hq"

@@ -1,12 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=38 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
 [ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="4_vyvv1"]
 [ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
-[ext_resource type="PackedScene" path="res://scenes/blinking.tscn" id="6_lccll"]
+[ext_resource type="PackedScene" uid="uid://w22085tat7r8" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
+[ext_resource type="PackedScene" uid="uid://dfnjcw5cy8gp4" path="res://scenes/clock.tscn" id="10_4dhle"]
 [ext_resource type="Texture2D" uid="uid://cthmoxgcxe1mn" path="res://imports/radio.PNG" id="10_c2pvo"]
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="11_4dhle"]
 [ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="11_8nv4v"]
@@ -76,6 +77,9 @@ transform = Transform3D(4.3736486, 0, 2.4230556, 0, 4.9999995, 0, -2.4230556, 0,
 [node name="CharacterManager" parent="." instance=ExtResource("14_nav1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64246273, 0.9597764, -11.996862)
 character_offset = Vector3(7, 0, -10)
+
+[node name="Clock" parent="." instance=ExtResource("10_4dhle")]
+transform = Transform3D(-0.16210681, 0, -1.5917667, 0, 1.6, 0, 1.5917667, 0, -0.16210681, -52.312336, 13.337543, -1.3227968)
 
 [node name="Radio" type="Node3D" parent="."]
 transform = Transform3D(0.3962347, 0, -0.9181494, 0, 1, 0, 0.9181494, 0, 0.3962347, 15.643959, -1.5979557, -0.8879118)

@@ -64,8 +64,10 @@ func camera_ray_left():
 func interact():
 	if interaction_type == InteractionType.BOOK:
 		gm.read_book()
+		AudioManager.play_book_sound()
 	elif interaction_type == InteractionType.ANIMAL_ANSWER:
 		gm.answer_animal(answer_type)
+		AudioManager.play_map_sound()
 	elif interaction_type == InteractionType.RADIO:
 		match radio_interaction:
 			RadioInteraction.PLAY_PAUSE:
@@ -78,3 +80,4 @@ func interact():
 				AudioManager.music_volume_up()
 			RadioInteraction.VOLUME_DOWN:
 				AudioManager.music_volume_down()
+		AudioManager.play_radio_sound()

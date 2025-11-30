@@ -3,6 +3,10 @@ extends Node3D
 
 @export var music_tracks: SoundCollection
 @export var animal_sounds: Dictionary[AnimalConfig.AnimalType, SoundCollection]
+@export var book_sounds: SoundCollection
+@export var map_sounds: SoundCollection
+@export var radio_sounds: SoundCollection
+@export var tableduck_sounds: SoundCollection
 @export var min_music_volume_db: float
 @export var max_music_volume_db: float
 @export var music_volume_db_step: float
@@ -15,51 +19,70 @@ var current_music_index: int = 0
 
 
 func _ready() -> void:
-    music_player = $Music
-    animal_player = $Animals
-    sfx_player = $SFX
+	music_player = $Music
+	animal_player = $Animals
+	sfx_player = $SFX
 
-    play_music(current_music_index)
+	play_music(current_music_index)
 
 
 func play(player: AudioStreamPlayer3D, stream: AudioStream) -> void:
-    player.stream = stream
-    player.play()
+	player.stream = stream
+	player.play()
 
 
 func play_music(index: int) -> void:
-    play(music_player, music_tracks.sounds[index])
+	play(music_player, music_tracks.sounds[index])
 
 
 func pause_unpause_music() -> void:
-    music_player.stream_paused = not music_player.stream_paused
+	music_player.stream_paused = not music_player.stream_paused
 
 
 func play_music_next() -> void:
-    current_music_index = (current_music_index + 1) % music_tracks.sounds.size()
-    play_music(current_music_index)
+	current_music_index = (current_music_index + 1) % music_tracks.sounds.size()
+	play_music(current_music_index)
 
 
 func play_music_previous() -> void:
-    current_music_index = (current_music_index - 1 + music_tracks.sounds.size()) % music_tracks.sounds.size()
-    play_music(current_music_index)
+	current_music_index = (current_music_index - 1 + music_tracks.sounds.size()) % music_tracks.sounds.size()
+	play_music(current_music_index)
 
 
 func music_volume_down() -> void:
-    music_player.volume_db = max(music_player.volume_db - music_volume_db_step, min_music_volume_db)
-    print("Music Volume: ", music_player.volume_db)
+	music_player.volume_db = max(music_player.volume_db - music_volume_db_step, min_music_volume_db)
+	print("Music Volume: ", music_player.volume_db)
 
 
 func music_volume_up() -> void:
-    music_player.volume_db = min(music_player.volume_db + music_volume_db_step, max_music_volume_db)
-    print("Music Volume: ", music_player.volume_db)
+	music_player.volume_db = min(music_player.volume_db + music_volume_db_step, max_music_volume_db)
+	print("Music Volume: ", music_player.volume_db)
+
+
+func play_random_sound(player: AudioStreamPlayer3D, collection: SoundCollection) -> void:
+	print(collection)
+	print(collection.sounds)
+	print(collection.sounds.size())
+	var index: int = randi() % collection.sounds.size()
+	play(player, collection.sounds[index])
 
 
 func play_animal_sound(animal_type: AnimalConfig.AnimalType) -> void:
-    var collection: SoundCollection = animal_sounds.get(animal_type)
-    var index: int = randi() % collection.sounds.size()
-    play(animal_player, collection.sounds[index])
+	var collection: SoundCollection = animal_sounds.get(animal_type)
+	play_random_sound(animal_player, collection)
+
+
+func play_book_sound() -> void:
+	play_random_sound(sfx_player, book_sounds)
+
+
+func play_map_sound() -> void:
+	play_random_sound(sfx_player, map_sounds)
+
+
+func play_radio_sound() -> void:
+	play_random_sound(sfx_player, radio_sounds)
 
 
 func play_sfx(stream: AudioStream) -> void:
-    play(sfx_player, stream)
+	play(sfx_player, stream)

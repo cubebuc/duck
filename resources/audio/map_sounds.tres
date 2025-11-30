@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=6 format=3 uid="uid://bilt45741ehsc"]
+
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_bpu4p"]
+[ext_resource type="AudioStream" uid="uid://qtmedx0uq3a2" path="res://audio/sound effects/huh1.wav" id="2_cggcb"]
+[ext_resource type="AudioStream" uid="uid://d0ajlgilgvx1i" path="res://audio/sound effects/huh2.wav" id="3_np35i"]
+[ext_resource type="AudioStream" uid="uid://cwebtlussetx8" path="res://audio/sound effects/huh3.wav" id="4_d008f"]
+[ext_resource type="AudioStream" uid="uid://b1lujihcskexk" path="res://audio/sound effects/huh4.wav" id="5_phm5v"]
+
+[resource]
+script = ExtResource("1_bpu4p")
+sounds = Array[AudioStream]([ExtResource("2_cggcb"), ExtResource("3_np35i"), ExtResource("4_d008f"), ExtResource("5_phm5v")])
+metadata/_custom_type_script = "uid://c3ni445qqu2hq"

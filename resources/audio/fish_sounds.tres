@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=6 format=3 uid="uid://cslmkeadvsdrb"]
+
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_56wt4"]
+[ext_resource type="AudioStream" uid="uid://cj47rwapqjc8n" path="res://audio/animal sounds/fish1.wav" id="2_55c0f"]
+[ext_resource type="AudioStream" uid="uid://bnil1vf26d3rx" path="res://audio/animal sounds/fish2.wav" id="3_fv47v"]
+[ext_resource type="AudioStream" uid="uid://c1dyjfer0sraf" path="res://audio/animal sounds/fish3.wav" id="4_e5fwb"]
+[ext_resource type="AudioStream" uid="uid://cn0nwl3iljv3i" path="res://audio/animal sounds/fish4.wav" id="5_gx8nw"]
+
+[resource]
+script = ExtResource("1_56wt4")
+sounds = Array[AudioStream]([ExtResource("2_55c0f"), ExtResource("3_fv47v"), ExtResource("4_e5fwb"), ExtResource("5_gx8nw")])
+metadata/_custom_type_script = "uid://c3ni445qqu2hq"

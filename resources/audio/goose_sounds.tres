@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=7 format=3 uid="uid://t64pj4eq4x2h"]
+
+[ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_5saei"]
+[ext_resource type="AudioStream" uid="uid://bi53ltra5jppu" path="res://audio/animal sounds/goose1.wav" id="2_xd7qj"]
+[ext_resource type="AudioStream" uid="uid://btddtes7k5xwj" path="res://audio/animal sounds/goose2.wav" id="3_8t1fn"]
+[ext_resource type="AudioStream" uid="uid://b8ln651rfs0rs" path="res://audio/animal sounds/goose3.wav" id="4_jgobc"]
+[ext_resource type="AudioStream" uid="uid://k18xoqgwtrj4" path="res://audio/animal sounds/goose4.wav" id="5_i162x"]
+[ext_resource type="AudioStream" uid="uid://bprufojhv5okk" path="res://audio/animal sounds/goose5.wav" id="6_b202p"]
+
+[resource]
+script = ExtResource("1_5saei")
+sounds = Array[AudioStream]([ExtResource("2_xd7qj"), ExtResource("3_8t1fn"), ExtResource("4_jgobc"), ExtResource("5_i162x"), ExtResource("6_b202p")])
+metadata/_custom_type_script = "uid://c3ni445qqu2hq"
