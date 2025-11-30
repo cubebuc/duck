@@ -14,7 +14,8 @@ enum RadioInteraction {
 	PREVIOUS,
 	NEXT,
 	VOLUME_UP,
-	VOLUME_DOWN
+	VOLUME_DOWN,
+    NONE
 }
 
 @export var displayed_text: String = ""
@@ -88,6 +89,8 @@ func interact():
 				AudioManager.music_volume_up()
 			RadioInteraction.VOLUME_DOWN:
 				AudioManager.music_volume_down()
+			RadioInteraction.NONE:
+				pass
 		AudioManager.play_radio_sound()
 	elif interaction_type == InteractionType.TABLE_DUCK:
 		AudioManager.play_tableduck_sound()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=39 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
 [ext_resource type="PackedScene" uid="uid://w22085tat7r8" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
-[ext_resource type="PackedScene" uid="uid://cjpflfkyj6rbu" path="res://prefabs/map_interactable.tscn" id="9_4dhle"]
 [ext_resource type="PackedScene" uid="uid://dfnjcw5cy8gp4" path="res://scenes/clock.tscn" id="10_4dhle"]
 [ext_resource type="Texture2D" uid="uid://cthmoxgcxe1mn" path="res://imports/radio.PNG" id="10_c2pvo"]
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="11_4dhle"]
@@ -91,21 +90,21 @@ character_offset = Vector3(7, 0, -10)
 [node name="Clock" parent="." instance=ExtResource("10_4dhle")]
 transform = Transform3D(0.1282982, 0, 1.9958807, 0, 2, 0, -1.9958807, 0, 0.1282982, -60.52113, 16.957462, 2.9430428)
 
-[node name="MapInteractable" parent="." instance=ExtResource("9_4dhle")]
+[node name="SecretAnimalInteractable" type="Node3D" parent="."]
 transform = Transform3D(4.521497, 0, 0, 0, 5.1714377, 0, 0, 0, 1, 0, 4.2374268, -8.974134)
 
-[node name="Node3D" parent="MapInteractable" index="0" node_paths=PackedStringArray("gm")]
+[node name="Node3D" type="Area3D" parent="SecretAnimalInteractable" node_paths=PackedStringArray("gm") groups=["camera_ray_collider_group"]]
+script = ExtResource("11_4dhle")
 gm = NodePath("../../GameManager")
 interaction_type = 4
 
-[node name="CollisionShape3D" parent="MapInteractable/Node3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretAnimalInteractable/Node3D"]
 shape = SubResource("BoxShape3D_aq1ig")
 
-[node name="TestCubeMesh" parent="MapInteractable/Node3D/CollisionShape3D" index="0"]
-mesh = SubResource("BoxMesh_q4una")
-
-[node name="LabelOnHover" parent="MapInteractable/Node3D" index="1"]
+[node name="TestCubeMesh" type="MeshInstance3D" parent="SecretAnimalInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 visible = false
+mesh = SubResource("BoxMesh_q4una")
 
 [node name="Radio" type="Node3D" parent="."]
 transform = Transform3D(0.3962347, 0, -0.9181494, 0, 1, 0, 0.9181494, 0, 0.3962347, 15.643959, -1.5979557, -0.8879118)
@@ -132,7 +131,8 @@ visible = false
 mesh = SubResource("BoxMesh_x6xqf")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/PlayPauseInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+transform = Transform3D(0.5099899, 0, -1.8362988, 0, 2, 0, 1.1817415, 0, 0.7924694, 15.386225, -0.5979557, -1.4851296)
+top_level = true
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -157,12 +157,13 @@ radio_interaction = 1
 shape = SubResource("BoxShape3D_4dhle")
 
 [node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/PreviousInteractable/Node3D/CollisionShape3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, -0.22004789, 0, -7.450581e-09)
 visible = false
 mesh = SubResource("BoxMesh_x6xqf")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/PreviousInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.28489172, 1, 0)
+transform = Transform3D(0.6564275, 0, -1.8362988, 0, 2, 0, 1.5210645, 0, 0.7924694, 14.823917, -0.5979557, -2.7881002)
+top_level = true
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -187,12 +188,13 @@ radio_interaction = 2
 shape = SubResource("BoxShape3D_4dhle")
 
 [node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/NextInteractable/Node3D/CollisionShape3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0.17861345, 0, 3.7252903e-09)
 visible = false
 mesh = SubResource("BoxMesh_x6xqf")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/NextInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.37279528, 1, -7.450581e-09)
+transform = Transform3D(0.6564275, 0, -1.8362988, 0, 2, 0, 1.5210645, 0, 0.7924694, 15.925503, -0.5979557, -0.23552203)
+top_level = true
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -217,12 +219,13 @@ radio_interaction = 3
 shape = SubResource("BoxShape3D_4dhle")
 
 [node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/VolumeUpInteractable/Node3D/CollisionShape3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0.13374789, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_x6xqf")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/VolumeUpInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2897888, 1, -7.450581e-09)
+transform = Transform3D(0.6564275, 0, -1.8362988, 0, 2, 0, 1.5210645, 0, 0.7924694, 15.687848, 3.1797066, -0.7862123)
+top_level = true
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -233,7 +236,7 @@ font_size = 80
 outline_size = 30
 
 [node name="VolumeDownInteractable" type="Node3D" parent="Radio"]
-transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -1.5230565, 3.7776623, 0)
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -1.6319921, 3.7776623, 0)
 
 [node name="Node3D" type="Area3D" parent="Radio/VolumeDownInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
 script = ExtResource("11_4dhle")
@@ -252,7 +255,8 @@ visible = false
 mesh = SubResource("BoxMesh_x6xqf")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/VolumeDownInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.38744515, 1, 1.4901161e-08)
+transform = Transform3D(0.6564275, 0, -1.8362988, 0, 2, 0, 1.5210645, 0, 0.7924694, 15.167636, 3.1797066, -1.9916407)
+top_level = true
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -281,6 +285,9 @@ mesh = SubResource("BoxMesh_x6xqf")
 [node name="Map" parent="." instance=ExtResource("15_vyvv1")]
 transform = Transform3D(1.2173702, 0, 2.0683353, 0, 2.4, 0, -2.0683353, 0, 1.2173702, -45.638645, -5.1072083, -16.517014)
 
+[node name="AirportInteractable" parent="Map/OffsetParent" index="0"]
+transform = Transform3D(1.5359817, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 3.4906778, 1.3885441, 0.3)
+
 [node name="Node3D" parent="Map/OffsetParent/AirportInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
 
@@ -291,7 +298,11 @@ shape = SubResource("BoxShape3D_aq1ig")
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" parent="Map/OffsetParent/AirportInteractable/Node3D" index="1"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.32970083, 1.147795, -1.4901161e-08)
+transform = Transform3D(4.473831, 0, 4.7239375, 0, 7.1012845, 0, -7.6011252, 0, 2.780391, -41.306816, 16.700708, -22.457422)
+top_level = true
+
+[node name="ToiletInteractable" parent="Map/OffsetParent" index="1"]
+transform = Transform3D(1.1976002, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -0.03607011, -0.08269453, 0)
 
 [node name="Node3D" parent="Map/OffsetParent/ToiletInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
@@ -303,7 +314,11 @@ shape = SubResource("BoxShape3D_aq1ig")
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" parent="Map/OffsetParent/ToiletInteractable/Node3D" index="1"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.051358104, 1, 0)
+transform = Transform3D(3.4987218, 0, 4.7240777, 0, 7.0992002, 0, -5.944396, 0, 2.7804732, -45.592712, 12.643925, -16.595055)
+top_level = true
+
+[node name="ArcadeInteractable" parent="Map/OffsetParent" index="2"]
+transform = Transform3D(1.6152394, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -3.630677, 2.3677845, -0.2)
 
 [node name="Node3D" parent="Map/OffsetParent/ArcadeInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
@@ -315,19 +330,28 @@ shape = SubResource("BoxShape3D_aq1ig")
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" parent="Map/OffsetParent/ArcadeInteractable/Node3D" index="1"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.15425783, 0.8516077, 0)
+transform = Transform3D(4.4847918, 0, 4.7240777, 0, 7.0992002, 0, -7.619747, 0, 2.7804732, -50.299244, 16.673632, -9.544871)
+top_level = true
+
+[node name="CafeInteractable" parent="Map/OffsetParent" index="3"]
+transform = Transform3D(1.4713049, 0, 0, 0, 1.5114905, 0, 0, 0, 1.142, -3.5176253, -2.0284953, -0.2)
 
 [node name="Node3D" parent="Map/OffsetParent/CafeInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
 
 [node name="CollisionShape3D" parent="Map/OffsetParent/CafeInteractable/Node3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_aq1ig")
 
 [node name="TestCubeMesh" parent="Map/OffsetParent/CafeInteractable/Node3D/CollisionShape3D" index="0"]
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" parent="Map/OffsetParent/CafeInteractable/Node3D" index="1"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.16386728, 1.2757564, 1.4901161e-08)
+transform = Transform3D(4.399576, 0, 4.7240777, 0, 7.0992002, 0, -7.474964, 0, 2.7804735, -49.97409, 9.076607, -10.097309)
+top_level = true
+
+[node name="LibraryInteractable" parent="Map/OffsetParent" index="4"]
+transform = Transform3D(1.6007965, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 3.4175193, -2.5005198, 0.2)
 
 [node name="Node3D" parent="Map/OffsetParent/LibraryInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
@@ -339,7 +363,8 @@ shape = SubResource("BoxShape3D_aq1ig")
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" parent="Map/OffsetParent/LibraryInteractable/Node3D" index="1"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.103569455, 0.8835702, -7.450581e-09)
+transform = Transform3D(4.473831, 0, 4.7239375, 0, 7.1012845, 0, -7.6011252, 0, 2.780391, -41.29627, 6.4287863, -22.948494)
+top_level = true
 
 [node name="Node3D" parent="Map/OffsetParent/ZoomCollider" index="0" node_paths=PackedStringArray("camera")]
 camera = NodePath("../../../../Player/CameraHolder/Camera3D")
@@ -1197,7 +1222,6 @@ camera_attributes = SubResource("CameraAttributesPractical_5n3sa")
 compositor = SubResource("Compositor_ngndu")
 
 [editable path="TableCameraCollider"]
-[editable path="MapInteractable"]
 [editable path="Map"]
 [editable path="Map/OffsetParent/AirportInteractable"]
 [editable path="Map/OffsetParent/ToiletInteractable"]

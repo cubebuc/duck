@@ -12,13 +12,13 @@ class NaselManzelkuBonus:
 	var given_answer: DialogueText.Answer
 
 
-const SALARY_AMOUNT: int = 100
-const TIP_AMOUNT: int = 10
-const NASEL_MANZELKU_BONUSES: Array[int] = [15, 30, 40]
+const SALARY_AMOUNT: int = 10
+const TIP_AMOUNT: int = 3
+const NASEL_MANZELKU_BONUSES: Array[int] = [2, 3, 4]
 const MAX_NASEL_MANZELKU_BONUSES_PER_LOCATION: int = 2
-const RENT_AMOUNT: int = 100
-const BILL_AMOUNTS: Array[int] = [0, 25, 50, 75, 100, 150, 200]
-const INITIAL_MONEY: int = 250
+const RENT_AMOUNT: int = 70
+const BILL_AMOUNTS: Array[int] = [0, 20, 30, 50, 70]
+const INITIAL_MONEY: int = 100
 
 var money: int = INITIAL_MONEY
 var money_today: int = 0
