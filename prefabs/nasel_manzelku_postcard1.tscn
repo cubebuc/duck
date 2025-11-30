@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvtglnkncmd8i" path="res://scripts/manzelka_note.gd" id="1_saen2"]
 [ext_resource type="Texture2D" uid="uid://bp7he3ltlcnmy" path="res://imports/postcard1.PNG" id="2_saen2"]
-[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_wrsca"]
+[ext_resource type="FontFile" uid="uid://0gi2reoes7vj" path="res://fonts/Custom_font_written-Regular.ttf" id="3_saen2"]
 
 [node name="NaselManzelkuNote" type="Node2D"]
 script = ExtResource("1_saen2")
@@ -19,9 +19,9 @@ offset_left = -144.0
 offset_top = -88.0
 offset_right = 64.0
 offset_bottom = 80.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("3_wrsca")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_saen2")
 theme_override_font_sizes/font_size = 20
 text = "Hello, 
 today I found myself in an arcade while looking for the toilet. This was the best day of my life! Thanks to you. 
