@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="2_61fo3"]
 [ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="3_1iwbp"]
 [ext_resource type="Texture2D" uid="uid://cg4ebcfl5cidt" path="res://imports/table_lamp.PNG" id="3_15eam"]
-[ext_resource type="Texture2D" uid="uid://tfq4c4vs0lwi" path="res://imports/rubber_duck.PNG" id="4_1iwbp"]
-[ext_resource type="Texture2D" uid="uid://dilquj7adm4dl" path="res://imports/rubber_duck_hl.PNG" id="5_17h0v"]
+[ext_resource type="Texture2D" uid="uid://cbheyo2xasgkc" path="res://imports/fitted_rubber_duck.PNG" id="5_1iwbp"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="5_61fo3"]
+[ext_resource type="Texture2D" uid="uid://bbs1n21u6q8kf" path="res://imports/fitted_rubber_duck_hl.PNG" id="6_17h0v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
 size = Vector3(2, 2, 1)
@@ -50,8 +50,8 @@ transform = Transform3D(1.7140331, 0, 0, 0, 1.3527713, 0, 0, 0, 1, -5.5337925, 1
 
 [node name="Node3D" type="Area3D" parent="TableduckInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
 script = ExtResource("1_v4l15")
-default_sprite = ExtResource("4_1iwbp")
-highlighted_sprite = ExtResource("5_17h0v")
+default_sprite = ExtResource("5_1iwbp")
+highlighted_sprite = ExtResource("6_17h0v")
 target_sprite = NodePath("../../RubberDuckSprite")
 interaction_type = 3
 
@@ -64,7 +64,7 @@ visible = false
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" type="Label3D" parent="TableduckInteractable/Node3D"]
-transform = Transform3D(0.95455056, -0.052330915, 0.88257605, -0.19714089, 1.3834503, 0.4521181, -0.8313463, -0.70205593, 1.5190424, 0.16778517, 0.6694927, 0.3156953)
+transform = Transform3D(0.93789566, -0.066227145, 0.9124923, -0.1971409, 1.3834503, 0.45211813, -0.85009116, -0.7008817, 1.5012622, 0.37682748, 0.6694927, 0.3156953)
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -89,4 +89,4 @@ texture = ExtResource("3_15eam")
 [node name="RubberDuckSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.177155, 1.038934, -3.6715202)
 sorting_offset = 15.0
-texture = ExtResource("4_1iwbp")
+texture = ExtResource("5_1iwbp")
