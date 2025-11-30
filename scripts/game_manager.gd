@@ -10,12 +10,16 @@ class_name game_manager
 @export var knowledge_guess_threshold: int = 1
 @export var intentional_wrong_answer_threshold: int = 3
 @export var base_character_count: int = 3
+@export var poor_ending_threshold: int = 0
+@export var rich_ending_threshold: int = 2000
+@export var max_game_days: int = 5
 
 var knowledge_map = {}
 var book_used: bool = false
 var is_interacting: bool = false
 
 var end_of_day_scene: PackedScene = load("res://scenes/end_of_day_scene.tscn")
+var ending_scene: PackedScene = load("res://scenes/ending_paper.tscn")
 
 func _ready() -> void:
 	for animal_type in AnimalConfig.AnimalType.values():
@@ -59,13 +63,21 @@ func read_book() -> void:
 			dialog_manager.display_text()
 
 			# Advance time
-			time_manager.pass_time_long()
+			time_manager.pass_time_long(),
+
+
+		func() -> void:
 			if time_manager.is_time_up():
 				MoneyManager.pay_rent()
 				MoneyManager.pay_bill()
-				SceneTransition.change_scene(end_of_day_scene),
-
-		func() -> void:
+				var overall_money = MoneyManager.money + MoneyManager.money_today
+				if overall_money < poor_ending_threshold or overall_money > rich_ending_threshold or \
+					MoneyManager.current_day >= max_game_days:
+					SceneTransition.change_scene(ending_scene)
+				else:
+					SceneTransition.change_scene(end_of_day_scene)
+				
+				return
 			is_interacting = false
 	)
 	
@@ -109,13 +121,20 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 			dialog_manager.display_text()
 
 			# Advance time
-			time_manager.pass_time_short()
+			time_manager.pass_time_short(),
+
+
+		func() -> void:
 			if time_manager.is_time_up():
 				MoneyManager.pay_rent()
 				MoneyManager.pay_bill()
-				SceneTransition.change_scene(end_of_day_scene),
-
-		func() -> void:
+				var overall_money = MoneyManager.money + MoneyManager.money_today
+				if overall_money < poor_ending_threshold or overall_money > rich_ending_threshold or \
+					MoneyManager.current_day >= max_game_days:
+					SceneTransition.change_scene(ending_scene)
+				else:
+					SceneTransition.change_scene(end_of_day_scene)
+				return
 			is_interacting = false
 			var animal_type = character_manager.characters[0].my_config.animal_type
 			AudioManager.play_animal_sound(animal_type)
