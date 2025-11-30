@@ -53,9 +53,9 @@ var already_started_showing:bool = false
 
 func _ready() -> void:
 	init_reference_vars()
+	init_quotes_dict()
 	init_manzelka_quotes()
 	init_money_counts()
-	init_quotes_dict()
 	note_objects_array = [sticker_scene, postcard1_scene, postcard2_scene]
 	
 	hide_all_sticky_notes()
