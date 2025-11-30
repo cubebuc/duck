@@ -83,6 +83,7 @@ func play_radio_sound() -> void:
 
 
 func play_tableduck_sound() -> void:
+	sfx_player.pitch_scale = randf_range(0.8, 2)
 	play_random_sound(sfx_player, tableduck_sounds)
 
 
