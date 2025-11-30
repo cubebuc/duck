@@ -17,6 +17,14 @@ var total_balance_label: result_row
 var sticky_note_spaces: Node2D
 
 
+@export var airport_manzelka: Array[String]
+@export var toilet_manzelka: Array[String]
+@export var arcade_manzelka: Array[String]
+@export var cafe_manzelka: Array[String]
+@export var library_manzelka: Array[String]
+var location_quote_dict: Dictionary
+
+
 var customers_served_count: int = 8
 var customers_served_money: int = 80
 var customers_served_quickly_count: int = 2
@@ -61,8 +69,8 @@ func _ready() -> void:
 	#sticky_notes_bonuses = MoneyManager.nasel_manzelku_bonuses_today
 	#sticky_notes_recieved = len(sticky_notes_bonuses)
 	
-	sticky_notes_bonuses = [4,5,1,2]
-	sticky_notes_recieved = 4
+	sticky_notes_bonuses = [4,5,1,2,4,1,5,7,5,1]
+	sticky_notes_recieved = 10
 		
 	hide_all_sticky_notes()
 	line_sprite.self_modulate = Color(self_modulate, 0)

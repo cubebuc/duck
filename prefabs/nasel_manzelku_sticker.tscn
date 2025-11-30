@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwabsljcasblo"]
+
+[ext_resource type="Script" uid="uid://dvtglnkncmd8i" path="res://scripts/manzelka_note.gd" id="1_e8bnr"]
+[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="1_ggvva"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="2_ded61"]
+
+[node name="NaselManzelkuNote" type="Node2D"]
+script = ExtResource("1_e8bnr")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(200, 185.714)
+texture = ExtResource("1_ggvva")
+
+[node name="Text" type="Label" parent="."]
+z_index = 1
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 720.0
+offset_bottom = 719.9999
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_ded61")
+theme_override_font_sizes/font_size = 100
+text = "Hello, 
+today I found myself in an arcade while looking for the toilet. This was the best day of my life! Thanks to you. 
+I am grateful."
+autowrap_mode = 2
+clip_text = true

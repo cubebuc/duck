@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqwnni2ev6bep"]
+
+[ext_resource type="Script" uid="uid://dvtglnkncmd8i" path="res://scripts/manzelka_note.gd" id="1_saen2"]
+[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="2_6ng86"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_wrsca"]
+
+[node name="NaselManzelkuNote" type="Node2D"]
+script = ExtResource("1_saen2")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-1.335144e-05, 0)
+scale = Vector2(250, 129.261)
+texture = ExtResource("2_6ng86")
+
+[node name="Text" type="Label" parent="."]
+z_index = 1
+offset_left = -111.99999
+offset_top = -55.999996
+offset_right = 727.9999
+offset_bottom = 503.99994
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_wrsca")
+theme_override_font_sizes/font_size = 80
+text = "Hello, 
+today I found myself in an arcade while looking for the toilet. This was the best day of my life! Thanks to you. 
+I am grateful.
+Really really really really really really really grateful."
+autowrap_mode = 2
+clip_text = true
