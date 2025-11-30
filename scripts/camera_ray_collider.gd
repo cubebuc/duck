@@ -46,7 +46,8 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if is_active:
-		if Input.is_action_just_pressed("Interact") and (not gm or not gm.is_interacting):
+		if Input.is_action_just_pressed("Interact") and (not gm or not gm.is_interacting) and\
+			not SceneTransition.is_tutorial_running:
 			interact()
 		
 

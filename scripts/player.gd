@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name player
+
 
 var camera_holder: Node3D
 var camera: Camera3D
@@ -10,6 +12,7 @@ var mouse_speed: float = 0.1
 
 var last_mouse_position: Vector2
 
+var moving_enabled:bool = true
 
 func _ready() -> void:
 	camera_holder = $CameraHolder
@@ -43,13 +46,14 @@ func _process(delta: float) -> void:
 			get_window().warp_mouse(Vector2(mouse_position.x, window_size.y - 1))
 			last_mouse_position = Vector2(mouse_position.x, window_size.y - 1)
 	
-	# left/right rotation
-	camera_holder.rotate_y(-mouse_movement.x * delta * mouse_speed)
-	camera_holder.rotation_degrees.y = clamp(camera_holder.rotation_degrees.y, -75, 75)
+	if moving_enabled:
+		# left/right rotation
+		camera_holder.rotate_y(-mouse_movement.x * delta * mouse_speed)
+		camera_holder.rotation_degrees.y = clamp(camera_holder.rotation_degrees.y, -75, 75)
 
-	# up/down rotation
-	camera.rotate_x(-mouse_movement.y * delta * mouse_speed)
-	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -40, 30)
+		# up/down rotation
+		camera.rotate_x(-mouse_movement.y * delta * mouse_speed)
+		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -40, 30)
 
 	# exit with esc
 	if Input.is_key_pressed(Key.KEY_ESCAPE):
