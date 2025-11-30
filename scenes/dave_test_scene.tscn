@@ -510,7 +510,7 @@ sorting_offset = -5.0
 texture = ExtResource("15_8vbiy")
 
 [node name="BunchOfGrass3" type="Node3D" parent="GroundObjects/Grasses"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.993038, 0, -37.698837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.993038, -6.001168, -37.698837)
 
 [node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
