@@ -87,6 +87,10 @@ func play_radio_sound() -> void:
 	play_random_sound(sfx_player, radio_sounds)
 
 
+func play_tableduck_sound() -> void:
+	play_random_sound(sfx_player, tableduck_sounds)
+
+
 func play_sfx(stream: AudioStream) -> void:
 	sfx_player.pitch_scale = 1
 	play(sfx_player, stream)
