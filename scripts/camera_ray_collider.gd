@@ -34,6 +34,9 @@ var label_on_hover: Label3D
 var is_active: bool = false
 
 func _ready() -> void:
+	if interaction_type == InteractionType.ANIMAL:
+		return
+
 	if not target_sprite:
 		target_sprite = $InteractableSprite
 	
@@ -48,18 +51,18 @@ func _process(delta: float) -> void:
 		
 
 func camera_ray_entered():
-	print("Camera ray entered")
 	is_active = true
-	target_sprite.texture = highlighted_sprite
+	if target_sprite:
+		target_sprite.texture = highlighted_sprite
 	
 	if label_on_hover:
 		label_on_hover.visible = true
 	
 
 func camera_ray_left():
-	print("Camera ray left")
 	is_active = false
-	target_sprite.texture = default_sprite
+	if target_sprite:
+		target_sprite.texture = default_sprite
 	
 	if label_on_hover:
 		label_on_hover.visible = false

@@ -51,18 +51,13 @@ func play_music_previous() -> void:
 
 func music_volume_down() -> void:
 	music_player.volume_db = max(music_player.volume_db - music_volume_db_step, min_music_volume_db)
-	print("Music Volume: ", music_player.volume_db)
 
 
 func music_volume_up() -> void:
 	music_player.volume_db = min(music_player.volume_db + music_volume_db_step, max_music_volume_db)
-	print("Music Volume: ", music_player.volume_db)
 
 
 func play_random_sound(player: AudioStreamPlayer3D, collection: SoundCollection) -> void:
-	print(collection)
-	print(collection.sounds)
-	print(collection.sounds.size())
 	var index: int = randi() % collection.sounds.size()
 	play(player, collection.sounds[index])
 
