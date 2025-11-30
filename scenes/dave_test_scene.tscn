@@ -59,7 +59,7 @@ script = ExtResource("1_j8xxv")
 [node name="CameraHolder" type="Node3D" parent="Player"]
 
 [node name="Camera3D" parent="Player/CameraHolder" instance=ExtResource("2_furwo")]
-transform = Transform3D(1, 0, 0, 0, 0.94147056, 0.33709526, 0, -0.33709526, 0.94147056, 0, 0.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
 
 [node name="TableCameraCollider" parent="." instance=ExtResource("3_wu11x")]
 
@@ -69,13 +69,15 @@ gm = NodePath("../../../GameManager")
 [node name="Node3D" parent="TableCameraCollider/TableduckInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../GameManager")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager", "clock") instance=ExtResource("5_ltvu5")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager", "clock", "player_node") instance=ExtResource("5_ltvu5")]
 blinking_manager = NodePath("../Blinking")
 dialog_manager = NodePath("../SpeechBubble2")
 time_manager = NodePath("../TimeManager")
 character_manager = NodePath("../CharacterManager")
 clock = NodePath("../Clock")
 base_character_count = 5
+player_node = NodePath("../Player")
+clock_angle = Vector3(10, 75, 0)
 
 [node name="Blinking" parent="." instance=ExtResource("6_lccll")]
 visible = false

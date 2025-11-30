@@ -14,6 +14,8 @@ class_name game_manager
 @export var poor_ending_threshold: int = 0
 @export var rich_ending_threshold: int = 2000
 @export var max_game_days: int = 5
+@export var player_node: player
+@export var clock_angle: Vector3
 
 var knowledge_map = {}
 var book_used: bool = false
@@ -74,6 +76,11 @@ func read_book() -> void:
 
 		func() -> void:
 			if time_manager.is_time_up():
+				player_node.moving_enabled = false
+				var camera_move_tween = get_tree().create_tween()
+				var camera =  get_viewport().get_camera_3d()
+				camera_move_tween.tween_property(camera, "rotation_degrees", clock_angle, 1)
+				await camera_move_tween.finished
 				MoneyManager.pay_rent()
 				MoneyManager.pay_bill()
 				var overall_money = MoneyManager.money + MoneyManager.money_today
@@ -136,6 +143,11 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 
 		func() -> void:
 			if time_manager.is_time_up():
+				player_node.moving_enabled = false
+				var camera_move_tween = get_tree().create_tween()
+				var camera =  get_viewport().get_camera_3d()
+				camera_move_tween.tween_property(camera, "rotation_degrees", clock_angle, 1)
+				await camera_move_tween.finished
 				MoneyManager.pay_rent()
 				MoneyManager.pay_bill()
 				var overall_money = MoneyManager.money + MoneyManager.money_today
