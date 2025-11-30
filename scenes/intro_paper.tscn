@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgujty3ir3gii" path="res://scripts/intro_paper.gd" id="1_3a5gd"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="1_xl8py"]
-[ext_resource type="Texture2D" uid="uid://cyixajn3xj61w" path="res://images/White_Pixel_1x1.jpg" id="3_3a5gd"]
+[ext_resource type="Texture2D" uid="uid://bnaumxg10xi0l" path="res://imports/paper.png" id="2_n0hfq"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_n0hfq"]
 [ext_resource type="Texture2D" uid="uid://yawvi7jv1xya" path="res://images/Black_Pixel_1x1.jpg" id="5_n0hfq"]
 
@@ -13,8 +13,8 @@ script = ExtResource("1_3a5gd")
 z_as_relative = false
 position = Vector2(609.88477, 381.39795)
 rotation = -0.38759273
-scale = Vector2(331.60977, 509.9948)
-texture = ExtResource("3_3a5gd")
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("2_n0hfq")
 
 [node name="Label" type="Label" parent="."]
 z_index = 200
