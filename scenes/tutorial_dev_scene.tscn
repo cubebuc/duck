@@ -1,0 +1,1236 @@
+[gd_scene load_steps=42 format=3 uid="uid://3ai301k651qq"]
+
+[ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_ecxr8"]
+[ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_un5l4"]
+[ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_20fnl"]
+[ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="4_10kaf"]
+[ext_resource type="PackedScene" path="res://scenes/blinking.tscn" id="5_4cotv"]
+[ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_04p7y"]
+[ext_resource type="PackedScene" uid="uid://bim67it3qalvr" path="res://scenes/time_manager.tscn" id="7_fm1re"]
+[ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="8_tnujf"]
+[ext_resource type="PackedScene" path="res://scenes/clock.tscn" id="9_de6fk"]
+[ext_resource type="PackedScene" uid="uid://cjpflfkyj6rbu" path="res://prefabs/map_interactable.tscn" id="10_uxp51"]
+[ext_resource type="Texture2D" uid="uid://cthmoxgcxe1mn" path="res://imports/radio.PNG" id="11_smb7d"]
+[ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="12_bguuj"]
+[ext_resource type="Texture2D" uid="uid://cqetp78tw7w7n" path="res://imports/radion_pause_play_button.PNG" id="13_dwkfi"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="14_7p7ly"]
+[ext_resource type="Texture2D" uid="uid://yh2j5qnnn668" path="res://imports/radio_skip_back_button.PNG" id="15_wv71h"]
+[ext_resource type="Texture2D" uid="uid://d3ctq51t0s1sb" path="res://imports/radio_skip_forward_button.PNG" id="16_3eo7l"]
+[ext_resource type="Texture2D" uid="uid://c8m630s6rghtc" path="res://imports/radio_volume_up_button.PNG" id="17_0fwh8"]
+[ext_resource type="Texture2D" uid="uid://c0b5ng2cqvej1" path="res://imports/radio_volume_down_button.PNG" id="18_mwuka"]
+[ext_resource type="Script" uid="uid://c34etppsqdgo8" path="res://scripts/camera_ray_collider_zoom.gd" id="19_c2kcx"]
+[ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="20_rsyyo"]
+[ext_resource type="Texture2D" uid="uid://bafmjk805c1s2" path="res://imports/grass.PNG" id="21_0tw0s"]
+[ext_resource type="Texture2D" uid="uid://c1ow2nqhibbp6" path="res://imports/tree1.PNG" id="22_inhay"]
+[ext_resource type="Texture2D" uid="uid://cyrvrda1ps633" path="res://imports/tree2.PNG" id="23_btq1k"]
+[ext_resource type="Texture2D" uid="uid://b3ldqdyuakayn" path="res://imports/bush1.PNG" id="24_xilf8"]
+[ext_resource type="Texture2D" uid="uid://ha0i7ljj1326" path="res://imports/bush2.PNG" id="25_jg7e6"]
+[ext_resource type="Texture2D" uid="uid://coqfjinxqjly0" path="res://imports/bush3.PNG" id="26_7bygw"]
+[ext_resource type="Texture2D" uid="uid://byyoprlt375c" path="res://imports/background_houses_farthest.PNG" id="27_c5u1p"]
+[ext_resource type="Texture2D" uid="uid://cfw30f606nvx5" path="res://imports/background_houses_middle.PNG" id="28_rukpw"]
+[ext_resource type="Texture2D" uid="uid://cpqfqlk6p4obs" path="res://imports/background_houses_nearest.PNG" id="29_ry2nt"]
+[ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="30_d3yov"]
+[ext_resource type="Texture2D" uid="uid://b5lqw1xggldsx" path="res://imports/ground.PNG" id="31_ms38e"]
+[ext_resource type="Script" uid="uid://crgidey7nt3my" path="res://scripts/tutorial.gd" id="31_un5l4"]
+[ext_resource type="Texture2D" uid="uid://cgtsunty61cio" path="res://imports/tutorial_speech_bubble.png" id="32_20fnl"]
+[ext_resource type="Texture2D" uid="uid://dud3nfjjs0054" path="res://imports/floor_wood.png" id="32_eaku1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4una"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dhle"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x6xqf"]
+
+[sub_resource type="Environment" id="Environment_ifw80"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5n3sa"]
+
+[sub_resource type="Compositor" id="Compositor_ngndu"]
+
+[node name="DaveTestScene" type="Node3D"]
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 6)
+script = ExtResource("1_ecxr8")
+
+[node name="CameraHolder" type="Node3D" parent="Player"]
+
+[node name="Camera3D" parent="Player/CameraHolder" instance=ExtResource("2_un5l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+
+[node name="TableCameraCollider" parent="." instance=ExtResource("3_20fnl")]
+
+[node name="Node3D" parent="TableCameraCollider/BookInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../GameManager")
+
+[node name="Node3D" parent="TableCameraCollider/TableduckInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../GameManager")
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager", "clock") instance=ExtResource("4_10kaf")]
+blinking_manager = NodePath("../Blinking")
+dialog_manager = NodePath("../SpeechBubble2")
+time_manager = NodePath("../TimeManager")
+character_manager = NodePath("../CharacterManager")
+clock = NodePath("../Clock")
+base_character_count = 5
+
+[node name="Blinking" parent="." instance=ExtResource("5_4cotv")]
+visible = false
+
+[node name="SpeechBubble2" parent="." instance=ExtResource("6_04p7y")]
+transform = Transform3D(4.3736486, 0, 2.4230556, 0, 4.9999995, 0, -2.4230556, 0, 4.3736486, -7.008544, 7.557762, -6.0303802)
+
+[node name="TimeManager" parent="." instance=ExtResource("7_fm1re")]
+
+[node name="CharacterManager" parent="." instance=ExtResource("8_tnujf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64246273, 0.9597764, -11.996862)
+character_offset = Vector3(7, 0, -10)
+
+[node name="Clock" parent="." instance=ExtResource("9_de6fk")]
+transform = Transform3D(0.1282982, 0, 1.9958807, 0, 2, 0, -1.9958807, 0, 0.1282982, -60.52113, 16.957462, 2.9430428)
+
+[node name="MapInteractable" parent="." instance=ExtResource("10_uxp51")]
+transform = Transform3D(4.521497, 0, 0, 0, 5.1714377, 0, 0, 0, 1, 0, 4.2374268, -8.974134)
+
+[node name="Node3D" parent="MapInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../GameManager")
+interaction_type = 4
+
+[node name="CollisionShape3D" parent="MapInteractable/Node3D" index="0"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" parent="MapInteractable/Node3D/CollisionShape3D" index="0"]
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" parent="MapInteractable/Node3D" index="1"]
+visible = false
+
+[node name="Radio" type="Node3D" parent="."]
+transform = Transform3D(0.3962347, 0, -0.9181494, 0, 1, 0, 0.9181494, 0, 0.3962347, 15.643959, -1.5979557, -0.8879118)
+
+[node name="Sprite3D" type="Sprite3D" parent="Radio"]
+texture = ExtResource("11_smb7d")
+
+[node name="PlayPauseInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.64354527, 0, 0, 0, 1, 0, 0, 0, 1, -0.6504582, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/PlayPauseInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("12_bguuj")
+default_sprite = ExtResource("11_smb7d")
+highlighted_sprite = ExtResource("13_dwkfi")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/PlayPauseInteractable/Node3D"]
+shape = SubResource("BoxShape3D_4dhle")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/PlayPauseInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_x6xqf")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/PlayPauseInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("14_7p7ly")
+font_size = 80
+outline_size = 30
+
+[node name="PreviousInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -2.3055701, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/PreviousInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("12_bguuj")
+default_sprite = ExtResource("11_smb7d")
+highlighted_sprite = ExtResource("15_wv71h")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/PreviousInteractable/Node3D"]
+shape = SubResource("BoxShape3D_4dhle")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/PreviousInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_x6xqf")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/PreviousInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.28489172, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("14_7p7ly")
+font_size = 80
+outline_size = 30
+
+[node name="NextInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, 1.0193467, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/NextInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("12_bguuj")
+default_sprite = ExtResource("11_smb7d")
+highlighted_sprite = ExtResource("16_3eo7l")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/NextInteractable/Node3D"]
+shape = SubResource("BoxShape3D_4dhle")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/NextInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_x6xqf")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/NextInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.37279528, 1, -7.450581e-09)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("14_7p7ly")
+font_size = 80
+outline_size = 30
+
+[node name="VolumeUpInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, 0.35080695, 3.7776623, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/VolumeUpInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("12_bguuj")
+default_sprite = ExtResource("11_smb7d")
+highlighted_sprite = ExtResource("17_0fwh8")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/VolumeUpInteractable/Node3D"]
+shape = SubResource("BoxShape3D_4dhle")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/VolumeUpInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_x6xqf")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/VolumeUpInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2897888, 1, -7.450581e-09)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("14_7p7ly")
+font_size = 80
+outline_size = 30
+
+[node name="VolumeDownInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -1.5230565, 3.7776623, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/VolumeDownInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("12_bguuj")
+default_sprite = ExtResource("11_smb7d")
+highlighted_sprite = ExtResource("18_mwuka")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/VolumeDownInteractable/Node3D"]
+shape = SubResource("BoxShape3D_4dhle")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/VolumeDownInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_x6xqf")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/VolumeDownInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.38744515, 1, 1.4901161e-08)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("14_7p7ly")
+font_size = 80
+outline_size = 30
+
+[node name="ZoomCollider" type="Node3D" parent="Radio"]
+transform = Transform3D(5.474, 0, -5.9604645e-08, 0, 3.538205, 0, 5.9604645e-07, 0, 1, 0, 1.9629651, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/ZoomCollider" node_paths=PackedStringArray("camera") groups=["camera_ray_collider_group"]]
+transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, 0, 0.026474647, 0)
+script = ExtResource("19_c2kcx")
+camera = NodePath("../../../Player/CameraHolder/Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/ZoomCollider/Node3D"]
+shape = SubResource("BoxShape3D_4dhle")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/ZoomCollider/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_x6xqf")
+
+[node name="Map" parent="." instance=ExtResource("20_rsyyo")]
+transform = Transform3D(1.2173702, 0, 2.0683353, 0, 2.4, 0, -2.0683353, 0, 1.2173702, -45.638645, -5.1072083, -16.517014)
+
+[node name="Node3D" parent="Map/OffsetParent/AirportInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../../GameManager")
+
+[node name="CollisionShape3D" parent="Map/OffsetParent/AirportInteractable/Node3D" index="0"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" parent="Map/OffsetParent/AirportInteractable/Node3D/CollisionShape3D" index="0"]
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" parent="Map/OffsetParent/AirportInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.32970083, 1.147795, -1.4901161e-08)
+
+[node name="Node3D" parent="Map/OffsetParent/ToiletInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../../GameManager")
+
+[node name="CollisionShape3D" parent="Map/OffsetParent/ToiletInteractable/Node3D" index="0"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" parent="Map/OffsetParent/ToiletInteractable/Node3D/CollisionShape3D" index="0"]
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" parent="Map/OffsetParent/ToiletInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.051358104, 1, 0)
+
+[node name="Node3D" parent="Map/OffsetParent/ArcadeInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../../GameManager")
+
+[node name="CollisionShape3D" parent="Map/OffsetParent/ArcadeInteractable/Node3D" index="0"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" parent="Map/OffsetParent/ArcadeInteractable/Node3D/CollisionShape3D" index="0"]
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" parent="Map/OffsetParent/ArcadeInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.15425783, 0.8516077, 0)
+
+[node name="Node3D" parent="Map/OffsetParent/CafeInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../../GameManager")
+
+[node name="CollisionShape3D" parent="Map/OffsetParent/CafeInteractable/Node3D" index="0"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" parent="Map/OffsetParent/CafeInteractable/Node3D/CollisionShape3D" index="0"]
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" parent="Map/OffsetParent/CafeInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.16386728, 1.2757564, 1.4901161e-08)
+
+[node name="Node3D" parent="Map/OffsetParent/LibraryInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../../GameManager")
+
+[node name="CollisionShape3D" parent="Map/OffsetParent/LibraryInteractable/Node3D" index="0"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" parent="Map/OffsetParent/LibraryInteractable/Node3D/CollisionShape3D" index="0"]
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" parent="Map/OffsetParent/LibraryInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.103569455, 0.8835702, -7.450581e-09)
+
+[node name="Node3D" parent="Map/OffsetParent/ZoomCollider" index="0" node_paths=PackedStringArray("camera")]
+camera = NodePath("../../../../Player/CameraHolder/Camera3D")
+
+[node name="GroundObjects" type="Node3D" parent="."]
+
+[node name="Grasses" type="Node3D" parent="GroundObjects"]
+
+[node name="BunchOfGrass" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.755, -5.5, -22.076)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass2" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.002785, -5.5, -34.872566)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass2/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass3" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.993038, 0, -37.698837)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass3/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass4" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.805, -5.5, 4.705)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass4/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass5" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -5.5, -13)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass5/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass6" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.166656, -5.5, -47.75921)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass6/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass7" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84, -5.5, -41)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass7/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass8" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.134659, -5.5, 0.25082397)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass8/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass9" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.615726, -5.5, -44.007446)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass9/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="BunchOfGrass10" type="Node3D" parent="GroundObjects/Grasses"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.303787, -5.5, -75.799164)
+
+[node name="DoubleGrass" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.007412, 0, 0.30403328)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass2" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007411957, 0, -9.695967)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass2"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass3" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9487553, 0, -1.9972553)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass3"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass4" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9487553, 0, 8.002745)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass4"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="DoubleGrass5" type="Node3D" parent="GroundObjects/Grasses/BunchOfGrass10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0512447, 0, 6.0027447)
+
+[node name="Grass" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass5"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Grass2" type="Sprite3D" parent="GroundObjects/Grasses/BunchOfGrass10/DoubleGrass5"]
+transform = Transform3D(1.6467571, 0, 3.645297, 0, 4, 0, -3.645297, 0, 1.6467571, 0, 0, 0)
+sorting_offset = -5.0
+texture = ExtResource("21_0tw0s")
+
+[node name="Trees" type="Node3D" parent="GroundObjects"]
+
+[node name="Tree" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(11.237424, 0, -4.20955, 0, 12, 0, 4.20955, 0, 11.237424, 56.93169, 35.636467, -40.753212)
+sorting_offset = -1.0
+texture = ExtResource("22_inhay")
+
+[node name="Tree3" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(6.032892, 0, 3.5502424, 0, 6.9999995, 0, -3.5502424, 0, 6.032892, -45.128685, 19.999996, -49.1017)
+sorting_offset = -1.0
+texture = ExtResource("22_inhay")
+
+[node name="OtherTree" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(3.7791114, 0, -5.8922253, 0, 6.9999986, 0, 5.8922253, 0, 3.7791114, 138.93982, 19.999996, -33.627075)
+sorting_offset = -1.0
+texture = ExtResource("23_btq1k")
+
+[node name="OtherTree2" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(6.7947807, 0, -1.6825457, 0, 6.999998, 0, 1.6825457, 0, 6.7947807, 65.43147, 19.999996, -123.234276)
+sorting_offset = -1.0
+texture = ExtResource("23_btq1k")
+
+[node name="OtherTree3" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(4.3046875, 0, 2.543554, 0, 5, 0, -2.543554, 0, 4.3046875, -34.94006, 11.312016, -121.17099)
+sorting_offset = -1.0
+texture = ExtResource("23_btq1k")
+
+[node name="OtherTree4" type="Sprite3D" parent="GroundObjects/Trees"]
+transform = Transform3D(3.98556, 0, 5.7545915, 0, 6.999998, 0, -5.7545915, 0, 3.98556, -115.86272, 20, -35.027435)
+sorting_offset = -1.0
+texture = ExtResource("23_btq1k")
+
+[node name="Bushes" type="Node3D" parent="GroundObjects"]
+
+[node name="BushOne" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2899342, 0, 1.9380922, 0, 3, 0, -1.9380922, 0, 2.2899342, -30.935543, -2, -81.18323)
+sorting_offset = -1.0
+texture = ExtResource("24_xilf8")
+
+[node name="BushOne2" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(1.7702109, 0, -2.4220552, 0, 3, 0, 2.4220552, 0, 1.7702109, 81.22612, -2, -7.3566303)
+sorting_offset = -1.0
+texture = ExtResource("24_xilf8")
+
+[node name="BushTwo" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(-1.152354, 0, -2.7698517, 0, 3, 0, 2.7698517, 0, -1.152354, -39.26812, -2, -36.346687)
+sorting_offset = -1.0
+texture = ExtResource("25_jg7e6")
+
+[node name="BushTwo2" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(-1.3294951, 0, -2.6893198, 0, 3, 0, 2.6893198, 0, -1.3294951, -57.861004, -2, 10.371784)
+sorting_offset = -1.0
+texture = ExtResource("25_jg7e6")
+
+[node name="BushTwo3" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2263837, 0, -2.0107744, 0, 2.9999998, 0, 2.0107744, 0, 2.2263837, 105.59813, -2, -44.746056)
+sorting_offset = -1.0
+texture = ExtResource("25_jg7e6")
+
+[node name="BushThree" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2263837, 0, -2.0107744, 0, 2.9999998, 0, 2.0107744, 0, 2.2263837, 53.29576, -4.6322374, -25.53574)
+sorting_offset = -1.0
+texture = ExtResource("26_7bygw")
+
+[node name="BushThree2" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(1.6668854, 0, -2.494292, 0, 2.9999995, 0, 2.494292, 0, 1.6668854, 23.809568, -4.6322393, -18.488153)
+sorting_offset = -1.0
+texture = ExtResource("26_7bygw")
+
+[node name="BushThree3" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 26.245481, -4.6322412, -60.71821)
+sorting_offset = -1.0
+texture = ExtResource("26_7bygw")
+
+[node name="BushThree4" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 60.783707, -4.6322393, -114.04451)
+sorting_offset = -1.0
+texture = ExtResource("26_7bygw")
+
+[node name="BushThree5" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 66.581406, -4.6322403, -85.47956)
+sorting_offset = -1.0
+texture = ExtResource("26_7bygw")
+
+[node name="BushThree6" type="Sprite3D" parent="GroundObjects/Bushes"]
+transform = Transform3D(2.2194226, 0, -2.0184562, 0, 2.9999998, 0, 2.0184562, 0, 2.2194226, 72.47088, -4.6322403, -103.130424)
+sorting_offset = -1.0
+texture = ExtResource("26_7bygw")
+
+[node name="Backgrounds" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3264351, -7.1686907, -12.036208)
+
+[node name="HousesFarthestFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.029000044, 73.60466, -407.23965)
+sorting_offset = -190.0
+texture = ExtResource("27_c5u1p")
+
+[node name="HousesFarthestRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 381.19592, 61.03978, 4.8187933)
+sorting_offset = -190.0
+texture = ExtResource("27_c5u1p")
+
+[node name="HousesFarthestLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -357.39517, 63.8734, -41.78427)
+sorting_offset = -190.0
+texture = ExtResource("27_c5u1p")
+
+[node name="HousesMiddleFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.029000044, 49.10404, -388.77353)
+sorting_offset = -180.0
+texture = ExtResource("28_rukpw")
+
+[node name="HousesMiddleRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 355.11884, 48.19397, 4.8187933)
+sorting_offset = -180.0
+texture = ExtResource("28_rukpw")
+
+[node name="HousesMiddleLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -340.0706, 41.520275, -41.78427)
+sorting_offset = -180.0
+texture = ExtResource("28_rukpw")
+
+[node name="HousesNearestFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.029000044, 33.027344, -388.77353)
+sorting_offset = -170.0
+texture = ExtResource("29_ry2nt")
+
+[node name="HousesNearestRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 343.24033, 34.56735, 1.5829849)
+sorting_offset = -150.0
+flip_h = true
+texture = ExtResource("29_ry2nt")
+
+[node name="HousesNearestLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-8.742278e-07, 0, -20, 0, 20, 0, 20, 0, -8.742278e-07, -317.48575, 37.72528, -41.78427)
+sorting_offset = -170.0
+texture = ExtResource("29_ry2nt")
+
+[node name="SkyFront" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 93.60466, -452.49728)
+sorting_offset = -300.0
+texture = ExtResource("30_d3yov")
+
+[node name="SkyRight" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-1.0927847e-06, 0, 20, 0, 20, 0, -25, 0, -8.742278e-07, 399.2852, 95.34416, -89.63143)
+sorting_offset = -300.0
+texture = ExtResource("30_d3yov")
+
+[node name="SkyLeft" type="Sprite3D" parent="Backgrounds"]
+transform = Transform3D(-1.3113416e-06, 0, 20, 0, 20, 0, -30, 0, -8.742278e-07, -425.9373, 108.95102, -118.20978)
+sorting_offset = -300.0
+texture = ExtResource("30_d3yov")
+
+[node name="Tutorial" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3264351, -7.1686907, -12.036208)
+script = ExtResource("31_un5l4")
+player_node = NodePath("../Player")
+texts_in_steps = Array[String](["This is a dictionary of animal sounds. It takes some time to learn from it.", "But you probably won't need it, since you told us in your resume, that you know all of the animal languages.", "This is the map of our small town", "Just make sure you send every animal where they want to go!", "There are inspectors, who will make sure you do your job right.", "Good luck rookie!"])
+camera_angles_steps = Array[Vector3]([Vector3(-30, 0, 0), Vector3(-30, 0, 0), Vector3(7, 65, 0), Vector3(7, 65, 0), Vector3(7, 65, 0), Vector3(7, 65, 0)])
+
+[node name="Bubble" type="Sprite2D" parent="Tutorial"]
+self_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+position = Vector2(1015, 550)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("32_20fnl")
+
+[node name="Label" type="Label" parent="Tutorial/Bubble"]
+offset_left = -560.0
+offset_top = -375.0
+offset_bottom = -74.5
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("14_7p7ly")
+theme_override_font_sizes/font_size = 60
+text = "Hello,thanks for joining our team. You will be guiding lost animals to where they want to go."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Floor" type="Sprite3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 1, 0, -20, -4.371139e-08, 1.3264351, -7.1686907, -12.036208)
+sorting_offset = -90.0
+texture = ExtResource("31_ms38e")
+
+[node name="WoodenFloor" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -7.169, 7.502862)
+sorting_offset = -80.0
+texture = ExtResource("32_eaku1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ifw80")
+camera_attributes = SubResource("CameraAttributesPractical_5n3sa")
+compositor = SubResource("Compositor_ngndu")
+
+[editable path="TableCameraCollider"]
+[editable path="MapInteractable"]
+[editable path="Map"]
+[editable path="Map/OffsetParent/AirportInteractable"]
+[editable path="Map/OffsetParent/ToiletInteractable"]
+[editable path="Map/OffsetParent/ArcadeInteractable"]
+[editable path="Map/OffsetParent/CafeInteractable"]
+[editable path="Map/OffsetParent/LibraryInteractable"]

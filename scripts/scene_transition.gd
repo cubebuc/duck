@@ -13,6 +13,10 @@ var current_curtain_offset: Vector2
 
 var is_transition_running: bool = false
 
+var is_tutorial_running:bool = false
+
+var tutorial_done:bool = false
+
 func _ready() -> void:
 	curtain = curtain_packed_scene.instantiate()
 	curtain_offset_base = Vector2.RIGHT*curtain.get_child(0).texture.get_width()
