@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnjs86srrdtqd"
+path="res://.godot/imported/lofi beat.wav-9ffc450dbab3ef3225dcb79722c71521.sample"
+
+[deps]
+
+source_file="res://audio/soundtracks/lofi beat.wav"
+dest_files=["res://.godot/imported/lofi beat.wav-9ffc450dbab3ef3225dcb79722c71521.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

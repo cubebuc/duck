@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cniw2nlo4yjt0"
+path="res://.godot/imported/funky ah song.wav-07c7a05d25b7533257729d8bb9802785.sample"
+
+[deps]
+
+source_file="res://audio/soundtracks/funky ah song.wav"
+dest_files=["res://.godot/imported/funky ah song.wav-07c7a05d25b7533257729d8bb9802785.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
