@@ -65,8 +65,8 @@ text = "8"
 
 [node name="MoneyLabel" type="Label" parent="CustomersServedLabel"]
 layout_mode = 0
-offset_left = 303.0
-offset_right = 343.0
+offset_left = 328.0
+offset_right = 368.0
 offset_bottom = 35.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -100,8 +100,8 @@ text = "8"
 
 [node name="MoneyLabel" type="Label" parent="CustomersServedFastLabel"]
 layout_mode = 0
-offset_left = 431.0
-offset_right = 471.0
+offset_left = 456.0
+offset_right = 496.0
 offset_bottom = 35.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -136,9 +136,9 @@ text = "8"
 
 [node name="MoneyLabel" type="Label" parent="RentLabel"]
 layout_mode = 0
-offset_left = 128.0
+offset_left = 153.0
 offset_top = 4.0
-offset_right = 168.0
+offset_right = 193.0
 offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -173,9 +173,9 @@ text = "8"
 
 [node name="MoneyLabel" type="Label" parent="RandomExpenseLabel"]
 layout_mode = 0
-offset_left = 288.0
+offset_left = 313.0
 offset_top = 6.0
-offset_right = 328.0
+offset_right = 353.0
 offset_bottom = 41.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -209,8 +209,8 @@ text = "8"
 
 [node name="MoneyLabel" type="Label" parent="EODBalanceLabel"]
 layout_mode = 0
-offset_left = 320.0
-offset_right = 360.0
+offset_left = 345.0
+offset_right = 385.0
 offset_bottom = 35.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4

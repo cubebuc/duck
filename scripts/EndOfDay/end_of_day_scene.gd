@@ -94,7 +94,7 @@ func init_money_counts():
 	rent_money = -MoneyManager.RENT_AMOUNT
 	random_expenses = -MoneyManager.BILL_AMOUNTS[MoneyManager.current_day]
 	
-	total_balance = MoneyManager.money_today
+	total_balance = customers_served_money + customers_served_quickly_money + rent_money + random_expenses
 
 
 func init_quotes_dict():
