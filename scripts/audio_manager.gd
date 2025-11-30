@@ -73,16 +73,20 @@ func play_animal_sound(animal_type: AnimalConfig.AnimalType) -> void:
 
 
 func play_book_sound() -> void:
+	sfx_player.pitch_scale = randf_range(0.7, 1.3)
 	play_random_sound(sfx_player, book_sounds)
 
 
 func play_map_sound() -> void:
+	sfx_player.pitch_scale = 1
 	play_random_sound(sfx_player, map_sounds)
 
 
 func play_radio_sound() -> void:
+	sfx_player.pitch_scale = randf_range(2, 2.5)
 	play_random_sound(sfx_player, radio_sounds)
 
 
 func play_sfx(stream: AudioStream) -> void:
+	sfx_player.pitch_scale = 1
 	play(sfx_player, stream)

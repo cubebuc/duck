@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="SoundCollection" load_steps=2 format=3 uid="uid://bkpm0d12mtkry"]
+[gd_resource type="Resource" script_class="SoundCollection" load_steps=3 format=3 uid="uid://bkpm0d12mtkry"]
 
 [ext_resource type="Script" uid="uid://c3ni445qqu2hq" path="res://scripts/sound_collection.gd" id="1_lyyyk"]
+[ext_resource type="AudioStream" uid="uid://bygv066hbhcdj" path="res://audio/sound effects/click_button.wav" id="2_41era"]
 
 [resource]
 script = ExtResource("1_lyyyk")
+sounds = Array[AudioStream]([ExtResource("2_41era")])
 metadata/_custom_type_script = "uid://c3ni445qqu2hq"
