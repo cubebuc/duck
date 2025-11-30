@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2oflqpfynavu"]
+[gd_scene load_steps=11 format=3 uid="uid://2oflqpfynavu"]
 
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="1_v4l15"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="2_61fo3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cbheyo2xasgkc" path="res://imports/fitted_rubber_duck.PNG" id="5_1iwbp"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="5_61fo3"]
 [ext_resource type="Texture2D" uid="uid://bbs1n21u6q8kf" path="res://imports/fitted_rubber_duck_hl.PNG" id="6_17h0v"]
+[ext_resource type="Texture2D" uid="uid://iv326jvaf0ty" path="res://imports/table_lamp_on.PNG" id="8_17h0v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
 size = Vector3(2, 2, 1)
@@ -16,7 +17,7 @@ size = Vector3(2, 2, 1)
 [node name="TableCameraCollider" type="Node3D" groups=["camera_ray_collider_group"]]
 
 [node name="BookInteractable" type="Node3D" parent="."]
-transform = Transform3D(4.524985, 0, 1.1028018, 0, 0.33894655, 0, -0.75568026, 0, 6.6035357, 0, 0, -0.49585104)
+transform = Transform3D(4.65398, 0, 0.91455305, 0, 0.14613698, 0, -0.77722263, 0, 5.4763093, 0, 0, -0.49585104)
 
 [node name="Node3D" type="Area3D" parent="BookInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
 script = ExtResource("1_v4l15")
@@ -28,25 +29,26 @@ target_sprite = NodePath("../../TableSprite")
 shape = SubResource("BoxShape3D_aq1ig")
 
 [node name="TestCubeMesh" type="MeshInstance3D" parent="BookInteractable/Node3D/CollisionShape3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1.684508, 0, -0.016422812, 0, 2, 0, 0.027668092, 0, 0.9998651, -0.001080472, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" type="Label3D" parent="BookInteractable/Node3D"]
-transform = Transform3D(0.42999807, 0.034814373, -0.06280679, 0, 5.160813, 2.860685, 0.049207132, -0.14284933, 0.25770703, 0.20093206, 2.2522478, -0.45452487)
+transform = Transform3D(2.0000005, 1.4901161e-08, 0, 0, 1.7492397, 0.96961933, -2.9802322e-08, -0.96961915, 1.7492394, 0.40796363, 0.7633916, -3.6491628)
+top_level = true
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
 outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
 text = "Press E to Interact
 
-This will take 20 minutes"
+This will take some time"
 font = ExtResource("5_61fo3")
 font_size = 80
 outline_size = 30
 
 [node name="TableduckInteractable" type="Node3D" parent="."]
-transform = Transform3D(1.7140331, 0, 0, 0, 1.3527713, 0, 0, 0, 1, -5.5337925, 1.4946294, -3.5508037)
+transform = Transform3D(1.7140331, 0, 0, 0, 1.235344, 0, 0, 0, 0.3219248, -5.3391156, 1.3432384, -3.5508037)
 
 [node name="Node3D" type="Area3D" parent="TableduckInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
 script = ExtResource("1_v4l15")
@@ -64,7 +66,8 @@ visible = false
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" type="Label3D" parent="TableduckInteractable/Node3D"]
-transform = Transform3D(0.93789566, -0.066227145, 0.9124923, -0.1971409, 1.3834503, 0.45211813, -0.85009116, -0.7008817, 1.5012622, 0.37682748, 0.6694927, 0.3156953)
+transform = Transform3D(1.6075842, -0.11351552, 1.564042, -0.26668656, 1.8714918, 0.61161244, -0.85009116, -0.7008817, 1.5012622, -4.8878975, 2.4003, -3.2351084)
+top_level = true
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -73,6 +76,27 @@ text = "E"
 font = ExtResource("5_61fo3")
 font_size = 80
 outline_size = 30
+
+[node name="LampInteractable" type="Node3D" parent="."]
+transform = Transform3D(1.3131447, 0, 0, 0, 2.3007495, 0, 0, 0, 0.38987225, 5.495005, 2.5841143, -2.115934)
+
+[node name="Node3D" type="Area3D" parent="LampInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+transform = Transform3D(1.1120405, 0, 0, 0, 1.1463649, 0, 0, 0, 1, 0.14670587, 0, 0)
+script = ExtResource("1_v4l15")
+default_sprite = ExtResource("3_15eam")
+highlighted_sprite = ExtResource("3_15eam")
+interaction_sprite = ExtResource("8_17h0v")
+target_sprite = NodePath("../../TableLampSprite")
+interaction_type = 2
+radio_interaction = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="LampInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
 
 [node name="TableSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)

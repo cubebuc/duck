@@ -14,12 +14,15 @@ enum RadioInteraction {
 	PREVIOUS,
 	NEXT,
 	VOLUME_UP,
-	VOLUME_DOWN
+	VOLUME_DOWN,
+    NONE
 }
 
 @export var displayed_text: String = ""
 @export var default_sprite: Texture2D
 @export var highlighted_sprite: Texture2D
+
+@export var interaction_sprite: Texture2D
 
 @export var target_sprite: Sprite3D
 
@@ -40,7 +43,7 @@ func _ready() -> void:
 	if not target_sprite:
 		target_sprite = $InteractableSprite
 	
-	label_on_hover = $LabelOnHover
+	label_on_hover = get_node_or_null("LabelOnHover")
 	if label_on_hover:
 		label_on_hover.visible = false
 	
@@ -88,6 +91,11 @@ func interact():
 				AudioManager.music_volume_up()
 			RadioInteraction.VOLUME_DOWN:
 				AudioManager.music_volume_down()
+			RadioInteraction.NONE:
+				if target_sprite.texture == interaction_sprite:
+					target_sprite.texture = default_sprite
+				else:
+					target_sprite.texture = interaction_sprite
 		AudioManager.play_radio_sound()
 	elif interaction_type == InteractionType.TABLE_DUCK:
 		AudioManager.play_tableduck_sound()
