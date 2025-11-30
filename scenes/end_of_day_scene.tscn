@@ -228,7 +228,7 @@ position = Vector2(597, 229)
 
 [node name="Space1" type="Node2D" parent="StickyNoteSpaces"]
 z_index = 1
-position = Vector2(-501.00006, 59.00001)
+position = Vector2(-357, 191.00003)
 rotation = -0.43579105
 
 [node name="NaselManzelkuSticker" parent="StickyNoteSpaces/Space1" instance=ExtResource("6_0101w")]

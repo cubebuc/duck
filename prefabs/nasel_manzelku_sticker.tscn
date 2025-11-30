@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwabsljcasblo"]
 
-[ext_resource type="Script" path="res://scripts/manzelka_note.gd" id="1_e8bnr"]
+[ext_resource type="Script" uid="uid://dvtglnkncmd8i" path="res://scripts/manzelka_note.gd" id="1_e8bnr"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="2_ded61"]
 [ext_resource type="Texture2D" uid="uid://c50ablhjh6qpq" path="res://imports/sticky_note.PNG" id="2_e8bnr"]
 
@@ -10,18 +10,20 @@ script = ExtResource("1_e8bnr")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-10, 2)
 rotation = -0.5235988
-scale = Vector2(1.35, 1.35)
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_e8bnr")
 
 [node name="Text" type="Label" parent="."]
 z_index = 1
-offset_left = -80.0
-offset_top = -80.0
-offset_right = 63.0
-offset_bottom = 73.0
+offset_left = -79.00001
+offset_top = -110.0
+offset_right = 68.54284
+offset_bottom = 100.19142
+rotation = -0.033662327
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_ded61")
+theme_override_font_sizes/font_size = 20
 text = "Hello, 
 today I found myself in an arcade while looking for the toilet. This was the best day of my life! Thanks to you. 
 I am grateful."
