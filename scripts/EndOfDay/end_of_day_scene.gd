@@ -178,7 +178,11 @@ func start_showing_sticky_notes():
 			
 		else:
 			sticky_note_appear_tween.tween_callback(on_all_shown)
+			return
 		index += 1
+
+	sticky_note_appear_tween.tween_callback(on_all_shown)
+	return
 
 func on_all_shown():
 	await get_tree().create_timer(delay_before_continue_button).timeout
