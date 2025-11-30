@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://by7skdqtdxyy2"]
+[gd_scene load_steps=13 format=3 uid="uid://by7skdqtdxyy2"]
 
 [ext_resource type="Script" uid="uid://xdvdhonxnufs" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="Resource" uid="uid://cnr2sy2v7jhqw" path="res://resources/audio/music.tres" id="2_liach"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://o2dfnyjs723u" path="res://resources/audio/panda_sounds.tres" id="8_ic5jq"]
 [ext_resource type="Resource" uid="uid://bilt45741ehsc" path="res://resources/audio/map_sounds.tres" id="9_ic5jq"]
 [ext_resource type="Resource" uid="uid://bkpm0d12mtkry" path="res://resources/audio/radio_sounds.tres" id="10_if78k"]
+[ext_resource type="Resource" uid="uid://c1dy1c0ol4yx1" path="res://resources/audio/tableduck_sounds.tres" id="12_if78k"]
 
 [node name="AudioManager" type="Node3D"]
 script = ExtResource("1_8qd8g")
@@ -25,6 +26,7 @@ animal_sounds = Dictionary[int, ExtResource("3_kq7b2")]({
 book_sounds = ExtResource("8_064dn")
 map_sounds = ExtResource("9_ic5jq")
 radio_sounds = ExtResource("10_if78k")
+tableduck_sounds = ExtResource("12_if78k")
 min_music_volume_db = -40.0
 music_volume_db_step = 4.0
 

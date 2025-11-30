@@ -4,7 +4,9 @@ extends Area3D
 enum InteractionType {
 	BOOK,
 	ANIMAL_ANSWER,
-	RADIO
+	RADIO,
+	TABLE_DUCK,
+	ANIMAL
 }
 
 enum RadioInteraction {
@@ -46,6 +48,7 @@ func _process(delta: float) -> void:
 		
 
 func camera_ray_entered():
+	print("Camera ray entered")
 	is_active = true
 	target_sprite.texture = highlighted_sprite
 	
@@ -54,6 +57,7 @@ func camera_ray_entered():
 	
 
 func camera_ray_left():
+	print("Camera ray left")
 	is_active = false
 	target_sprite.texture = default_sprite
 	
@@ -81,3 +85,9 @@ func interact():
 			RadioInteraction.VOLUME_DOWN:
 				AudioManager.music_volume_down()
 		AudioManager.play_radio_sound()
+	elif interaction_type == InteractionType.TABLE_DUCK:
+		AudioManager.play_tableduck_sound()
+	elif interaction_type == InteractionType.ANIMAL:
+		var character_manager = gm.character_manager
+		var animal_type = character_manager.characters[0].my_config.animal_type
+		AudioManager.play_animal_sound(animal_type)

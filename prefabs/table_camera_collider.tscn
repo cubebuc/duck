@@ -1,32 +1,80 @@
-[gd_scene load_steps=8 format=3 uid="uid://2oflqpfynavu"]
+[gd_scene load_steps=10 format=3 uid="uid://2oflqpfynavu"]
 
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="1_v4l15"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="2_61fo3"]
+[ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="3_1iwbp"]
 [ext_resource type="Texture2D" uid="uid://cg4ebcfl5cidt" path="res://imports/table_lamp.PNG" id="3_15eam"]
 [ext_resource type="Texture2D" uid="uid://tfq4c4vs0lwi" path="res://imports/rubber_duck.PNG" id="4_1iwbp"]
+[ext_resource type="Texture2D" uid="uid://dilquj7adm4dl" path="res://imports/rubber_duck_hl.PNG" id="5_17h0v"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="5_61fo3"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xd7wd"]
-size = Vector3(20, 10, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
+size = Vector3(2, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_wu11x"]
+[sub_resource type="BoxMesh" id="BoxMesh_q4una"]
 
-[node name="TableCameraCollider" type="Area3D" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+[node name="TableCameraCollider" type="Node3D" groups=["camera_ray_collider_group"]]
+
+[node name="BookInteractable" type="Node3D" parent="."]
+transform = Transform3D(4.524985, 0, 1.1028018, 0, 0.33894655, 0, -0.75568026, 0, 6.6035357, 0, 0, -0.49585104)
+
+[node name="Node3D" type="Area3D" parent="BookInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
 script = ExtResource("1_v4l15")
 default_sprite = ExtResource("2_61fo3")
-highlighted_sprite = ExtResource("2_61fo3")
-target_sprite = NodePath("InteractableSprite")
+highlighted_sprite = ExtResource("3_1iwbp")
+target_sprite = NodePath("../../TableSprite")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6617804, -5.5617237)
-shape = SubResource("BoxShape3D_xd7wd")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BookInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
 
-[node name="TestCubeMesh" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+[node name="TestCubeMesh" type="MeshInstance3D" parent="BookInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 visible = false
-mesh = SubResource("BoxMesh_wu11x")
+mesh = SubResource("BoxMesh_q4una")
 
-[node name="InteractableSprite" type="Sprite3D" parent="."]
+[node name="LabelOnHover" type="Label3D" parent="BookInteractable/Node3D"]
+transform = Transform3D(0.42999807, 0.034814373, -0.06280679, 0, 5.160813, 2.860685, 0.049207132, -0.14284933, 0.25770703, 0.20093206, 2.2522478, -0.45452487)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "Press E to Interact
+
+This will take 20 minutes"
+font = ExtResource("5_61fo3")
+font_size = 80
+outline_size = 30
+
+[node name="TableduckInteractable" type="Node3D" parent="."]
+transform = Transform3D(1.7140331, 0, 0, 0, 1.3527713, 0, 0, 0, 1, -5.5337925, 1.4946294, -3.5508037)
+
+[node name="Node3D" type="Area3D" parent="TableduckInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("1_v4l15")
+default_sprite = ExtResource("4_1iwbp")
+highlighted_sprite = ExtResource("5_17h0v")
+target_sprite = NodePath("../../RubberDuckSprite")
+interaction_type = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableduckInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="TableduckInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="TableduckInteractable/Node3D"]
+transform = Transform3D(0.95455056, -0.052330915, 0.88257605, -0.19714089, 1.3834503, 0.4521181, -0.8313463, -0.70205593, 1.5190424, 0.16778517, 0.6694927, 0.3156953)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("5_61fo3")
+font_size = 80
+outline_size = 30
+
+[node name="TableSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 layers = 512
 sorting_offset = 10.0
@@ -42,16 +90,3 @@ texture = ExtResource("3_15eam")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.177155, 1.038934, -3.6715202)
 sorting_offset = 15.0
 texture = ExtResource("4_1iwbp")
-
-[node name="LabelOnHover" type="Label3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1.7492394, 0.9696192, 0, -0.9696192, 1.7492394, 0.40796357, 0.7633915, -3.6491625)
-sorting_offset = 20.0
-render_priority = 1
-outline_render_priority = 0
-outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
-text = "Press E to Interact
-
-This will take 20 minutes"
-font = ExtResource("5_61fo3")
-font_size = 80
-outline_size = 30

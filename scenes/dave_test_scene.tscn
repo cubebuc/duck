@@ -1,9 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=37 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
-[ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="4_vyvv1"]
 [ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
 [ext_resource type="PackedScene" uid="uid://w22085tat7r8" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
@@ -55,9 +54,13 @@ script = ExtResource("1_j8xxv")
 [node name="Camera3D" parent="Player/CameraHolder" instance=ExtResource("2_furwo")]
 transform = Transform3D(1, 0, 0, 0, 0.94147056, 0.33709526, 0, -0.33709526, 0.94147056, 0, 0.5, 0.5)
 
-[node name="TableCameraCollider" parent="." node_paths=PackedStringArray("gm") instance=ExtResource("3_wu11x")]
-highlighted_sprite = ExtResource("4_vyvv1")
-gm = NodePath("../GameManager")
+[node name="TableCameraCollider" parent="." instance=ExtResource("3_wu11x")]
+
+[node name="Node3D" parent="TableCameraCollider/BookInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../GameManager")
+
+[node name="Node3D" parent="TableCameraCollider/TableduckInteractable" index="0" node_paths=PackedStringArray("gm")]
+gm = NodePath("../../../GameManager")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("blinking_manager", "dialog_manager", "time_manager", "character_manager") instance=ExtResource("5_ltvu5")]
 blinking_manager = NodePath("../Blinking")
@@ -136,7 +139,7 @@ visible = false
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/PreviousInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.28489172, 1, 0)
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -166,7 +169,7 @@ visible = false
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/NextInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.37279528, 1, -7.450581e-09)
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -196,7 +199,7 @@ visible = false
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/VolumeUpInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.2897888, 1, -7.450581e-09)
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -226,7 +229,7 @@ visible = false
 mesh = SubResource("BoxMesh_q4una")
 
 [node name="LabelOnHover" type="Label3D" parent="Radio/VolumeDownInteractable/Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.38744515, 1, 1.4901161e-08)
 sorting_offset = 20.0
 render_priority = 1
 outline_render_priority = 0
@@ -258,17 +261,32 @@ transform = Transform3D(1.2173702, 0, 2.0683353, 0, 2.4, 0, -2.0683353, 0, 1.217
 [node name="Node3D" parent="Map/OffsetParent/AirportInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
 
+[node name="LabelOnHover" parent="Map/OffsetParent/AirportInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.32970083, 1.147795, -1.4901161e-08)
+
 [node name="Node3D" parent="Map/OffsetParent/ToiletInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
+
+[node name="LabelOnHover" parent="Map/OffsetParent/ToiletInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.051358104, 1, 0)
 
 [node name="Node3D" parent="Map/OffsetParent/ArcadeInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
 
+[node name="LabelOnHover" parent="Map/OffsetParent/ArcadeInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.15425783, 0.8516077, 0)
+
 [node name="Node3D" parent="Map/OffsetParent/CafeInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
 
+[node name="LabelOnHover" parent="Map/OffsetParent/CafeInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.16386728, 1.2757564, 1.4901161e-08)
+
 [node name="Node3D" parent="Map/OffsetParent/LibraryInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
+
+[node name="LabelOnHover" parent="Map/OffsetParent/LibraryInteractable/Node3D" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.103569455, 0.8835702, -7.450581e-09)
 
 [node name="Node3D" parent="Map/OffsetParent/ZoomCollider" index="0" node_paths=PackedStringArray("camera")]
 camera = NodePath("../../../../Player/CameraHolder/Camera3D")
@@ -1125,6 +1143,7 @@ environment = SubResource("Environment_ifw80")
 camera_attributes = SubResource("CameraAttributesPractical_5n3sa")
 compositor = SubResource("Compositor_ngndu")
 
+[editable path="TableCameraCollider"]
 [editable path="Map"]
 [editable path="Map/OffsetParent/AirportInteractable"]
 [editable path="Map/OffsetParent/ToiletInteractable"]
