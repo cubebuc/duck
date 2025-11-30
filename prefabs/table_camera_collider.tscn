@@ -42,7 +42,7 @@ outline_render_priority = 0
 outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
 text = "Press E to Interact
 
-This will take 20 minutes"
+This will take some time"
 font = ExtResource("5_61fo3")
 font_size = 80
 outline_size = 30
