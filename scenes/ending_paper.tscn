@@ -1,12 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://pgsxecj8jkfd"]
 
-[ext_resource type="Script" uid="uid://der3ju3g6nr1v" path="res://scenes/ending_paper.gd" id="1_cdg52"]
+[ext_resource type="Script" uid="uid://der3ju3g6nr1v" path="res://scripts/ending_paper.gd" id="1_cdg52"]
 [ext_resource type="Texture2D" uid="uid://bnaumxg10xi0l" path="res://imports/paper.png" id="2_yaxlk"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_lbqjb"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="4_dlkik"]
 
 [node name="EndingPaper" type="Node2D"]
 script = ExtResource("1_cdg52")
+cur_ending = 1
+note_text_dic = Dictionary[int, String]({
+0: "RICH Hello,In your resume you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.Your task is to help customers find their destination on the map, based on their requests.You are expected to serve AS MANY customers as you are able each day.During the following days, an INSPECTOR may visit you as one of your customers to evaluate your performance, so be sure to point them in the right direction.We are excited to have you working for our company and wish you the best of luck!From Quackity Informations,Ducky Quack ",
+1: "POOR Hello,In your resume you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.Your task is to help customers find their destination on the map, based on their requests.You are expected to serve AS MANY customers as you are able each day.During the following days, an INSPECTOR may visit you as one of your customers to evaluate your performance, so be sure to point them in the right direction.We are excited to have you working for our company and wish you the best of luck!From Quackity Informations,Ducky Quack ",
+2: "BALANCED Hello,In your resume you stated that you are proficient in ALL of the animal languages spoken in our city. That is the main reason we chose you for this position.Your task is to help customers find their destination on the map, based on their requests.You are expected to serve AS MANY customers as you are able each day.During the following days, an INSPECTOR may visit you as one of your customers to evaluate your performance, so be sure to point them in the right direction.We are excited to have you working for our company and wish you the best of luck!From Quackity Informations,Ducky Quack "
+})
 background_pos_dict = Dictionary[int, Vector2]({
 0: Vector2(336, 608),
 1: Vector2(-662, -295.00003),
@@ -22,15 +28,15 @@ paper_pos_dict = Dictionary[int, Vector2]({
 1: Vector2(204.00002, 321),
 2: Vector2(406, 340.00003)
 })
-background_rot_dict = Dictionary[int, Quaternion]({
+paper_rot_dict = Dictionary[int, float]({
 0: -0.38759273,
-1: 0.08730525,
+1: -0.06231889,
 2: 0.39942554
 })
 
 [node name="Paper" type="Node2D" parent="."]
-position = Vector2(406, 340.00003)
-rotation = 0.39942554
+position = Vector2(222, 312)
+rotation = -0.06231889
 scale = Vector2(0.5, 0.5)
 
 [node name="LabelBackground" type="Sprite2D" parent="Paper"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dd43y2w7tqne7"]
 
-[ext_resource type="Script" uid="uid://der3ju3g6nr1v" path="res://scenes/ending_paper.gd" id="1_twek2"]
+[ext_resource type="Script" uid="uid://der3ju3g6nr1v" path="res://scripts/ending_paper.gd" id="1_twek2"]
 [ext_resource type="Texture2D" uid="uid://bnaumxg10xi0l" path="res://imports/paper.png" id="2_wupqs"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_lum37"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="4_vl7cf"]
@@ -22,7 +22,6 @@ paper_pos_dict = Dictionary[int, Vector2]({
 1: Vector2(204.00002, 321),
 2: Vector2(406, 340.00003)
 })
-background_rot_dict = Dictionary[int, Quaternion]({})
 
 [node name="Paper" type="Node2D" parent="."]
 position = Vector2(406, 340.00003)
