@@ -3,9 +3,9 @@ extends Node3D
 
 @export var music_tracks: SoundCollection
 @export var animal_sounds: Dictionary[AnimalConfig.AnimalType, SoundCollection]
-@export var min_music_volume_db: float = -10.0
-@export var max_music_volume_db: float = 10.0
-@export var music_volume_db_step: float = 2.0
+@export var min_music_volume_db: float
+@export var max_music_volume_db: float
+@export var music_volume_db_step: float
 
 var music_player: AudioStreamPlayer3D
 var animal_player: AudioStreamPlayer3D
@@ -46,11 +46,13 @@ func play_music_previous() -> void:
 
 
 func music_volume_down() -> void:
-    music_player.volume_db = max(music_player.volume_db - 2.0, min_music_volume_db)
+    music_player.volume_db = max(music_player.volume_db - music_volume_db_step, min_music_volume_db)
+    print("Music Volume: ", music_player.volume_db)
 
 
 func music_volume_up() -> void:
-    music_player.volume_db = min(music_player.volume_db + 2.0, max_music_volume_db)
+    music_player.volume_db = min(music_player.volume_db + music_volume_db_step, max_music_volume_db)
+    print("Music Volume: ", music_player.volume_db)
 
 
 func play_animal_sound(animal_type: AnimalConfig.AnimalType) -> void:

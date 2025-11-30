@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=37 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
@@ -7,21 +7,35 @@
 [ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
 [ext_resource type="PackedScene" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
+[ext_resource type="Texture2D" uid="uid://cthmoxgcxe1mn" path="res://imports/radio.PNG" id="10_c2pvo"]
+[ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="11_4dhle"]
 [ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="11_8nv4v"]
 [ext_resource type="Texture2D" uid="uid://dud3nfjjs0054" path="res://imports/floor_wood.png" id="11_lccll"]
 [ext_resource type="Texture2D" uid="uid://b5lqw1xggldsx" path="res://imports/ground.PNG" id="12_ltvu5"]
+[ext_resource type="Texture2D" uid="uid://cqetp78tw7w7n" path="res://imports/radion_pause_play_button.PNG" id="12_x6xqf"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="13_onh2v"]
 [ext_resource type="PackedScene" uid="uid://bim67it3qalvr" path="res://scenes/time_manager.tscn" id="13_pbj1o"]
+[ext_resource type="Texture2D" uid="uid://yh2j5qnnn668" path="res://imports/radio_skip_back_button.PNG" id="14_8oki0"]
 [ext_resource type="PackedScene" uid="uid://cw2he5e1okuta" path="res://scenes/character_manager.tscn" id="14_nav1a"]
 [ext_resource type="Texture2D" uid="uid://byyoprlt375c" path="res://imports/background_houses_farthest.PNG" id="15_5n3sa"]
 [ext_resource type="Texture2D" uid="uid://bafmjk805c1s2" path="res://imports/grass.PNG" id="15_8vbiy"]
+[ext_resource type="Texture2D" uid="uid://d3ctq51t0s1sb" path="res://imports/radio_skip_forward_button.PNG" id="15_u1vt1"]
 [ext_resource type="PackedScene" uid="uid://6lndb8hrug8m" path="res://prefabs/map.tscn" id="15_vyvv1"]
+[ext_resource type="Texture2D" uid="uid://c8m630s6rghtc" path="res://imports/radio_volume_up_button.PNG" id="16_n44jn"]
 [ext_resource type="Texture2D" uid="uid://cfw30f606nvx5" path="res://imports/background_houses_middle.PNG" id="16_ngndu"]
 [ext_resource type="Texture2D" uid="uid://c1ow2nqhibbp6" path="res://imports/tree1.PNG" id="16_pbj1o"]
+[ext_resource type="Texture2D" uid="uid://c0b5ng2cqvej1" path="res://imports/radio_volume_down_button.PNG" id="17_fx0bh"]
 [ext_resource type="Texture2D" uid="uid://cpqfqlk6p4obs" path="res://imports/background_houses_nearest.PNG" id="17_mbwrw"]
 [ext_resource type="Texture2D" uid="uid://cyrvrda1ps633" path="res://imports/tree2.PNG" id="17_nav1a"]
+[ext_resource type="Script" uid="uid://c34etppsqdgo8" path="res://scripts/camera_ray_collider_zoom.gd" id="18_n0pbd"]
 [ext_resource type="Texture2D" uid="uid://b3ldqdyuakayn" path="res://imports/bush1.PNG" id="18_rxgwk"]
 [ext_resource type="Texture2D" uid="uid://ha0i7ljj1326" path="res://imports/bush2.PNG" id="19_p8asg"]
 [ext_resource type="Texture2D" uid="uid://coqfjinxqjly0" path="res://imports/bush3.PNG" id="20_v8kl7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4una"]
 
 [sub_resource type="Environment" id="Environment_ifw80"]
 
@@ -63,28 +77,194 @@ transform = Transform3D(4.3736486, 0, 2.4230556, 0, 4.9999995, 0, -2.4230556, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64246273, 0.9597764, -11.996862)
 character_offset = Vector3(7, 0, -10)
 
+[node name="Radio" type="Node3D" parent="."]
+transform = Transform3D(0.3962347, 0, -0.9181494, 0, 1, 0, 0.9181494, 0, 0.3962347, 15.643959, -1.5979557, -0.8879118)
+
+[node name="Sprite3D" type="Sprite3D" parent="Radio"]
+texture = ExtResource("10_c2pvo")
+
+[node name="PlayPauseInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.64354527, 0, 0, 0, 1, 0, 0, 0, 1, -0.6504582, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/PlayPauseInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("11_4dhle")
+default_sprite = ExtResource("10_c2pvo")
+highlighted_sprite = ExtResource("12_x6xqf")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/PlayPauseInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/PlayPauseInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/PlayPauseInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("13_onh2v")
+font_size = 80
+outline_size = 30
+
+[node name="PreviousInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -2.3055701, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/PreviousInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("11_4dhle")
+default_sprite = ExtResource("10_c2pvo")
+highlighted_sprite = ExtResource("14_8oki0")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/PreviousInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/PreviousInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/PreviousInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("13_onh2v")
+font_size = 80
+outline_size = 30
+
+[node name="NextInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, 1.0193467, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/NextInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("11_4dhle")
+default_sprite = ExtResource("10_c2pvo")
+highlighted_sprite = ExtResource("15_u1vt1")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/NextInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/NextInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/NextInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("13_onh2v")
+font_size = 80
+outline_size = 30
+
+[node name="VolumeUpInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, 0.35080695, 3.7776623, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/VolumeUpInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("11_4dhle")
+default_sprite = ExtResource("10_c2pvo")
+highlighted_sprite = ExtResource("16_n44jn")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/VolumeUpInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/VolumeUpInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/VolumeUpInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("13_onh2v")
+font_size = 80
+outline_size = 30
+
+[node name="VolumeDownInteractable" type="Node3D" parent="Radio"]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -1.5230565, 3.7776623, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/VolumeDownInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("11_4dhle")
+default_sprite = ExtResource("10_c2pvo")
+highlighted_sprite = ExtResource("17_fx0bh")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/VolumeDownInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/VolumeDownInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="Radio/VolumeDownInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("13_onh2v")
+font_size = 80
+outline_size = 30
+
+[node name="ZoomCollider" type="Node3D" parent="Radio"]
+transform = Transform3D(5.474, 0, -5.9604645e-08, 0, 3.538205, 0, 5.9604645e-07, 0, 1, 0, 1.9629651, 0)
+
+[node name="Node3D" type="Area3D" parent="Radio/ZoomCollider" node_paths=PackedStringArray("camera") groups=["camera_ray_collider_group"]]
+transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, 0, 0.026474647, 0)
+script = ExtResource("18_n0pbd")
+camera = NodePath("../../../Player/CameraHolder/Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radio/ZoomCollider/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="Radio/ZoomCollider/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
 [node name="Map" parent="." instance=ExtResource("15_vyvv1")]
 transform = Transform3D(1.2173702, 0, 2.0683353, 0, 2.4, 0, -2.0683353, 0, 1.2173702, -45.638645, -5.1072083, -16.517014)
 
 [node name="Node3D" parent="Map/OffsetParent/AirportInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
-interaction_type = 1
 
 [node name="Node3D" parent="Map/OffsetParent/ToiletInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
-interaction_type = 1
 
 [node name="Node3D" parent="Map/OffsetParent/ArcadeInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
-interaction_type = 1
 
 [node name="Node3D" parent="Map/OffsetParent/CafeInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
-interaction_type = 1
 
 [node name="Node3D" parent="Map/OffsetParent/LibraryInteractable" index="0" node_paths=PackedStringArray("gm")]
 gm = NodePath("../../../../GameManager")
-interaction_type = 1
 
 [node name="Node3D" parent="Map/OffsetParent/ZoomCollider" index="0" node_paths=PackedStringArray("camera")]
 camera = NodePath("../../../../Player/CameraHolder/Camera3D")
@@ -917,12 +1097,12 @@ sorting_offset = -300.0
 texture = ExtResource("11_8nv4v")
 
 [node name="SkyRight" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 399.2852, 95.34416, -89.63143)
+transform = Transform3D(-1.0927847e-06, 0, 20, 0, 20, 0, -25, 0, -8.742278e-07, 399.2852, 95.34416, -89.63143)
 sorting_offset = -300.0
 texture = ExtResource("11_8nv4v")
 
 [node name="SkyLeft" type="Sprite3D" parent="Backgrounds"]
-transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, -425.9373, 108.95102, -118.20978)
+transform = Transform3D(-1.3113416e-06, 0, 20, 0, 20, 0, -30, 0, -8.742278e-07, -425.9373, 108.95102, -118.20978)
 sorting_offset = -300.0
 texture = ExtResource("11_8nv4v")
 

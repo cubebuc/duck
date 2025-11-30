@@ -3,7 +3,16 @@ extends Area3D
 
 enum InteractionType {
 	BOOK,
-	ANIMAL_ANSWER
+	ANIMAL_ANSWER,
+	RADIO
+}
+
+enum RadioInteraction {
+	PLAY_PAUSE,
+	PREVIOUS,
+	NEXT,
+	VOLUME_UP,
+	VOLUME_DOWN
 }
 
 @export var displayed_text: String = ""
@@ -15,6 +24,7 @@ enum InteractionType {
 @export var gm: game_manager
 @export var answer_type: DialogueText.Answer
 @export var interaction_type: InteractionType
+@export var radio_interaction: RadioInteraction
 @export var next_scene_path: PackedScene = preload("res://scenes/end_of_day_scene.tscn")
 
 var label_on_hover: Label3D
@@ -31,7 +41,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if is_active:
-		if Input.is_action_just_pressed("Interact") and not gm.is_interacting:
+		if Input.is_action_just_pressed("Interact") and (not gm or not gm.is_interacting):
 			interact()
 		
 
@@ -56,3 +66,15 @@ func interact():
 		gm.read_book()
 	elif interaction_type == InteractionType.ANIMAL_ANSWER:
 		gm.answer_animal(answer_type)
+	elif interaction_type == InteractionType.RADIO:
+		match radio_interaction:
+			RadioInteraction.PLAY_PAUSE:
+				AudioManager.pause_unpause_music()
+			RadioInteraction.PREVIOUS:
+				AudioManager.play_music_previous()
+			RadioInteraction.NEXT:
+				AudioManager.play_music_next()
+			RadioInteraction.VOLUME_UP:
+				AudioManager.music_volume_up()
+			RadioInteraction.VOLUME_DOWN:
+				AudioManager.music_volume_down()

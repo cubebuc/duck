@@ -21,11 +21,11 @@ func _process(delta: float) -> void:
 	
 	# left/right rotation
 	camera_holder.rotate_y(-mouse_movement.x * delta * 0.002)
-	camera_holder.rotation_degrees.y = clamp(camera_holder.rotation_degrees.y, -20, 75)
+	camera_holder.rotation_degrees.y = clamp(camera_holder.rotation_degrees.y, -75, 75)
 
 	# up/down rotation
 	camera.rotate_x(-mouse_movement.y * delta * 0.002)
-	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -30, 30)
+	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -40, 30)
 
 	# exit with esc
 	if Input.is_key_pressed(Key.KEY_ESCAPE):

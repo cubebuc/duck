@@ -27,7 +27,7 @@ displayed_text = "Clicked Airport"
 default_sprite = ExtResource("2_0o778")
 highlighted_sprite = ExtResource("3_0o778")
 target_sprite = NodePath("../../MapSprite")
-is_book = false
+interaction_type = 1
 
 [node name="ToiletInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
 transform = Transform3D(1.437, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -0.03607011, -0.08269453, 0)
@@ -38,7 +38,7 @@ default_sprite = ExtResource("2_0o778")
 highlighted_sprite = ExtResource("4_ccydk")
 target_sprite = NodePath("../../MapSprite")
 answer_type = 1
-is_book = false
+interaction_type = 1
 
 [node name="ArcadeInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
 transform = Transform3D(1.842, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -3.7727535, 1.8158216, -0.2)
@@ -49,7 +49,7 @@ default_sprite = ExtResource("2_0o778")
 highlighted_sprite = ExtResource("5_g0w84")
 target_sprite = NodePath("../../MapSprite")
 answer_type = 3
-is_book = false
+interaction_type = 1
 
 [node name="CafeInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
 transform = Transform3D(1.807, 0, 0, 0, 1.479, 0, 0, 0, 1.142, -3.5176253, -1.9769211, -0.2)
@@ -60,7 +60,7 @@ default_sprite = ExtResource("2_0o778")
 highlighted_sprite = ExtResource("6_dq20s")
 target_sprite = NodePath("../../MapSprite")
 answer_type = 2
-is_book = false
+interaction_type = 1
 
 [node name="LibraryInteractable" parent="OffsetParent" instance=ExtResource("1_hjd75")]
 transform = Transform3D(1.8374983, 0, 0, 0, 1.4794343, 0, 0, 0, 1.1419661, 3.4175193, -2.5005198, 0.2)
@@ -71,7 +71,7 @@ default_sprite = ExtResource("2_0o778")
 highlighted_sprite = ExtResource("7_go7kh")
 target_sprite = NodePath("../../MapSprite")
 answer_type = 4
-is_book = false
+interaction_type = 1
 
 [node name="ZoomCollider" type="Node3D" parent="OffsetParent"]
 transform = Transform3D(5, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0)

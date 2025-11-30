@@ -1,0 +1,184 @@
+[gd_scene load_steps=12 format=3 uid="uid://bojcfqwpu5x0r"]
+
+[ext_resource type="Texture2D" uid="uid://cthmoxgcxe1mn" path="res://imports/radio.PNG" id="1_y83x7"]
+[ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="2_7h80l"]
+[ext_resource type="Texture2D" uid="uid://cqetp78tw7w7n" path="res://imports/radion_pause_play_button.PNG" id="3_3mpwk"]
+[ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="3_4b7o3"]
+[ext_resource type="Texture2D" uid="uid://c0b5ng2cqvej1" path="res://imports/radio_volume_down_button.PNG" id="5_3mpwk"]
+[ext_resource type="Texture2D" uid="uid://yh2j5qnnn668" path="res://imports/radio_skip_back_button.PNG" id="5_144bg"]
+[ext_resource type="Texture2D" uid="uid://d3ctq51t0s1sb" path="res://imports/radio_skip_forward_button.PNG" id="6_wvvpt"]
+[ext_resource type="Texture2D" uid="uid://c8m630s6rghtc" path="res://imports/radio_volume_up_button.PNG" id="7_ppvrc"]
+[ext_resource type="Script" uid="uid://c34etppsqdgo8" path="res://scripts/camera_ray_collider_zoom.gd" id="9_wvvpt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4una"]
+
+[node name="Radio" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_y83x7")
+
+[node name="PlayPauseInteractable" type="Node3D" parent="."]
+transform = Transform3D(0.64354527, 0, 0, 0, 1, 0, 0, 0, 1, -0.6504582, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="PlayPauseInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("2_7h80l")
+default_sprite = ExtResource("1_y83x7")
+highlighted_sprite = ExtResource("3_3mpwk")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayPauseInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="PlayPauseInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="PlayPauseInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("3_4b7o3")
+font_size = 80
+outline_size = 30
+
+[node name="PreviousInteractable" type="Node3D" parent="."]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -2.3055701, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="PreviousInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("2_7h80l")
+default_sprite = ExtResource("1_y83x7")
+highlighted_sprite = ExtResource("5_144bg")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PreviousInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="PreviousInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="PreviousInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("3_4b7o3")
+font_size = 80
+outline_size = 30
+
+[node name="NextInteractable" type="Node3D" parent="."]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, 1.0193467, 0, 0)
+
+[node name="Node3D" type="Area3D" parent="NextInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("2_7h80l")
+default_sprite = ExtResource("1_y83x7")
+highlighted_sprite = ExtResource("6_wvvpt")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NextInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="NextInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="NextInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("3_4b7o3")
+font_size = 80
+outline_size = 30
+
+[node name="VolumeUpInteractable" type="Node3D" parent="."]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, 0.35080695, 3.7776623, 0)
+
+[node name="Node3D" type="Area3D" parent="VolumeUpInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("2_7h80l")
+default_sprite = ExtResource("1_y83x7")
+highlighted_sprite = ExtResource("7_ppvrc")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VolumeUpInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="VolumeUpInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="VolumeUpInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("3_4b7o3")
+font_size = 80
+outline_size = 30
+
+[node name="VolumeDownInteractable" type="Node3D" parent="."]
+transform = Transform3D(0.8283317, 0, 0, 0, 1, 0, 0, 0, 1, -1.5230565, 3.7776623, 0)
+
+[node name="Node3D" type="Area3D" parent="VolumeDownInteractable" node_paths=PackedStringArray("target_sprite") groups=["camera_ray_collider_group"]]
+script = ExtResource("2_7h80l")
+default_sprite = ExtResource("1_y83x7")
+highlighted_sprite = ExtResource("5_3mpwk")
+target_sprite = NodePath("../../Sprite3D")
+interaction_type = 2
+radio_interaction = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VolumeDownInteractable/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="VolumeDownInteractable/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")
+
+[node name="LabelOnHover" type="Label3D" parent="VolumeDownInteractable/Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+sorting_offset = 20.0
+render_priority = 1
+outline_render_priority = 0
+outline_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+text = "E"
+font = ExtResource("3_4b7o3")
+font_size = 80
+outline_size = 30
+
+[node name="ZoomCollider" type="Node3D" parent="."]
+transform = Transform3D(5.7018332, 0, 0, 0, 3.0871305, 0, 0, 0, 1, 0.072960615, 1.8097575, 0)
+
+[node name="Node3D" type="Area3D" parent="ZoomCollider" groups=["camera_ray_collider_group"]]
+script = ExtResource("9_wvvpt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoomCollider/Node3D"]
+shape = SubResource("BoxShape3D_aq1ig")
+
+[node name="TestCubeMesh" type="MeshInstance3D" parent="ZoomCollider/Node3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_q4una")

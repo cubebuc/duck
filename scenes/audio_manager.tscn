@@ -6,8 +6,13 @@
 [node name="AudioManager" type="Node3D"]
 script = ExtResource("1_8qd8g")
 music_tracks = ExtResource("2_liach")
+min_music_volume_db = -40.0
+max_music_volume_db = 0.0
+music_volume_db_step = 4.0
 
 [node name="Music" type="AudioStreamPlayer3D" parent="."]
+volume_db = -20.0
+max_db = 0.0
 
 [node name="Animals" type="AudioStreamPlayer3D" parent="."]
 
