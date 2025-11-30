@@ -1,12 +1,12 @@
-[gd_scene load_steps=39 format=3 uid="uid://bjyxidbj5bif2"]
+[gd_scene load_steps=41 format=3 uid="uid://bjyxidbj5bif2"]
 
 [ext_resource type="Script" uid="uid://bpoxmsuw60wgk" path="res://scripts/player.gd" id="1_j8xxv"]
 [ext_resource type="PackedScene" uid="uid://c4pl28bqchaxl" path="res://prefabs/camera_3d_raycasting.tscn" id="2_furwo"]
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
 [ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
-[ext_resource type="PackedScene" uid="uid://w22085tat7r8" path="res://scenes/blinking.tscn" id="6_lccll"]
+[ext_resource type="PackedScene" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
-[ext_resource type="PackedScene" uid="uid://dfnjcw5cy8gp4" path="res://scenes/clock.tscn" id="10_4dhle"]
+[ext_resource type="PackedScene" path="res://scenes/clock.tscn" id="10_4dhle"]
 [ext_resource type="Texture2D" uid="uid://cthmoxgcxe1mn" path="res://imports/radio.PNG" id="10_c2pvo"]
 [ext_resource type="Script" uid="uid://b2y7of4s84ss6" path="res://scripts/camera_ray_collider.gd" id="11_4dhle"]
 [ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="11_8nv4v"]
@@ -31,6 +31,8 @@
 [ext_resource type="Texture2D" uid="uid://b3ldqdyuakayn" path="res://imports/bush1.PNG" id="18_rxgwk"]
 [ext_resource type="Texture2D" uid="uid://ha0i7ljj1326" path="res://imports/bush2.PNG" id="19_p8asg"]
 [ext_resource type="Texture2D" uid="uid://coqfjinxqjly0" path="res://imports/bush3.PNG" id="20_v8kl7"]
+[ext_resource type="Script" uid="uid://crgidey7nt3my" path="res://scripts/tutorial.gd" id="33_onh2v"]
+[ext_resource type="Texture2D" uid="uid://cgtsunty61cio" path="res://imports/tutorial_speech_bubble.png" id="34_8oki0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq1ig"]
 size = Vector3(2, 2, 1)
@@ -1205,6 +1207,34 @@ texture = ExtResource("11_8nv4v")
 transform = Transform3D(-1.3113416e-06, 0, 20, 0, 20, 0, -30, 0, -8.742278e-07, -425.9373, 108.95102, -118.20978)
 sorting_offset = -300.0
 texture = ExtResource("11_8nv4v")
+
+[node name="Tutorial" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3264351, -7.1686907, -12.036208)
+script = ExtResource("33_onh2v")
+player_node = NodePath("../Player")
+texts_in_steps = Array[String](["This is a dictionary of animal sounds. It takes some time to learn from it.", "But you probably won't need it, since you told us in your resume, that you know all of the animal languages.", "This is the map of our small town", "Just make sure you send every animal where they want to go!", "There are inspectors, who will make sure you do your job right.", "Good luck rookie!"])
+camera_angles_steps = Array[Vector3]([Vector3(-30, 0, 0), Vector3(-30, 0, 0), Vector3(7, 65, 0), Vector3(7, 65, 0), Vector3(7, 65, 0), Vector3(7, 65, 0)])
+
+[node name="Bubble" type="Sprite2D" parent="Tutorial"]
+self_modulate = Color(0.33960402, 0.11655615, 0.42071247, 1)
+position = Vector2(1015, 550)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("34_8oki0")
+
+[node name="Label" type="Label" parent="Tutorial/Bubble"]
+offset_left = -560.0
+offset_top = -375.0
+offset_bottom = -74.5
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("13_onh2v")
+theme_override_font_sizes/font_size = 60
+text = "Hello,thanks for joining our team. You will be guiding lost animals to where they want to go."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Floor" type="Sprite3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 1, 0, -20, -4.371139e-08, 1.3264351, -7.1686907, -12.036208)
