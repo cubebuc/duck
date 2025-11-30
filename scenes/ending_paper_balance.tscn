@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://wtyixu6db0rt"]
+[gd_scene load_steps=6 format=3 uid="uid://wtyixu6db0rt"]
 
 [ext_resource type="Script" uid="uid://der3ju3g6nr1v" path="res://scripts/ending_paper.gd" id="1_gkop4"]
 [ext_resource type="Texture2D" uid="uid://bnaumxg10xi0l" path="res://imports/paper.png" id="2_un24k"]
+[ext_resource type="FontFile" uid="uid://yjsw6oosgqk0" path="res://fonts/Custom_font_black-Regular.ttf" id="3_vvgah"]
 [ext_resource type="FontFile" uid="uid://ch18ahkd18hkg" path="res://fonts/Custom_font_black_new-Regular.ttf" id="4_0pdjq"]
 [ext_resource type="Texture2D" uid="uid://c7qjckk2moml1" path="res://imports/table.PNG" id="5_lhnxe"]
 
@@ -49,7 +50,7 @@ z_as_relative = false
 texture = ExtResource("2_un24k")
 
 [node name="Label" type="Label" parent="Paper"]
-z_index = 200
+z_index = 1
 offset_left = -315.99292
 offset_top = -535.76526
 offset_right = 298.00708
@@ -68,20 +69,43 @@ Ducky Quack and the Quackity Informations family. "
 autowrap_mode = 2
 text_overrun_behavior = 2
 
-[node name="ContinueButton" type="Label" parent="."]
-offset_left = 796.0
-offset_top = 573.0
-offset_right = 1126.0
-offset_bottom = 608.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("4_0pdjq")
-theme_override_font_sizes/font_size = 40
-text = "Press E to Start Game"
-
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
 position = Vector2(381, -271)
 scale = Vector2(2, 2)
 texture = ExtResource("5_lhnxe")
+
+[node name="ContinueButton" type="Label" parent="."]
+offset_left = 814.0
+offset_top = 589.0
+offset_right = 1144.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_0pdjq")
+theme_override_font_sizes/font_size = 40
+text = "Press E to Continue"
+
+[node name="Ending" type="Node2D" parent="."]
+z_index = 4
+
+[node name="Text" type="Label" parent="Ending"]
+z_index = 4
+offset_left = 253.0
+offset_top = 222.0
+offset_right = 1043.0
+offset_bottom = 392.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.33960402, 0.11655615, 0.42071247, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_vvgah")
+theme_override_font_sizes/font_size = 50
+text = "Thanks for playing our little game with us! 
+
+Feel free to try again 
+And maybe twist your fate a bit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
