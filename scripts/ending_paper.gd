@@ -22,14 +22,14 @@ enum ENDING {RICH, POOR, BALANCED}
 
 func _ready() -> void:
 	init_references()
-	set_ending_from_money()
-	set_scene_for_cur_ending()
+	#set_ending_from_money()
+	#set_scene_for_cur_ending()
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Interact"):
-		cur_ending +=1
-		cur_ending %=3
-		set_scene_for_cur_ending()
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("Interact"):
+		#cur_ending +=1
+		#cur_ending %=3
+		#set_scene_for_cur_ending()
 	
 func init_references():
 	text_label = $Paper/Label

@@ -285,7 +285,7 @@ visible = false
 
 [node name="Space8" type="Node2D" parent="StickyNoteSpaces"]
 z_index = 8
-position = Vector2(-421, -61)
+position = Vector2(-445, -4.9999943)
 rotation = 0.2617994
 
 [node name="NaselManzelkuSticker" parent="StickyNoteSpaces/Space8" instance=ExtResource("6_0101w")]
