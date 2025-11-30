@@ -12,7 +12,7 @@ var mouse_speed: float = 0.002
 
 var last_mouse_position: Vector2
 
-var moving_enabled:bool = true
+var moving_enabled: bool = true
 
 func _ready() -> void:
 	camera_holder = $CameraHolder
@@ -33,9 +33,3 @@ func _process(delta: float) -> void:
 		# up/down rotation
 		camera.rotate_x(-mouse_movement.y * delta * mouse_speed)
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -40, 30)
-
-	# exit with esc
-	if Input.is_key_pressed(Key.KEY_ESCAPE):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	if Input.is_mouse_button_pressed(MouseButton.MOUSE_BUTTON_LEFT):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

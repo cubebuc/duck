@@ -22,6 +22,7 @@ config/windows_native_icon="res://icon.ico"
 MoneyManager="*res://scripts/money_manager.gd"
 SceneTransition="*res://scripts/scene_transition.gd"
 AudioManager="*res://scenes/audio_manager.tscn"
+MouseEater="*res://scripts/mouse_eater.gd"
 
 [display]
 
