@@ -61,7 +61,8 @@ func read_book() -> void:
 		# Advance time
 		time_manager.pass_time_long()
 		if time_manager.is_time_up():
-			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
+			pass
+		SceneTransition.change_scene(end_of_day_scene)
 	)
 	
 
@@ -100,5 +101,5 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 		# Advance time
 		time_manager.pass_time_short()
 		if time_manager.is_time_up():
-			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
+			SceneTransition.change_scene(end_of_day_scene)
 	)

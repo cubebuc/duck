@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://2oflqpfynavu" path="res://prefabs/table_camera_collider.tscn" id="3_wu11x"]
 [ext_resource type="Texture2D" uid="uid://ddtd1i1y3bxko" path="res://imports/table_book_hl.PNG" id="4_vyvv1"]
 [ext_resource type="PackedScene" uid="uid://cpmdue4liu8ov" path="res://scenes/game_manager.tscn" id="5_ltvu5"]
-[ext_resource type="PackedScene" uid="uid://w22085tat7r8" path="res://scenes/blinking.tscn" id="6_lccll"]
+[ext_resource type="PackedScene" path="res://scenes/blinking.tscn" id="6_lccll"]
 [ext_resource type="PackedScene" uid="uid://duuno71aoym18" path="res://scenes/speech_bubble.tscn" id="6_vyvv1"]
 [ext_resource type="Texture2D" uid="uid://cn01lxwq6wnne" path="res://imports/background.PNG" id="11_8nv4v"]
 [ext_resource type="Texture2D" uid="uid://dud3nfjjs0054" path="res://imports/floor_wood.png" id="11_lccll"]

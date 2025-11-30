@@ -22,7 +22,7 @@ func _ready() -> void:
 func enable_start_game():
 	can_start = true
 	var blinking_tween = get_tree().create_tween()
-	blinking_tween.set_loops()
+	blinking_tween.set_loops(100)
 	blinking_tween.tween_property(start_game_label, "self_modulate", Color(start_game_label.self_modulate,1), 1)
 	blinking_tween.tween_property(start_game_label, "self_modulate", Color(start_game_label.self_modulate,0), 1)
 	
@@ -30,7 +30,7 @@ func enable_start_game():
 func _process(delta: float) -> void:
 	if can_start:
 		if Input.is_action_just_pressed("Interact"):
-			SceneTransition.change_scene(next_scene, get_tree().current_scene)
+			SceneTransition.change_scene(next_scene)
 			
 func change_scene():
 	curtain.reparent(get_tree().root)

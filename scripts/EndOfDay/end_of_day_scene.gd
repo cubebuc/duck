@@ -34,6 +34,8 @@ var active_tweens: Array[Tween] = []
 
 var can_continue: bool = false
 
+var already_started_showing:bool = false
+
 func _ready() -> void:
 	money_label = $MoneyLabel
 	customers_served_label = $CustomersServedLabel
@@ -68,8 +70,9 @@ func _ready() -> void:
 	
 	$ContinueLabel.self_modulate = Color($ContinueLabel.self_modulate, 0)
 	
-	start_showing_all()
+	print("EOD ready")
 	
+
 func hide_all_sticky_notes():
 	for space in sticky_note_spaces.get_children():
 		space.modulate = Color(space.modulate, 0)
@@ -77,8 +80,9 @@ func hide_all_sticky_notes():
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		if can_continue:
+			can_continue = false
 			MoneyManager.next_day()
-			SceneTransition.change_scene(game_scene, get_tree().current_scene)
+			SceneTransition.change_scene(game_scene)
 		
 		for tween in active_tweens:
 			if tween.is_running():
@@ -86,6 +90,12 @@ func _process(delta: float) -> void:
 	
 
 func start_showing_all():
+	if already_started_showing:
+		print("Already started showing all!")
+		return
+	
+	already_started_showing = true
+	SceneTransition.transition_done.disconnect(start_showing_all)
 	money_label.appear()
 	var start_delay_timer = get_tree().create_timer(start_showing_rows_delay)
 	start_delay_timer.timeout.connect(start_showing_rows)
@@ -135,7 +145,7 @@ func on_all_shown():
 	var continue_game_label = $ContinueLabel
 	can_continue = true
 	var blinking_tween = get_tree().create_tween()
-	blinking_tween.set_loops()
+	blinking_tween.set_loops(100)
 	blinking_tween.tween_property(continue_game_label, "self_modulate", Color(continue_game_label.self_modulate,1), 1)
 	blinking_tween.tween_property(continue_game_label, "self_modulate", Color(continue_game_label.self_modulate,0), 1)
 	

@@ -9,7 +9,6 @@ extends Area3D
 @export var game_manager: game_manager
 @export var answer_type: DialogueText.Answer
 @export var is_book: bool = true
-@export var next_scene_path: PackedScene = preload("res://scenes/end_of_day_scene.tscn")
 
 var label_on_hover: Label3D
 
@@ -52,5 +51,4 @@ func interact():
 		return
 	
 	game_manager.answer_animal(answer_type)
-	#SceneTransition.change_scene(next_scene_path, get_tree().current_scene, true)
 	return

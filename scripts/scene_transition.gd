@@ -11,11 +11,21 @@ var curtain_on_right:bool = false
 
 var current_curtain_offset: Vector2
 
+var is_transition_running: bool = false
+
 func _ready() -> void:
 	curtain = curtain_packed_scene.instantiate()
 	
 
-func change_scene(next_packed_scene: PackedScene, origin_scene):
+func change_scene(next_packed_scene: PackedScene):
+	if is_transition_running:
+		print("transition is already running!")
+		return
+	
+	is_transition_running = true
+	print("setting input process to false")
+	set_process_input(false)
+	
 	if curtain.get_parent() != get_tree().root:
 		get_tree().root.add_child(curtain)
 		
@@ -25,9 +35,9 @@ func change_scene(next_packed_scene: PackedScene, origin_scene):
 	
 	var curtain_draw_tween = get_tree().create_tween()
 	curtain_draw_tween.tween_property(curtain, "position", curtain.position+current_curtain_offset, 2)
-	curtain_draw_tween.tween_callback(func(): instantiate_next_scene_to_root(next_packed_scene, origin_scene))
+	curtain_draw_tween.tween_callback(func(): instantiate_next_scene_to_root(next_packed_scene))
 
-func instantiate_next_scene_to_root(next_packed_scene: PackedScene, origin_scene):	
+func instantiate_next_scene_to_root(next_packed_scene: PackedScene):	
 	get_tree().change_scene_to_packed(next_packed_scene)
 	
 	get_tree().scene_changed.connect(func(): reveal_next_scene())
@@ -37,5 +47,10 @@ func reveal_next_scene():
 	curtain_on_right = not curtain_on_right
 	var curtain_draw_tween = get_tree().create_tween()
 	curtain_draw_tween.tween_property(curtain, "position", curtain.position+current_curtain_offset, 2)
-	curtain_draw_tween.tween_callback(func(): transition_done.emit())
+	curtain_draw_tween.tween_callback(func(): 
+		transition_done.emit()
+		is_transition_running = false
+		set_process_input(true)
+		)
+
 	
