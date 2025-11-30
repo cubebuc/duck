@@ -24,6 +24,12 @@ var sticky_note_spaces: Node2D
 @export var library_manzelka: Array[String]
 var location_quote_dict: Dictionary
 
+var postcard1_scene: PackedScene = load("res://prefabs/nasel_manzelku_postcard1.tscn")
+var postcard2_scene: PackedScene = load("res://prefabs/nasel_manzelku_postcard2.tscn")
+var sticker_scene: PackedScene = load("res://prefabs/nasel_manzelku_sticker.tscn")
+var note_objects_array:Array[PackedScene]
+
+var quotes_to_be_used:Array[String]
 
 var customers_served_count: int = 8
 var customers_served_money: int = 80
@@ -46,6 +52,21 @@ var can_continue: bool = false
 var already_started_showing:bool = false
 
 func _ready() -> void:
+	init_reference_vars()
+	init_manzelka_quotes()
+	init_money_counts()
+	init_quotes_dict()
+	note_objects_array = [sticker_scene, postcard1_scene, postcard2_scene]
+	
+	hide_all_sticky_notes()
+	line_sprite.self_modulate = Color(self_modulate, 0)
+	
+	SceneTransition.transition_done.connect(start_showing_all)
+	
+	$ContinueLabel.self_modulate = Color($ContinueLabel.self_modulate, 0)
+	
+
+func init_reference_vars():
 	money_label = $MoneyLabel
 	customers_served_label = $CustomersServedLabel
 	customers_served_quickly_label = $CustomersServedFastLabel
@@ -53,11 +74,19 @@ func _ready() -> void:
 	rand_expense_label = $RandomExpenseLabel
 	line_sprite = $LineSprite
 	total_balance_label = $EODBalanceLabel
-	
 	sticky_note_spaces = $StickyNoteSpaces
-	
+
+func init_manzelka_quotes():
+	var manzelkas_done: Array[MoneyManager.NaselManzelkuBonus] = MoneyManager.nasel_manzelku_bonuses_today
+	for manzelka in manzelkas_done:
+		var target_list:Array[String] = location_quote_dict[manzelka.given_answer]
+		target_list.shuffle()
+		quotes_to_be_used.append(target_list.pop_front())
+		sticky_notes_bonuses.append(manzelka.amount)
+		sticky_notes_recieved+=1
+
+func init_money_counts():
 	money_label.money_count = MoneyManager.money
-	
 	customers_served_count = MoneyManager.customers_served_today
 	customers_served_money = MoneyManager.SALARY_AMOUNT * customers_served_count
 	customers_served_quickly_count = MoneyManager.customers_served_quickly_today
@@ -65,23 +94,15 @@ func _ready() -> void:
 	rent_money = -MoneyManager.RENT_AMOUNT
 	random_expenses = -MoneyManager.BILL_AMOUNTS[MoneyManager.current_day]
 	
-	
-	#sticky_notes_bonuses = MoneyManager.nasel_manzelku_bonuses_today
-	#sticky_notes_recieved = len(sticky_notes_bonuses)
-	
-	sticky_notes_bonuses = [4,5,1,2,4,1,5,7,5,1]
-	sticky_notes_recieved = 10
-		
-	hide_all_sticky_notes()
-	line_sprite.self_modulate = Color(self_modulate, 0)
-	
 	total_balance = MoneyManager.money_today
-	
-	SceneTransition.transition_done.connect(start_showing_all)
-	
-	$ContinueLabel.self_modulate = Color($ContinueLabel.self_modulate, 0)
-	
-	print("EOD ready")
+
+
+func init_quotes_dict():
+	location_quote_dict[DialogueText.Answer.Airport] = airport_manzelka
+	location_quote_dict[DialogueText.Answer.Cafe] = cafe_manzelka
+	location_quote_dict[DialogueText.Answer.Arcade] = arcade_manzelka
+	location_quote_dict[DialogueText.Answer.Library] = library_manzelka
+	location_quote_dict[DialogueText.Answer.Toilet] = toilet_manzelka
 	
 
 func hide_all_sticky_notes():
@@ -148,6 +169,9 @@ func start_showing_sticky_notes():
 	var index = 0
 	for space in sticky_note_spaces.get_children():
 		if index < sticky_notes_recieved:
+			var new_note_obj: manzelka_note = note_objects_array.pick_random().instantiate()
+			space.add_child(new_note_obj)
+			new_note_obj.set_text(quotes_to_be_used[index])
 			sticky_note_appear_tween.tween_property(space, "modulate", Color(space.modulate,1), 1)
 			sticky_note_appear_tween.tween_callback(func(): money_label.add_money(sticky_notes_bonuses[index]))
 			sticky_note_appear_tween.tween_interval(between_sticky_notes_delay)

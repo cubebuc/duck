@@ -60,7 +60,7 @@ func read_book() -> void:
 		if time_manager.is_time_up():
 			MoneyManager.pay_rent()
 			MoneyManager.pay_bill()
-			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
+			SceneTransition.change_scene(end_of_day_scene)
 	)
 	
 
@@ -105,5 +105,5 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 		if time_manager.is_time_up():
 			MoneyManager.pay_rent()
 			MoneyManager.pay_bill()
-			SceneTransition.change_scene(end_of_day_scene, get_tree().current_scene)
+			SceneTransition.change_scene(end_of_day_scene)
 	)
