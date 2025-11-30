@@ -13,6 +13,7 @@ class_name game_manager
 
 var knowledge_map = {}
 var book_used: bool = false
+var is_interacting: bool = false
 
 var end_of_day_scene: PackedScene = load("res://scenes/end_of_day_scene.tscn")
 
@@ -42,25 +43,30 @@ func read_book() -> void:
 	4. Advance time (check time limit)
 	5. Open eyes
 	'''
-	blinking_manager.blink_eyes(func() -> void:
-		# Mark as read
-		book_used = true
+	is_interacting = true
+	blinking_manager.blink_eyes(
+		func() -> void:
+			# Mark as read
+			book_used = true
 
-		# Update knowledge
-		var animal_type = character_manager.characters[0].my_config.animal_type
-		knowledge_map[animal_type] += 1
+			# Update knowledge
+			var animal_type = character_manager.characters[0].my_config.animal_type
+			knowledge_map[animal_type] += 1
 
-		# Update dialog
-		dialog_manager.set_knowledge_level(knowledge_map[animal_type])
-		dialog_manager.adjust_text()
-		dialog_manager.display_text()
+			# Update dialog
+			dialog_manager.set_knowledge_level(knowledge_map[animal_type])
+			dialog_manager.adjust_text()
+			dialog_manager.display_text()
 
-		# Advance time
-		time_manager.pass_time_long()
-		if time_manager.is_time_up():
-			MoneyManager.pay_rent()
-			MoneyManager.pay_bill()
-			SceneTransition.change_scene(end_of_day_scene)
+			# Advance time
+			time_manager.pass_time_long()
+			if time_manager.is_time_up():
+				MoneyManager.pay_rent()
+				MoneyManager.pay_bill()
+				SceneTransition.change_scene(end_of_day_scene),
+
+		func() -> void:
+			is_interacting = false
 	)
 	
 
@@ -74,36 +80,41 @@ func answer_animal(answer: DialogueText.Answer) -> void:
 	6. Advance time (check time limit)
 	7. Open eyes
 	'''
-	blinking_manager.blink_eyes(func() -> void:
-		# Update money
-		var animal_type = character_manager.characters[0].my_config.animal_type
-		var knowledge_level = knowledge_map[animal_type]
-		var answered_quickly = not book_used
-		var answered_randomly = knowledge_level <= knowledge_guess_threshold
-		MoneyManager.serve_customer(answered_quickly, answered_randomly, answer)
+	is_interacting = true
+	blinking_manager.blink_eyes(
+		func() -> void:
+			# Update money
+			var animal_type = character_manager.characters[0].my_config.animal_type
+			var knowledge_level = knowledge_map[animal_type]
+			var answered_quickly = not book_used
+			var answered_randomly = knowledge_level <= knowledge_guess_threshold
+			MoneyManager.serve_customer(answered_quickly, answered_randomly, answer)
 
-		# Check for wrong answer
-		if knowledge_level > intentional_wrong_answer_threshold and answer != dialog_manager.get_correct_answer():
-			var wrong_answer = MoneyManager.WrongAnswer.new()
-			wrong_answer.animal_type = animal_type
-			wrong_answer.correct_answer = dialog_manager.get_correct_answer()
-			wrong_answer.given_answer = answer
-			MoneyManager.wrong_answers.append(wrong_answer)
+			# Check for wrong answer
+			if knowledge_level > intentional_wrong_answer_threshold and answer != dialog_manager.get_correct_answer():
+				var wrong_answer = MoneyManager.WrongAnswer.new()
+				wrong_answer.animal_type = animal_type
+				wrong_answer.correct_answer = dialog_manager.get_correct_answer()
+				wrong_answer.given_answer = answer
+				MoneyManager.wrong_answers.append(wrong_answer)
 
-		# Update animals
-		character_manager.advance_characters()
-		character_manager.add_character()
+			# Update animals
+			character_manager.advance_characters()
+			character_manager.add_character()
 
-		# Update dialog
-		dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
-		dialog_manager.set_knowledge_level(knowledge_map[character_manager.characters[0].my_config.animal_type])
-		dialog_manager.adjust_text()
-		dialog_manager.display_text()
+			# Update dialog
+			dialog_manager.set_speech_resource(character_manager.characters[0].my_config.animal_type)
+			dialog_manager.set_knowledge_level(knowledge_map[character_manager.characters[0].my_config.animal_type])
+			dialog_manager.adjust_text()
+			dialog_manager.display_text()
 
-		# Advance time
-		time_manager.pass_time_short()
-		if time_manager.is_time_up():
-			MoneyManager.pay_rent()
-			MoneyManager.pay_bill()
-			SceneTransition.change_scene(end_of_day_scene)
+			# Advance time
+			time_manager.pass_time_short()
+			if time_manager.is_time_up():
+				MoneyManager.pay_rent()
+				MoneyManager.pay_bill()
+				SceneTransition.change_scene(end_of_day_scene),
+
+		func() -> void:
+			is_interacting = false
 	)

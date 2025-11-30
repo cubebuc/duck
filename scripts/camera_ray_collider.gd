@@ -1,14 +1,21 @@
 extends Area3D
 
+
+enum InteractionType {
+	BOOK,
+	ANIMAL_ANSWER
+}
+
 @export var displayed_text: String = ""
 @export var default_sprite: Texture2D
 @export var highlighted_sprite: Texture2D
 
 @export var target_sprite: Sprite3D
 
-@export var game_manager: game_manager
+@export var gm: game_manager
 @export var answer_type: DialogueText.Answer
-@export var is_book: bool = true
+@export var interaction_type: InteractionType
+@export var next_scene_path: PackedScene = preload("res://scenes/end_of_day_scene.tscn")
 
 var label_on_hover: Label3D
 
@@ -24,10 +31,11 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if is_active:
-		if Input.is_action_just_pressed("Interact"):
+		if Input.is_action_just_pressed("Interact") and not gm.is_interacting:
 			interact()
+		
 
-func camera_ray_entered():	
+func camera_ray_entered():
 	is_active = true
 	target_sprite.texture = highlighted_sprite
 	
@@ -44,11 +52,7 @@ func camera_ray_left():
 	
 
 func interact():
-	#camera_ray_left()
-	
-	if is_book:
-		game_manager.read_book()
-		return
-	
-	game_manager.answer_animal(answer_type)
-	return
+	if interaction_type == InteractionType.BOOK:
+		gm.read_book()
+	elif interaction_type == InteractionType.ANIMAL_ANSWER:
+		gm.answer_animal(answer_type)

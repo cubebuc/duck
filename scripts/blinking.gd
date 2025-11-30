@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 # blinking with callback as argument
-func blink_eyes(callback: Callable) -> void:
+func blink_eyes(transition_callback: Callable, after_callback: Callable) -> void:
 	var tween = create_tween()
 	
 	var duration: float = .15
@@ -52,10 +52,12 @@ func blink_eyes(callback: Callable) -> void:
 	tween.parallel().parallel().tween_property(top_lid, "scale:x", x_scale, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN).set_delay(delay)
 	tween.parallel().parallel().tween_property(bot_lid, "scale:x", x_scale, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN).set_delay(delay)
 	
-	tween.tween_callback(callback)
+	tween.tween_callback(transition_callback)
 
 	delay = 0.25
 	tween.tween_property(top_lid, "global_position:y", start_top_y, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).set_delay(delay)
 	tween.parallel().tween_property(bot_lid, "global_position:y", start_bot_y, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT).set_delay(delay)
 	tween.parallel().parallel().tween_property(top_lid, "scale:x", 1, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT).set_delay(delay)
 	tween.parallel().parallel().tween_property(bot_lid, "scale:x", 1, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT).set_delay(delay)
+
+	tween.tween_callback(after_callback)
